@@ -1,0 +1,57 @@
+<%= form_for(@category) do |f| %>
+  <% if @category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+      <ul>
+      <% @category.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :code %><br>
+    <%= f.text_field :code %>
+  </div>
+  <div class="field">
+    <%= f.label :award_id %><br>
+    <%= f.text_field :award_id %>
+  </div>
+  <div class="field">
+    <%= f.label :document_max_number %><br>
+    <%= f.text_field :document_max_number %>
+  </div>
+  <div class="field">
+    <%= f.label :photo_max_number %><br>
+    <%= f.text_field :photo_max_number %>
+  </div>
+  <div class="field">
+    <%= f.label :video_max_number %><br>
+    <%= f.text_field :video_max_number %>
+  </div>
+  <div class="field">
+    <%= f.label :max_total_file_size %><br>
+    <%= f.text_field :max_total_file_size %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :rules %><br>
+    <%= f.text_area :rules %>
+  </div>
+  <div class="field">
+    <%= f.label :enabled %><br>
+    <%= f.text_field :enabled %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

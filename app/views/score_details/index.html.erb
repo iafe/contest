@@ -1,0 +1,31 @@
+<h1>Listing score_details</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Score</th>
+      <th>Points</th>
+      <th>Score item</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @score_details.each do |score_detail| %>
+      <tr>
+        <td><%= score_detail.score_id %></td>
+        <td><%= score_detail.points %></td>
+        <td><%= score_detail.score_item_id %></td>
+        <td><%= link_to 'Show', score_detail %></td>
+        <td><%= link_to 'Edit', edit_score_detail_path(score_detail) %></td>
+        <td><%= link_to 'Destroy', score_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Score detail', new_score_detail_path %>

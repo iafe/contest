@@ -1,0 +1,45 @@
+<h1>Listing submissions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>User</th>
+      <th>Organization</th>
+      <th>Division</th>
+      <th>Contest year</th>
+      <th>Notes</th>
+      <th>Approved</th>
+      <th>Physical version received</th>
+      <th>Digital version received</th>
+      <th>Disqualify</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @submissions.each do |submission| %>
+      <tr>
+        <td><%= submission.category_id %></td>
+        <td><%= submission.user_id %></td>
+        <td><%= submission.organization_id %></td>
+        <td><%= submission.division_id %></td>
+        <td><%= submission.contest_year %></td>
+        <td><%= submission.notes %></td>
+        <td><%= submission.approved %></td>
+        <td><%= submission.physical_version_received %></td>
+        <td><%= submission.digital_version_received %></td>
+        <td><%= submission.disqualify %></td>
+        <td><%= link_to 'Show', submission %></td>
+        <td><%= link_to 'Edit', edit_submission_path(submission) %></td>
+        <td><%= link_to 'Destroy', submission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Submission', new_submission_path %>

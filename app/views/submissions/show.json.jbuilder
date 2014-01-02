@@ -1,0 +1,1 @@
+json.extract! @submission, :category_id, :user_id, :organization_id, :division_id, :contest_year, :notes, :approved, :physical_version_received, :digital_version_received, :disqualify, :created_at, :updated_at

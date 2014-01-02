@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @submission.category_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @submission.user_id %>
+</p>
+
+<p>
+  <strong>Organization:</strong>
+  <%= @submission.organization_id %>
+</p>
+
+<p>
+  <strong>Division:</strong>
+  <%= @submission.division_id %>
+</p>
+
+<p>
+  <strong>Contest year:</strong>
+  <%= @submission.contest_year %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @submission.notes %>
+</p>
+
+<p>
+  <strong>Approved:</strong>
+  <%= @submission.approved %>
+</p>
+
+<p>
+  <strong>Physical version received:</strong>
+  <%= @submission.physical_version_received %>
+</p>
+
+<p>
+  <strong>Digital version received:</strong>
+  <%= @submission.digital_version_received %>
+</p>
+
+<p>
+  <strong>Disqualify:</strong>
+  <%= @submission.disqualify %>
+</p>
+
+<%= link_to 'Edit', edit_submission_path(@submission) %> |
+<%= link_to 'Back', submissions_path %>

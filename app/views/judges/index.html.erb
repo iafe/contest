@@ -1,0 +1,31 @@
+<h1>Listing judges</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Category</th>
+      <th>Division</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @judges.each do |judge| %>
+      <tr>
+        <td><%= judge.user_id %></td>
+        <td><%= judge.category_id %></td>
+        <td><%= judge.division_id %></td>
+        <td><%= link_to 'Show', judge %></td>
+        <td><%= link_to 'Edit', edit_judge_path(judge) %></td>
+        <td><%= link_to 'Destroy', judge, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Judge', new_judge_path %>

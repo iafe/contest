@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Organization:</strong>
+  <%= @organization_detail.organization_id %>
+</p>
+
+<p>
+  <strong>Fair start date:</strong>
+  <%= @organization_detail.fair_start_date %>
+</p>
+
+<p>
+  <strong>Fair end date:</strong>
+  <%= @organization_detail.fair_end_date %>
+</p>
+
+<p>
+  <strong>Total attendance:</strong>
+  <%= @organization_detail.total_attendance %>
+</p>
+
+<%= link_to 'Edit', edit_organization_detail_path(@organization_detail) %> |
+<%= link_to 'Back', organization_details_path %>

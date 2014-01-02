@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @score.user_id %>
+</p>
+
+<p>
+  <strong>Submission:</strong>
+  <%= @score.submission_id %>
+</p>
+
+<p>
+  <strong>Total score:</strong>
+  <%= @score.total_score %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @score.comments %>
+</p>
+
+<p>
+  <strong>Disqualify:</strong>
+  <%= @score.disqualify %>
+</p>
+
+<%= link_to 'Edit', edit_score_path(@score) %> |
+<%= link_to 'Back', scores_path %>

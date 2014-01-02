@@ -1,0 +1,33 @@
+<%= form_for(@organization_detail) do |f| %>
+  <% if @organization_detail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@organization_detail.errors.count, "error") %> prohibited this organization_detail from being saved:</h2>
+
+      <ul>
+      <% @organization_detail.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :organization_id %><br>
+    <%= f.text_field :organization_id %>
+  </div>
+  <div class="field">
+    <%= f.label :fair_start_date %><br>
+    <%= f.time_select :fair_start_date %>
+  </div>
+  <div class="field">
+    <%= f.label :fair_end_date %><br>
+    <%= f.time_select :fair_end_date %>
+  </div>
+  <div class="field">
+    <%= f.label :total_attendance %><br>
+    <%= f.text_field :total_attendance %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

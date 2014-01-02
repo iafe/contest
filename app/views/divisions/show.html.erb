@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @division.name %>
+</p>
+
+<p>
+  <strong>Division smallest:</strong>
+  <%= @division.division_smallest %>
+</p>
+
+<p>
+  <strong>Division largest:</strong>
+  <%= @division.division_largest %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @division.description %>
+</p>
+
+<%= link_to 'Edit', edit_division_path(@division) %> |
+<%= link_to 'Back', divisions_path %>

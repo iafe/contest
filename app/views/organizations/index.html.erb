@@ -1,0 +1,47 @@
+<h1>Listing organizations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Primary contact</th>
+      <th>Address line 1</th>
+      <th>Address line 2</th>
+      <th>City</th>
+      <th>State province</th>
+      <th>Country</th>
+      <th>Zip code</th>
+      <th>Phone</th>
+      <th>Fair</th>
+      <th>Enabled</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @organizations.each do |organization| %>
+      <tr>
+        <td><%= organization.name %></td>
+        <td><%= organization.primary_contact %></td>
+        <td><%= organization.address_line_1 %></td>
+        <td><%= organization.address_line_2 %></td>
+        <td><%= organization.city %></td>
+        <td><%= organization.state_province %></td>
+        <td><%= organization.country %></td>
+        <td><%= organization.zip_code %></td>
+        <td><%= organization.phone %></td>
+        <td><%= organization.fair %></td>
+        <td><%= organization.enabled %></td>
+        <td><%= link_to 'Show', organization %></td>
+        <td><%= link_to 'Edit', edit_organization_path(organization) %></td>
+        <td><%= link_to 'Destroy', organization, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Organization', new_organization_path %>

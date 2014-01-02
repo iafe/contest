@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Submission:</strong>
+  <%= @submission_detail.submission_id %>
+</p>
+
+<p>
+  <strong>File url:</strong>
+  <%= @submission_detail.file_url %>
+</p>
+
+<%= link_to 'Edit', edit_submission_detail_path(@submission_detail) %> |
+<%= link_to 'Back', submission_details_path %>

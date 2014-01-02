@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @award.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @award.description %>
+</p>
+
+<p>
+  <strong>Rules:</strong>
+  <%= @award.rules %>
+</p>
+
+<p>
+  <strong>Sponsor:</strong>
+  <%= @award.sponsor %>
+</p>
+
+<p>
+  <strong>Sponsor logo:</strong>
+  <%= @award.sponsor_logo %>
+</p>
+
+<p>
+  <strong>Enabled:</strong>
+  <%= @award.enabled %>
+</p>
+
+<%= link_to 'Edit', edit_award_path(@award) %> |
+<%= link_to 'Back', awards_path %>

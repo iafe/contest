@@ -1,0 +1,57 @@
+<%= form_for(@submission) do |f| %>
+  <% if @submission.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@submission.errors.count, "error") %> prohibited this submission from being saved:</h2>
+
+      <ul>
+      <% @submission.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :category_id %><br>
+    <%= f.text_field :category_id %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :organization_id %><br>
+    <%= f.text_field :organization_id %>
+  </div>
+  <div class="field">
+    <%= f.label :division_id %><br>
+    <%= f.text_field :division_id %>
+  </div>
+  <div class="field">
+    <%= f.label :contest_year %><br>
+    <%= f.text_field :contest_year %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %><br>
+    <%= f.text_area :notes %>
+  </div>
+  <div class="field">
+    <%= f.label :approved %><br>
+    <%= f.check_box :approved %>
+  </div>
+  <div class="field">
+    <%= f.label :physical_version_received %><br>
+    <%= f.check_box :physical_version_received %>
+  </div>
+  <div class="field">
+    <%= f.label :digital_version_received %><br>
+    <%= f.check_box :digital_version_received %>
+  </div>
+  <div class="field">
+    <%= f.label :disqualify %><br>
+    <%= f.check_box :disqualify %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
