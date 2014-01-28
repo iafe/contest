@@ -12,18 +12,20 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
+    <%= f.label :user_id, "User" %><br>
+	<%= f.hidden_field :user_id, value: current_user.id %> 
+    <%= current_user.first_name %> <%= current_user.last_name %>
   </div>
   <div class="field">
-    <%= f.label :organization_id %><br>
-    <%= f.text_field :organization_id %>
+    <%= f.label :organization_id, "Please select the organization you are with. You can assign yourself to multiple organizations; for example, if you are with a third-party agency submitting on behalf of a fair, you must assign yourself to that agency first as your primary organization." %><br>
+    <%= collection_select(:user_organization, :organization_id, Organization.all, :id, :name_and_state) %><br>
+	<%= link_to "Don't see your organization? Click here to add it first.", new_organization_path %>
   </div>
   <div class="field">
-    <%= f.label :primary %><br>
-    <%= f.text_field :primary %>
+    <%= f.label :primary, "Is this your primary organization for this contest site?" %><br>
+    <%= f.check_box :primary, {checked: "checked"} %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Link this org to your account" %>
   </div>
 <% end %>

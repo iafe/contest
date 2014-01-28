@@ -24,28 +24,67 @@
     <%= f.text_field :suffix %>
   </div>
   <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
     <%= f.label :phone %><br>
     <%= f.text_field :phone %>
   </div>
   <div class="field">
-    <%= f.label :password_digest %><br>
-    <%= f.text_field :password_digest %>
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :admin %><br>
-    <%= f.text_field :admin %>
+    <%= f.label :email_confirmation, "Email Confirmation" %><br>
+	<% if params[:action] == 'new' %>
+      <%= f.text_field :email_confirmation %>
+	<% else %>
+	  <%= f.text_field :email_confirmation, value: @user.email %>
+	<% end %>
+    </div>
+  <% if params[:action] == 'new' %>
+    <div class="field">
+      <%= f.label :password %><br>
+      <%= f.password_field :password %>
+    </div>
+    <div class="field">
+     <%= f.label :password_confirmation, "Password Confirmation" %><br>
+     <%= f.password_field :password_confirmation %>
+    </div>
+  <% end %>
+  <div class="field">
+    <% if params[:action] == 'new' %>
+	  <%= f.hidden_field :admin, value: false %> 
+    <% elsif current_user.admin == true %>
+      <%= f.label :admin, "Admin?" %><br>
+      <%= f.check_box :admin %>
+	<% else %>
+	  <%= f.hidden_field :admin, value: false %> 
+	<% end %>
   </div>
   <div class="field">
-    <%= f.label :judge %><br>
-    <%= f.text_field :judge %>
+    <% if params[:action] == 'new' %>
+	  <%= f.hidden_field :judge, value: false %> 
+    <% elsif current_user.admin == true %>
+      <%= f.label :judge, "Judge?" %><br>
+      <%= f.check_box :judge %>
+	<% else %>
+	  <% if params[:action] == 'edit' %>
+	    <% if current_user.admin == true %>
+		    <%= f.label :judge, "Judge?" %><br>
+            <%= f.check_box :judge %>
+		< % else %>
+	      <%= f.hidden_field :judge %> 
+		<% end %>
+	  <% end %>
+	<% end %>
   </div>
   <div class="field">
-    <%= f.label :enabled %><br>
-    <%= f.text_field :enabled %>
+    <% if params[:action] == 'new' %>
+	  <%= f.hidden_field :enabled, value: true %> 
+    <% elsif current_user.admin == true %>
+      <%= f.label :enabled, "Enabled?" %><br>
+      <%= f.check_box :enabled, {checked: "checked"} %>
+	<% else %>
+	  <%= f.hidden_field :enabled %> 
+	<% end %>
   </div>
   <div class="actions">
     <%= f.submit %>

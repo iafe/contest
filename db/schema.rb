@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131220222036) do
+ActiveRecord::Schema.define(version: 20140103205252) do
 
   create_table "awards", force: true do |t|
     t.string   "name"
@@ -81,6 +81,8 @@ ActiveRecord::Schema.define(version: 20131220222036) do
     t.datetime "updated_at"
   end
 
+  add_index "organizations", ["name", "state_province"], name: "index_organizations_on_name_and_state_province", unique: true
+
   create_table "score_details", force: true do |t|
     t.integer  "score_id"
     t.integer  "points"
@@ -130,6 +132,8 @@ ActiveRecord::Schema.define(version: 20131220222036) do
     t.datetime "updated_at"
   end
 
+  add_index "submissions", ["organization_id", "category_id", "contest_year"], name: "index_submissions_on_organization_id", unique: true
+
   create_table "user_organizations", force: true do |t|
     t.integer  "user_id"
     t.integer  "organization_id"
@@ -150,6 +154,10 @@ ActiveRecord::Schema.define(version: 20131220222036) do
     t.boolean  "enabled"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "remember_token"
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
 end

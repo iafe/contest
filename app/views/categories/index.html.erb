@@ -24,13 +24,13 @@
       <tr>
         <td><%= category.name %></td>
         <td><%= category.code %></td>
-        <td><%= category.award_id %></td>
+        <td><%= category.award.name %></td>
         <td><%= category.document_max_number %></td>
         <td><%= category.photo_max_number %></td>
         <td><%= category.video_max_number %></td>
         <td><%= category.max_total_file_size %></td>
-        <td><%= category.description %></td>
-        <td><%= category.rules %></td>
+        <td><%= sanitize(category.description) %></td>
+        <td><%= sanitize(category.rules) %></td>
         <td><%= category.enabled %></td>
         <td><%= link_to 'Show', category %></td>
         <td><%= link_to 'Edit', edit_category_path(category) %></td>

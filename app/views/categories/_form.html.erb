@@ -13,31 +13,31 @@
 
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, size: 50 %>
   </div>
   <div class="field">
     <%= f.label :code %><br>
-    <%= f.text_field :code %>
+    <%= f.text_field :code, size: 5 %>
   </div>
   <div class="field">
     <%= f.label :award_id %><br>
-    <%= f.text_field :award_id %>
+    <%= collection_select(:category, :award_id, Award.all, :id, :name) %>
   </div>
   <div class="field">
     <%= f.label :document_max_number %><br>
-    <%= f.text_field :document_max_number %>
+    <%= f.text_field :document_max_number, size: 5 %>
   </div>
   <div class="field">
     <%= f.label :photo_max_number %><br>
-    <%= f.text_field :photo_max_number %>
+    <%= f.text_field :photo_max_number, size: 5 %>
   </div>
   <div class="field">
     <%= f.label :video_max_number %><br>
-    <%= f.text_field :video_max_number %>
+    <%= f.text_field :video_max_number, size: 5 %>
   </div>
   <div class="field">
     <%= f.label :max_total_file_size %><br>
-    <%= f.text_field :max_total_file_size %>
+    <%= f.text_field :max_total_file_size, size: 5 %>
   </div>
   <div class="field">
     <%= f.label :description %><br>
@@ -48,8 +48,8 @@
     <%= f.text_area :rules %>
   </div>
   <div class="field">
-    <%= f.label :enabled %><br>
-    <%= f.text_field :enabled %>
+    <%= f.label :enabled, "Enabled?" %><br>
+    <%= f.check_box :enabled, {checked: "checked"} %>
   </div>
   <div class="actions">
     <%= f.submit %>

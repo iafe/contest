@@ -1,13 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Contest</title>
+  <title>IAFE Contest</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<% if signed_in? %><p>Welcome back, <%= current_user.first_name %> <%= current_user.last_name %></p><% end %>
+<ul>
+<li style="display:inline; padding-left:20px;"><%= link_to "Users", users_path %></li>
+<li style="display:inline; padding-left:20px;"><%= link_to "Organizations", organizations_path %></li>
+<li style="display:inline; padding-left:20px;"><%= link_to "User Organizations", user_organizations_path %></li>
+<li style="display:inline; padding-left:20px;"><%= link_to "Organization Details", organization_details_path %></li>
+<li style="display:inline; padding-left:20px;"><%= link_to "Awards", awards_path %></li>
+<li style="display:inline; padding-left:20px;"><%= link_to "Divisions", divisions_path %></li>
+<li style="display:inline; padding-left:20px;"><%= link_to "Categories", categories_path %></li>
+<li style="display:inline; padding-left:20px;"><%= link_to "Submissions", submissions_path %></li>
+<li style="display:inline; padding-left:20px;"><%= link_to "Submission Details", submission_details_path %></li>
+<li style="display:inline; padding-left:20px;"><%= link_to "Judges", judges_path %></li>
+<li style="display:inline; padding-left:20px;"><%= link_to "Scores", scores_path %></li>
+<li style="display:inline; padding-left:20px;"><%= link_to "Score Items", score_items_path %></li>
+<li style="display:inline; padding-left:20px;"><%= link_to "Score Details", score_details_path %></li>
+</ul>
 
+<ul>
+<li style="display:inline; padding-left:20px;"><%= link_to "Home", root_path %></li>
+<li style="display:inline; padding-left:20px;"><%= link_to "About", '#' %></li>
+<li style="display:inline; padding-left:20px;"><%= link_to "Contest Rules", '#' %></li>
+<li style="display:inline; padding-left:20px;"><%= link_to "Contact Us", '#' %></li>
+
+<% if signed_in? %>
+<li style="display:inline; padding-left:20px;"><%= link_to "Account Management", '#' %></li>
+<li style="display:inline; padding-left:20px;"><%= link_to "Your Submissions", '#' %></li>
+<li style="display:inline; padding-left:20px;"><%= link_to "Sign out", signout_path, :method => :delete %></li>
+<% else %>
+<li style="display:inline; padding-left:20px;"><%= link_to "Create an Account", signup_path %></li>
+<li style="display:inline; padding-left:20px;"><%= link_to "Sign In", signin_path %></li>
+<% end %>
+</ul>
 <%= yield %>
 
 </body>

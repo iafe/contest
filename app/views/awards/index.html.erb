@@ -19,10 +19,10 @@
     <% @awards.each do |award| %>
       <tr>
         <td><%= award.name %></td>
-        <td><%= award.description %></td>
-        <td><%= award.rules %></td>
+        <td><%= sanitize(award.description) %></td>
+        <td><%= sanitize(award.rules) %></td>
         <td><%= award.sponsor %></td>
-        <td><%= award.sponsor_logo %></td>
+        <td><%= image_tag(award.sponsor_logo, alt: award.sponsor) %></td>
         <td><%= award.enabled %></td>
         <td><%= link_to 'Show', award %></td>
         <td><%= link_to 'Edit', edit_award_path(award) %></td>

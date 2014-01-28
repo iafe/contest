@@ -5,6 +5,7 @@ class OrganizationDetailsController < ApplicationController
   # GET /organization_details.json
   def index
     @organization_details = OrganizationDetail.all
+	#@organization = Organization.all
   end
 
   # GET /organization_details/1
@@ -15,6 +16,7 @@ class OrganizationDetailsController < ApplicationController
   # GET /organization_details/new
   def new
     @organization_detail = OrganizationDetail.new
+	@user = User.find(current_user)
   end
 
   # GET /organization_details/1/edit

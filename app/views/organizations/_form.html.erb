@@ -12,19 +12,19 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :name, "Organization Name" %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :primary_contact %><br>
+    <%= f.label :primary_contact, "Primary Contact (First and Last)" %><br>
     <%= f.text_field :primary_contact %>
   </div>
   <div class="field">
-    <%= f.label :address_line_1 %><br>
+    <%= f.label :address_line_1, "Address Line 1" %><br>
     <%= f.text_field :address_line_1 %>
   </div>
   <div class="field">
-    <%= f.label :address_line_2 %><br>
+    <%= f.label :address_line_2, "Address Line 2" %><br>
     <%= f.text_field :address_line_2 %>
   </div>
   <div class="field">
@@ -32,15 +32,15 @@
     <%= f.text_field :city %>
   </div>
   <div class="field">
-    <%= f.label :state_province %><br>
-    <%= f.text_field :state_province %>
+    <%= f.label :state_province, "State or Province/Territory Postal Code" %><br>
+    <%= f.text_field :state_province, size: 2 %>
   </div>
   <div class="field">
     <%= f.label :country %><br>
-    <%= f.text_field :country %>
+    <%= f.country_select :country, [ "United States", "Canada", "United Kingdom", "Mexico", "Australia", "South Korea" ] %>
   </div>
   <div class="field">
-    <%= f.label :zip_code %><br>
+    <%= f.label :zip_code, "Zip Code" %><br>
     <%= f.text_field :zip_code %>
   </div>
   <div class="field">
@@ -48,12 +48,16 @@
     <%= f.text_field :phone %>
   </div>
   <div class="field">
-    <%= f.label :fair %><br>
-    <%= f.text_field :fair %>
+    <%= f.label :fair, "Is this a fair?" %><br>
+    <%= f.check_box :fair, {checked: "checked"}  %>
   </div>
   <div class="field">
-    <%= f.label :enabled %><br>
-    <%= f.text_field :enabled %>
+    <% if current_user.admin == true %>
+      <%= f.label :enabled, "Enabled?" %><br>
+      <%= f.check_box :enabled, {checked: "checked"} %>
+	<% else %>
+	  <%= f.hidden_field :enabled, value: true %> 
+	<% end %>
   </div>
   <div class="actions">
     <%= f.submit %>

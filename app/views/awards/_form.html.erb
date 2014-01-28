@@ -32,8 +32,8 @@
     <%= f.text_field :sponsor_logo %>
   </div>
   <div class="field">
-    <%= f.label :enabled %><br>
-    <%= f.text_field :enabled %>
+    <%= f.label :enabled, "Enabled?" %><br>
+    <%= f.check_box :enabled, {checked: "checked"} %>
   </div>
   <div class="actions">
     <%= f.submit %>
