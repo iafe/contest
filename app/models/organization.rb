@@ -23,16 +23,28 @@ class Organization < ActiveRecord::Base
   before_save { self.state_province = state_province.upcase }
   before_save { self.country = country.titleize }
   
+  def name_and_state
+    "#{name}, #{state_province}"
+  end
+  
   def which_division
     last_details = organization_details.order('created_at DESC').first
     if (last_details.present?) && (last_details.created_at.year == Time.now.year)
-      Division.where(':total_attendance >= division_smallest AND :total_attendance <= division_largest', total_attendance: last_details.total_attendance).first.name
+      Division.where(':total_attendance >= division_smallest AND :total_attendance <= division_largest', 
+      total_attendance: last_details.total_attendance).first.name
     else
       "Total attendance not yet inputted for the contest year. <a href='/organization_details/new'>Update the record now.</a>"
     end
   end
   
-  def name_and_state
-	"#{name}, #{state_province}"
+  def submission_division
+    last_details = organization_details.order('created_at DESC').first
+    if (last_details.present?) && (last_details.created_at.year == Time.now.year)
+      Division.where(':total_attendance >= division_smallest AND :total_attendance <= division_largest', 
+      total_attendance: last_details.total_attendance).first.id
+    else
+      ''
+    end
   end
+
 end

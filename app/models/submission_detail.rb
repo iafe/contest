@@ -1,5 +1,4 @@
 class SubmissionDetail < ActiveRecord::Base
-  attr_accessor :file_url, :submission_id
   
   belongs_to :submission
   

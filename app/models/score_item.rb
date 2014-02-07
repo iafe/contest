@@ -1,9 +1,8 @@
 class ScoreItem < ActiveRecord::Base
-  attr_accessor :name, :description, :max_points, :category_id
   
   belongs_to :category
   
-  belongs_to :score, through: :score_details
+  belongs_to :score
   
   validates :name, presence: true, length: { maximum: 80,  minimum: 3 }
   validates :description, presence: true, length: { maximum: 200,  minimum: 3 }

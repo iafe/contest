@@ -10,48 +10,83 @@
       </ul>
     </div>
   <% end %>
-
+  
   <div class="field">
     <%= f.label :category_id %><br>
-    <%= f.text_field :category_id %>
+    <%= collection_select(:submission, :category_id, Category.sort_by_category_codes(Category.all), :id, :award_code_category,
+      include_blank: "Select the category you wish to enter") %>
   </div>
   <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
+  	<%= f.label :user_id, "Submitted By" %><br>
+	<%= f.hidden_field :user_id, value: current_user.id %> 
+    <%= current_user.first_name %> <%= current_user.last_name %>
   </div>
   <div class="field">
-    <%= f.label :organization_id %><br>
-    <%= f.text_field :organization_id %>
+    <%= f.label :organization_id, "Organization of Submission" %><br>
+    <%= collection_select(:submission, :organization_id, current_user.organizations.where({fair: true}), :id, :name_and_state) %>
   </div>
   <div class="field">
-    <%= f.label :division_id %><br>
-    <%= f.text_field :division_id %>
-  </div>
-  <div class="field">
-    <%= f.label :contest_year %><br>
-    <%= f.text_field :contest_year %>
-  </div>
-  <div class="field">
-    <%= f.label :notes %><br>
-    <%= f.text_area :notes %>
-  </div>
-  <div class="field">
-    <%= f.label :approved %><br>
-    <%= f.check_box :approved %>
-  </div>
-  <div class="field">
-    <%= f.label :physical_version_received %><br>
-    <%= f.check_box :physical_version_received %>
-  </div>
-  <div class="field">
-    <%= f.label :digital_version_received %><br>
-    <%= f.check_box :digital_version_received %>
-  </div>
-  <div class="field">
-    <%= f.label :disqualify %><br>
-    <%= f.check_box :disqualify %>
-  </div>
+  <% if params[:action] == 'new' %>
+    <%= f.hidden_field :notes %>
+  <% else %>
+    <% if current_user.admin == true %>
+      <div class="field">
+        <%= f.label :notes %><br>
+        <%= f.text_area :notes %>
+      </div>
+    <% else %>
+      <%= f.hidden_field :notes, value: :notes %>
+    <% end %>
+  <% end %>
+  <% if params[:action] == 'new' %>
+    <%= f.hidden_field :approved, value: false %>
+  <% else %>
+    <% if current_user.admin == true %>
+      <div class="field">
+        <%= f.label :approved, "Approved?" %><br>
+        <%= f.check_box :approved %>
+      </div>
+    <% else %>
+      <%= f.hidden_field :approved, value: :approved %>
+    <% end %>
+  <% end %>
+  <% if params[:action] == 'new' %>
+    <%= f.hidden_field :physical_version_received, value: false %>
+  <% else %>
+    <% if current_user.admin == true %>
+      <div class="field">
+        <%= f.label :physical_version_received, "Physical version received?" %><br>
+        <%= f.check_box :physical_version_received %>
+      </div>
+    <% else %>
+      <%= f.hidden_field :physical_version_received, value: :physical_version_received %>
+    <% end %>
+  <% end %>
+  <% if params[:action] == 'new' %>
+    <%= f.hidden_field :digital_version_received, value: false %>
+  <% else %>
+    <% if current_user.admin == true %>
+      <div class="field">
+        <%= f.label :digital_version_received, "Digital version received?" %><br>
+        <%= f.check_box :digital_version_received %>
+      </div>
+    <% else %>
+      <%= f.hidden_field :digital_version_received, value: :digital_version_received %>
+    <% end %>
+  <% end %>
+  <% if params[:action] == 'new' %>
+    <%= f.hidden_field :disqualify, value: false %>
+  <% else %>
+    <% if current_user.admin == true %>
+      <div class="field">
+        <%= f.label :disqualify, "Disqualify?" %><br>
+        <%= f.check_box :disqualify %>
+      </div>
+    <% else %>
+      <%= f.hidden_field :disqualify, value: :disqualify %>
+    <% end %>
+  <% end %>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Next: Upload Submission Documents" %>
   </div>
 <% end %>

@@ -52,38 +52,37 @@
   <div class="field">
     <% if params[:action] == 'new' %>
 	  <%= f.hidden_field :admin, value: false %> 
-    <% elsif current_user.admin == true %>
-      <%= f.label :admin, "Admin?" %><br>
-      <%= f.check_box :admin %>
 	<% else %>
-	  <%= f.hidden_field :admin, value: false %> 
-	<% end %>
-  </div>
-  <div class="field">
-    <% if params[:action] == 'new' %>
-	  <%= f.hidden_field :judge, value: false %> 
-    <% elsif current_user.admin == true %>
-      <%= f.label :judge, "Judge?" %><br>
-      <%= f.check_box :judge %>
-	<% else %>
-	  <% if params[:action] == 'edit' %>
-	    <% if current_user.admin == true %>
-		    <%= f.label :judge, "Judge?" %><br>
-            <%= f.check_box :judge %>
-		< % else %>
-	      <%= f.hidden_field :judge %> 
-		<% end %>
+	  <% if current_user.admin == true %>
+	    <%= f.label :admin, "Admin?" %><br>
+        <%= f.check_box :admin %>
+      <% else %>
+	    <%= f.hidden_field :admin, value: :admin %> 
 	  <% end %>
 	<% end %>
   </div>
   <div class="field">
     <% if params[:action] == 'new' %>
-	  <%= f.hidden_field :enabled, value: true %> 
-    <% elsif current_user.admin == true %>
-      <%= f.label :enabled, "Enabled?" %><br>
-      <%= f.check_box :enabled, {checked: "checked"} %>
+	  <%= f.hidden_field :judge, value: false %> 
 	<% else %>
-	  <%= f.hidden_field :enabled %> 
+	  <% if current_user.admin == true %>
+	    <%= f.label :judge, "Judge?" %><br>
+        <%= f.check_box :judge %>
+      <% else %>
+	    <%= f.hidden_field :judge, value: :judge %> 
+	  <% end %>
+	<% end %>
+  </div>
+  <div class="field">
+    <% if params[:action] == 'new' %>
+	  <%= f.hidden_field :judge, value: true %> 
+	<% else %>
+	  <% if current_user.admin == true %>
+	    <%= f.label :enabled, "Enabled?" %><br>
+        <%= f.check_box :enabled %>
+      <% else %>
+	    <%= f.hidden_field :enabled, value: :enabled %> 
+	  <% end %>
 	<% end %>
   </div>
   <div class="actions">

@@ -25,6 +25,8 @@ class SubmissionsController < ApplicationController
   # POST /submissions.json
   def create
     @submission = Submission.new(submission_params)
+    @submission.division_id = @submission.organization.submission_division
+    @submission.contest_year = Time.now.year
 
     respond_to do |format|
       if @submission.save
@@ -69,6 +71,7 @@ class SubmissionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def submission_params
-      params.require(:submission).permit(:category_id, :user_id, :organization_id, :division_id, :contest_year, :notes, :approved, :physical_version_received, :digital_version_received, :disqualify)
+      params.require(:submission).permit(:category_id, :user_id, :organization_id, :division_id,
+      :contest_year, :notes, :approved, :physical_version_received, :digital_version_received, :disqualify)
     end
 end
