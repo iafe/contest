@@ -1,4 +1,4 @@
-<%= form_for(@submission_detail) do |f| %>
+<%= form_for([@submission, @submission_detail], html: {multipart: true}) do |f| %>
   <% if @submission_detail.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@submission_detail.errors.count, "error") %> prohibited this submission_detail from being saved:</h2>
@@ -12,8 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :submission_id %><br>
-    <%= f.text_field :submission_id %>
+    <%= f.label :submission_id, "Submission Information" %><br>
+	<%= f.hidden_field :submission_id, value: @submission.id %> 
+    <%= @submission.category.award.name %>: <%= @submission.category.code %> <%= @submission.category.name %> 
+    (<%= @submission.organization.name %>)
   </div>
   <div class="field">
     <%= f.label :file_url %><br>

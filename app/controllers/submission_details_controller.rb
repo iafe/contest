@@ -15,6 +15,7 @@ class SubmissionDetailsController < ApplicationController
   # GET /submission_details/new
   def new
     @submission_detail = SubmissionDetail.new
+    @submission = Submission.find(params[:submission_id])
   end
 
   # GET /submission_details/1/edit

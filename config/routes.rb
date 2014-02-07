@@ -9,8 +9,6 @@ Contest::Application.routes.draw do
   resources :score_items
   resources :scores
   resources :judges
-  resources :submission_details
-  resources :submissions
   resources :categories
   resources :awards
   resources :divisions
@@ -18,6 +16,10 @@ Contest::Application.routes.draw do
   resources :user_organizations
   resources :organizations
   resources :users
+  
+  resources :submissions do
+    resources :submission_details
+  end
   
   resources :sessions, only: [:new, :create, :destroy]
   

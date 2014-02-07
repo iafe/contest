@@ -75,7 +75,7 @@
   </div>
   <div class="field">
     <% if params[:action] == 'new' %>
-	  <%= f.hidden_field :judge, value: true %> 
+	  <%= f.hidden_field :enabled, value: true %> 
 	<% else %>
 	  <% if current_user.admin == true %>
 	    <%= f.label :enabled, "Enabled?" %><br>

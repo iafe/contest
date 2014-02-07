@@ -3,16 +3,17 @@
 <table>
   <thead>
     <tr>
+      <th>Award</th>
       <th>Category</th>
       <th>User</th>
       <th>Organization</th>
       <th>Division</th>
       <th>Contest year</th>
       <th>Notes</th>
-      <th>Approved</th>
-      <th>Physical version received</th>
-      <th>Digital version received</th>
-      <th>Disqualify</th>
+      <th>Approved?</th>
+      <th>Physical version received?</th>
+      <th>Digital version received?</th>
+      <th>Disqualify?</th>
       <th></th>
       <th></th>
       <th></th>
@@ -22,12 +23,13 @@
   <tbody>
     <% @submissions.each do |submission| %>
       <tr>
-        <td><%= submission.category_id %></td>
-        <td><%= submission.user_id %></td>
-        <td><%= submission.organization_id %></td>
-        <td><%= submission.division_id %></td>
+      	<td><%= submission.category.award.name %></td>
+        <td><%= submission.category.code %> <%= submission.category.name %></td>
+        <td><%= submission.user.first_name %> <%= submission.user.last_name %></td>
+        <td><%= submission.organization.name %></td>
+        <td><%= submission.division.name %></td>
         <td><%= submission.contest_year %></td>
-        <td><%= submission.notes %></td>
+        <td><%= sanitize(submission.notes) %></td>
         <td><%= submission.approved %></td>
         <td><%= submission.physical_version_received %></td>
         <td><%= submission.digital_version_received %></td>

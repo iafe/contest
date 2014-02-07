@@ -27,7 +27,7 @@ class Organization < ActiveRecord::Base
     "#{name}, #{state_province}"
   end
   
-  def which_division
+  def which_division #To display in the organization and organization details
     last_details = organization_details.order('created_at DESC').first
     if (last_details.present?) && (last_details.created_at.year == Time.now.year)
       Division.where(':total_attendance >= division_smallest AND :total_attendance <= division_largest', 
@@ -37,7 +37,7 @@ class Organization < ActiveRecord::Base
     end
   end
   
-  def submission_division
+  def submission_division #To display in the contest submission information
     last_details = organization_details.order('created_at DESC').first
     if (last_details.present?) && (last_details.created_at.year == Time.now.year)
       Division.where(':total_attendance >= division_smallest AND :total_attendance <= division_largest', 

@@ -87,6 +87,10 @@
     <% end %>
   <% end %>
   <div class="actions">
+  	<% if params[:action] == 'new' %>
     <%= f.submit "Next: Upload Submission Documents" %>
-  </div>
+  <% else %>
+    <%= f.submit "Next: Update Submission Documents" %>
+  <% end %>
+    </div>
 <% end %>
