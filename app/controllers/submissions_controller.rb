@@ -6,6 +6,10 @@ class SubmissionsController < ApplicationController
   def index
     @submissions = Submission.all
   end
+  
+  def start
+    @categories = Category.all
+  end
 
   # GET /submissions/1
   # GET /submissions/1.json
@@ -14,11 +18,18 @@ class SubmissionsController < ApplicationController
 
   # GET /submissions/new
   def new
-    @submission = Submission.new
+    @category = Category.find(params[:submission][:category_id])
+    @submission = Submission.new(submission_params)
+    @category.photo_max_number.times { @submission.submission_details.build}
+    @category.document_max_number.times { @submission.submission_details.build}
+    @category.video_max_number.times { @submission.submission_details.build}
   end
 
   # GET /submissions/1/edit
   def edit
+    @submission.category.photo_max_number.times { @submission.submission_details.build}
+    @submission.category.document_max_number.times { @submission.submission_details.build}
+    @submission.category.video_max_number.times { @submission.submission_details.build}
   end
 
   # POST /submissions
@@ -27,11 +38,13 @@ class SubmissionsController < ApplicationController
     @submission = Submission.new(submission_params)
     @submission.division_id = @submission.organization.submission_division
     @submission.contest_year = Time.now.year
-
+    @category = Category.find(params[:submission][:category_id])
+    
     respond_to do |format|
       if @submission.save
-        format.html { redirect_to new_submission_submission_detail_path(@submission, @submission_detail), 
-          notice: 'Submission was successfully created.' }
+        format.html { redirect_to @submission, notice: 'Submission was successfully created.' }
+        # format.html { redirect_to new_submission_submission_detail_path(@submission, @submission_detail), 
+          # notice: 'Submission was successfully created.' }
         format.json { render action: 'show', status: :created, location: @submission }
       else
         format.html { render action: 'new' }
@@ -73,6 +86,6 @@ class SubmissionsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def submission_params
       params.require(:submission).permit(:category_id, :user_id, :organization_id, :division_id,
-      :contest_year, :notes, :approved, :physical_version_received, :digital_version_received, :disqualify)
+      :contest_year, :notes, :status, :physical_version_received, :digital_version_received, :disqualify)
     end
 end

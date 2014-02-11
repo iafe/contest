@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140103205252) do
+ActiveRecord::Schema.define(version: 20140210151141) do
 
   create_table "awards", force: true do |t|
     t.string   "name"
@@ -124,12 +124,12 @@ ActiveRecord::Schema.define(version: 20140103205252) do
     t.integer  "division_id"
     t.integer  "contest_year"
     t.text     "notes"
-    t.boolean  "approved"
     t.boolean  "physical_version_received"
     t.boolean  "digital_version_received"
     t.boolean  "disqualify"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "status"
   end
 
   add_index "submissions", ["organization_id", "category_id", "contest_year"], name: "index_submissions_on_organization_id", unique: true

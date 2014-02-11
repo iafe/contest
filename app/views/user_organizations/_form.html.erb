@@ -17,8 +17,11 @@
     <%= current_user.first_name %> <%= current_user.last_name %>
   </div>
   <div class="field">
-    <%= f.label :organization_id, "Please select the organization you are with. You can assign yourself to multiple organizations; for example, if you are with a third-party agency submitting on behalf of a fair, you must assign yourself to that agency first as your primary organization." %><br>
-    <%= collection_select(:user_organization, :organization_id, Organization.all, :id, :name_and_state) %><br>
+    <%= f.label :organization_id, "Please select the organization you are with. You can assign yourself to multiple organizations; for 
+    example, if you are with a third-party agency submitting on behalf of a fair, you must assign yourself to that agency first as 
+    your primary organization." %><br>
+    <%= collection_select(:user_organization, :organization_id, Organization.all, :id, :name_and_state, 
+    include_blank: "Select your organization") %><br>
 	<%= link_to "Don't see your organization? Click here to add it first.", new_organization_path %>
   </div>
   <div class="field">

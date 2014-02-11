@@ -10,7 +10,7 @@
       <th>Division</th>
       <th>Contest year</th>
       <th>Notes</th>
-      <th>Approved?</th>
+      <th>Status</th>
       <th>Physical version received?</th>
       <th>Digital version received?</th>
       <th>Disqualify?</th>
@@ -30,7 +30,7 @@
         <td><%= submission.division.name %></td>
         <td><%= submission.contest_year %></td>
         <td><%= sanitize(submission.notes) %></td>
-        <td><%= submission.approved %></td>
+        <td><%= submission.status %></td>
         <td><%= submission.physical_version_received %></td>
         <td><%= submission.digital_version_received %></td>
         <td><%= submission.disqualify %></td>
