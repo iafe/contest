@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140210151141) do
+ActiveRecord::Schema.define(version: 20140218170717) do
 
   create_table "awards", force: true do |t|
     t.string   "name"
@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 20140210151141) do
     t.boolean  "enabled"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "link_max_number"
+    t.string   "submission_file_type"
   end
 
   create_table "divisions", force: true do |t|

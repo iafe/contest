@@ -13,8 +13,8 @@
   
   <div class="field">
     <%= f.label :category_id %><br>
-    <%= f.hidden_field :category_id, value: @category.id %> 
-    <%= @category.award_code_category %>
+    <%= collection_select(:submission, :category_id, Category.sort_by_category_codes(Category.all), :id, :award_code_category,
+      include_blank: "Select the category you wish to enter") %>
   </div>
   <div class="field">
   	<%= f.label :user_id, "Submitted By" %><br>
@@ -25,13 +25,6 @@
     <%= f.label :organization_id, "Organization of Submission" %><br>
     <%= collection_select(:submission, :organization_id, current_user.organizations.where({fair: true}), :id, :name_and_state) %>
   </div>
-  <%= f.fields_for :submission_details do |submission_details_form| %>
-    <%= f.hidden_field :submission_id, value: @submission.id %>
-    <div class="field">
-        <%= submission_details_form.label :file_url, "Digital Document for Submission" %><br>
-        <%= submission_details_form.text_field :file_url %><br>
-    </div>
-  <% end %>
   <div class="field">
   <% if params[:action] == 'new' %>
     <%= f.hidden_field :notes %>
@@ -94,6 +87,6 @@
     <% end %>
   <% end %>
   <div class="actions">
-    <%= f.submit "Submit" %>
+    <%= f.submit "Next: Upload Contest Documents" %>
     </div>
 <% end %>

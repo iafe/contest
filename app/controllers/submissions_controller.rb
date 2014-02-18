@@ -7,10 +7,6 @@ class SubmissionsController < ApplicationController
     @submissions = Submission.all
   end
   
-  def start
-    @categories = Category.all
-  end
-
   # GET /submissions/1
   # GET /submissions/1.json
   def show
@@ -18,18 +14,11 @@ class SubmissionsController < ApplicationController
 
   # GET /submissions/new
   def new
-    @category = Category.find(params[:submission][:category_id])
-    @submission = Submission.new(submission_params)
-    @category.photo_max_number.times { @submission.submission_details.build}
-    @category.document_max_number.times { @submission.submission_details.build}
-    @category.video_max_number.times { @submission.submission_details.build}
+    @submission = Submission.new
   end
 
   # GET /submissions/1/edit
   def edit
-    @submission.category.photo_max_number.times { @submission.submission_details.build}
-    @submission.category.document_max_number.times { @submission.submission_details.build}
-    @submission.category.video_max_number.times { @submission.submission_details.build}
   end
 
   # POST /submissions
@@ -38,7 +27,6 @@ class SubmissionsController < ApplicationController
     @submission = Submission.new(submission_params)
     @submission.division_id = @submission.organization.submission_division
     @submission.contest_year = Time.now.year
-    @category = Category.find(params[:submission][:category_id])
     
     respond_to do |format|
       if @submission.save

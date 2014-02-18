@@ -49,3 +49,12 @@ gem 'country_select'
 
 # Allows for HTML markup in input fields
 gem 'sanitize'
+
+# Upload documents/images
+gem 'paperclip'
+
+# Tells app where S3 credentials are
+gem 'figaro'
+
+# Communicates with Amazon S3 Account
+gem 'aws-sdk'

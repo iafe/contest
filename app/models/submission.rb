@@ -6,9 +6,7 @@ class Submission < ActiveRecord::Base
   belongs_to :division
   
   has_many :score_items, through: :score_details
-  has_many :submission_details
-  
-  accepts_nested_attributes_for :submission_details
+  has_many :submission_details, dependent: :destroy
   
   validates :contest_year, presence: true, numericality: true, length: { maximum: 4,  minimum: 4 }
   validates :notes, length: { maximum: 500,  minimum: 4 }, allow_blank: true

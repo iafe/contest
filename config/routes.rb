@@ -19,16 +19,15 @@ Contest::Application.routes.draw do
   resources :categories
   resources :submission_details
   
-  # resources :submissions do
-    # resources :submission_details
-  # end
+  resources :submissions do
+    resources :submission_details
+  end
   
   resources :sessions, only: [:new, :create, :destroy]
   
-  match '/signup',  to: 'users#new',            via: 'get'
-  match '/signin',  to: 'sessions#new',         via: 'get'
-  match '/signout', to: 'sessions#destroy',     via: 'delete'
-  match '/submission_start', to: 'submissions#start', via: 'get'
+  match '/signup',           to: 'users#new',         via: 'get'
+  match '/signin',           to: 'sessions#new',      via: 'get'
+  match '/signout',          to: 'sessions#destroy',  via: 'delete'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

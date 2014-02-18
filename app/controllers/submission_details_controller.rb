@@ -10,6 +10,7 @@ class SubmissionDetailsController < ApplicationController
   # GET /submission_details/1
   # GET /submission_details/1.json
   def show
+    @submission = Submission.find(params[:submission_id])
   end
 
   # GET /submission_details/new
@@ -26,10 +27,11 @@ class SubmissionDetailsController < ApplicationController
   # POST /submission_details.json
   def create
     @submission_detail = SubmissionDetail.new(submission_detail_params)
+    @submission = Submission.find(params[:submission_id])
 
     respond_to do |format|
       if @submission_detail.save
-        format.html { redirect_to @submission_detail, notice: 'Submission detail was successfully created.' }
+        format.html { redirect_to submission_submission_detail_path(@submission, @submission_detail), notice: 'Submission detail was successfully created.' }
         format.json { render action: 'show', status: :created, location: @submission_detail }
       else
         format.html { render action: 'new' }
