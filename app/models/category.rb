@@ -2,7 +2,7 @@ class Category < ActiveRecord::Base
   
   belongs_to :award
   
-  has_many :submissions, dependent: :destroy
+  has_many :submissions
   has_many :score_items, dependent: :destroy
   has_many :users, through: :judges
   has_many :divisions, through: :judges

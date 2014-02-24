@@ -27,6 +27,10 @@ class User < ActiveRecord::Base
   before_save { self.first_name = first_name.titleize }
   before_save { self.last_name = last_name.titleize }
   
+  def first_last_email
+    "#{last_name}, #{first_name} - #{email}"
+  end
+  
   def User.new_remember_token
     SecureRandom.urlsafe_base64
   end

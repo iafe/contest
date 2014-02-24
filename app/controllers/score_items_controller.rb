@@ -15,6 +15,7 @@ class ScoreItemsController < ApplicationController
   # GET /score_items/new
   def new
     @score_item = ScoreItem.new
+    @category = Category.find(params[:category_id])
   end
 
   # GET /score_items/1/edit

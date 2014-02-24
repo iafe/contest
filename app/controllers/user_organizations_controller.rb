@@ -15,7 +15,7 @@ class UserOrganizationsController < ApplicationController
   # GET /user_organizations/new
   def new
     @user_organization = UserOrganization.new
-	@user = User.find(current_user)
+	  @user = User.find(current_user)
   end
 
   # GET /user_organizations/1/edit

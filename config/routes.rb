@@ -23,6 +23,10 @@ Contest::Application.routes.draw do
     resources :submission_details
   end
   
+  resources :categories do
+    resources :score_items
+  end
+  
   resources :sessions, only: [:new, :create, :destroy]
   
   match '/signup',           to: 'users#new',         via: 'get'

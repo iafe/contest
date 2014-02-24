@@ -18,7 +18,7 @@
       <tr>
         <td><%= score_item.name %></td>
         <td><%= score_item.description %></td>
-        <td><%= score_item.category_id %></td>
+        <td><%= score_item.category.award.name %> <%= score_item.category.code %>: <%= score_item.category.name %></td>
         <td><%= score_item.max_points %></td>
         <td><%= link_to 'Show', score_item %></td>
         <td><%= link_to 'Edit', edit_score_item_path(score_item) %></td>

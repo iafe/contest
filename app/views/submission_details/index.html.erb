@@ -5,6 +5,7 @@
     <tr>
       <th>Submission</th>
       <th>File url</th>
+      <th>Attachment Thumb</th>
       <th></th>
       <th></th>
       <th></th>
@@ -16,6 +17,7 @@
       <tr>
         <td><%= submission_detail.submission_id %></td>
         <td><%= submission_detail.file_url %></td>
+        <td><%= image_tag submission_detail.attachment.url(:thumb) %></td>
         <td><%= link_to 'Show', submission_detail %></td>
         <td><%= link_to 'Edit', edit_submission_detail_path(submission_detail) %></td>
         <td><%= link_to 'Destroy', submission_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>

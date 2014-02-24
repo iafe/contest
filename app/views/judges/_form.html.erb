@@ -13,15 +13,17 @@
 
   <div class="field">
     <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
+    <%= collection_select(:judge, :user_id, User.where({judge: true}), :id, :first_last_email, 
+    include_blank: "Select the judge you wish to assign") %>
   </div>
   <div class="field">
     <%= f.label :category_id %><br>
-    <%= f.text_field :category_id %>
+    <%= collection_select(:judge, :category_id, Category.sort_by_category_codes(Category.all), :id, :award_code_category,
+      include_blank: "Select the category you wish to assign this judge") %>
   </div>
   <div class="field">
     <%= f.label :division_id %><br>
-    <%= f.text_field :division_id %>
+    <%= collection_select(:judge, :division_id, Division.all, :id, :name, include_blank: "Select the division you wish to assign this judge") %>
   </div>
   <div class="actions">
     <%= f.submit %>

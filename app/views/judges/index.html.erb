@@ -1,4 +1,4 @@
-<h1>Listing judges</h1>
+<h1>Listing judge assignments</h1>
 
 <table>
   <thead>
@@ -15,9 +15,9 @@
   <tbody>
     <% @judges.each do |judge| %>
       <tr>
-        <td><%= judge.user_id %></td>
-        <td><%= judge.category_id %></td>
-        <td><%= judge.division_id %></td>
+        <td><%= judge.user.last_name %>, <%= judge.user.first_name %> - <%= judge.user.email %></td>
+        <td><%= judge.category.award.name %> <%= judge.category.code %>: <%= judge.category.name %></td>
+        <td><%= judge.division.name %></td>
         <td><%= link_to 'Show', judge %></td>
         <td><%= link_to 'Edit', edit_judge_path(judge) %></td>
         <td><%= link_to 'Destroy', judge, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Judge', new_judge_path %>
+<%= link_to 'New Judge Assignment', new_judge_path %>

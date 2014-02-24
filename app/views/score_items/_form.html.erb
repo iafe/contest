@@ -10,7 +10,12 @@
       </ul>
     </div>
   <% end %>
-
+  
+  <div class="field">
+  	<%= f.label :category_id, "Category Information" %><br>
+	<%= f.hidden_field :category_id, value: @category.id %> 
+    <%= @category.award.name %>: <%= @category.code %> <%= @category.name %> 
+  </div>
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
@@ -18,10 +23,6 @@
   <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :category_id %><br>
-    <%= f.text_field :category_id %>
   </div>
   <div class="field">
     <%= f.label :max_points %><br>

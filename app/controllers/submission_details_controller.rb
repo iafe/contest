@@ -57,6 +57,7 @@ class SubmissionDetailsController < ApplicationController
   # DELETE /submission_details/1
   # DELETE /submission_details/1.json
   def destroy
+    @submission_detail.attachment = nil
     @submission_detail.destroy
     respond_to do |format|
       format.html { redirect_to submission_details_url }
