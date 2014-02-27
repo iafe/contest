@@ -14,5 +14,6 @@ class Submission < ActiveRecord::Base
   validates :organization_id, presence: true
   validates :category_id, presence: true, uniqueness: { scope: :contest_year, scope: :organization_id  }
   validates :division_id, presence: true
+  validates :status, presence: true
   
 end

@@ -32,7 +32,7 @@
     <% if current_user.admin == true %>
       <div class="field">
         <%= f.label :notes %><br>
-        <%= f.text_area :notes %>
+        <%= f.text_area :notes, size: "30x10" %>
       </div>
     <% else %>
       <%= f.hidden_field :notes, value: :notes %>
@@ -44,7 +44,7 @@
     <% if current_user.admin == true %>
       <div class="field">
         <%= f.label :status, "Status" %><br>
-        <%= f.select :status, options_for_select([ "Incomplete", "Pending", "Approved", "Rejected" ]) %>
+        <%= f.select :status, options_for_select([ "Incomplete", "Pending", "Approved", "Rejected" ]), include_blank: "Change the submission's status" %>
       </div>
     <% else %>
       <%= f.hidden_field :status, value: :status %>

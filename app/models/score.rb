@@ -1,7 +1,7 @@
 class Score < ActiveRecord::Base
-  attr_accessor :total_score, :comments, :disqualify, :user_id, :submission_id
   
-  belongs to :user, :submission
+  belongs_to :user
+  belongs_to :submission
   
   has_many :score_items, through: :score_details
   

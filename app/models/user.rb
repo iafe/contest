@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   has_many :user_organizations, dependent: :destroy
   has_many :categories, through: :judges
   has_many :divisions, through: :judges
+  has_many :judges, dependent: :destroy
   
   has_secure_password
   
