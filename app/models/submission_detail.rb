@@ -36,6 +36,13 @@ class SubmissionDetail < ActiveRecord::Base
     submission.category.submission_file_type == "Video Only" || submission.category.submission_file_type == "URL Link Only"
   end
   
+  auto_html_for :file_url do
+    html_escape
+    youtube(width: 560)
+    vimeo(width: 560)
+    simple_format
+  end
+  
   private
     def set_parent_to_pending
       submission.update(status: 'Pending') unless submission.nil?

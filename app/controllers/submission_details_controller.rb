@@ -27,8 +27,8 @@ class SubmissionDetailsController < ApplicationController
   # POST /submission_details
   # POST /submission_details.json
   def create
-    @submission_detail = SubmissionDetail.new(submission_detail_params)
     @submission = Submission.find(params[:submission_id])
+    @submission_detail = SubmissionDetail.new(submission_detail_params)
 
     respond_to do |format|
       if @submission_detail.save

@@ -10,25 +10,30 @@ class ScoresController < ApplicationController
   # GET /scores/1
   # GET /scores/1.json
   def show
+    @submission = Submission.find(params[:submission_id])
   end
 
   # GET /scores/new
   def new
     @score = Score.new
+    @submission = Submission.find(params[:submission_id])
   end
 
   # GET /scores/1/edit
   def edit
+    @submission = Submission.find(params[:submission_id])
+    @user = User.find(params[:user_id])
   end
 
   # POST /scores
   # POST /scores.json
   def create
     @score = Score.new(score_params)
+    @submission = Submission.find(params[:submission_id])
 
     respond_to do |format|
       if @score.save
-        format.html { redirect_to @score, notice: 'Score was successfully created.' }
+        format.html { redirect_to submission_score_path(@submission, @score), notice: 'Score was successfully created.' }
         format.json { render action: 'show', status: :created, location: @score }
       else
         format.html { render action: 'new' }

@@ -1,4 +1,4 @@
-<%= form_for(@score) do |f| %>
+<%= form_for([@submission, @user, @score], html: {multipart: true}) do |f| %>
   <% if @score.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@score.errors.count, "error") %> prohibited this score from being saved:</h2>
@@ -12,16 +12,39 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
+  	<%= f.label :user_id, "Scored By" %><br>
+  	<% if params[:action] == 'new' %>
+	  <%= f.hidden_field :user_id, value: current_user.id %> 
+      <%= current_user.first_name %> <%= current_user.last_name %>
+    <% elsif params[:action] == 'edit' %>
+      <%= f.hidden_field :user_id, value: :user_id %>
+      <%= @user.first_name %> <%= @user.last_name %>
+    <% end %>
   </div>
   <div class="field">
-    <%= f.label :submission_id %><br>
-    <%= f.text_field :submission_id %>
+    <%= f.label :submission_id, "Submission Information" %><br>
+	<%= f.hidden_field :submission_id, value: @submission.id %> 
+    <%= @submission.category.award.name %><br/>
+    Category <%= @submission.category.code %>: <%= @submission.category.name %><br/>
+    Division <%= @submission.organization.submission_division %><br/>
+    <%= @submission.organization.name %> - <%= @submission.organization.city %>, <%= @submission.organization.state_province %><br/><br/>
+    <% @submission.submission_details.each do |submission_detail| %>
+      <% if @submission.category.submission_file_type == "URL Link Only" %>
+        <%= link_to 'Submission Link', submission_detail.file_url, target: "_blank" %>
+      <% elsif @submission.category.submission_file_type == "Video Only" %>
+        <%= submission_detail.file_url_html %>
+      <% else %>
+        <%= link_to image_tag(submission_detail.attachment.url(:thumb)), submission_detail.attachment.url(:original), target: "_blank" %>
+      <% end %>
+    <% end %>
   </div>
   <div class="field">
     <%= f.label :total_score %><br>
-    <%= f.text_field :total_score %>
+    <%= f.text_field :total_score, size: 5 %> (Out of <%= @submission.category.score_items.sum(:max_points) %>)<br/><br/>
+    Score item breakdown - add each item for total score:<br/>
+    <% @submission.category.score_items.each do |score_item| %>
+      <%= score_item.name %>: <%= score_item.max_points %> points<br/>
+    <% end %>
   </div>
   <div class="field">
     <%= f.label :comments %><br>

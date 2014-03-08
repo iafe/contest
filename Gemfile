@@ -58,3 +58,6 @@ gem 'figaro'
 
 # Communicates with Amazon S3 Account
 gem 'aws-sdk'
+
+#Transforms YouTube links into embeddable content
+gem "auto_html"

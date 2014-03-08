@@ -21,6 +21,7 @@ Contest::Application.routes.draw do
   
   resources :submissions do
     resources :submission_details
+    resources :scores
   end
   
   resources :categories do
