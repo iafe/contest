@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140307184508) do
+ActiveRecord::Schema.define(version: 20140310163336) do
 
   create_table "awards", force: true do |t|
     t.string   "name"
@@ -105,7 +105,7 @@ ActiveRecord::Schema.define(version: 20140307184508) do
   create_table "scores", force: true do |t|
     t.integer  "user_id"
     t.integer  "submission_id"
-    t.integer  "total_score"
+    t.decimal  "total_score",   precision: 5, scale: 2
     t.text     "comments"
     t.boolean  "disqualify"
     t.datetime "created_at"

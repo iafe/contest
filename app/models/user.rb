@@ -3,10 +3,10 @@ class User < ActiveRecord::Base
   has_many :submissions
   has_many :scores
   has_many :organizations, through: :user_organizations
-  has_many :user_organizations, dependent: :destroy
+  has_many :user_organizations, dependent: :restrict
   has_many :categories, through: :judges
   has_many :divisions, through: :judges
-  has_many :judges, dependent: :destroy
+  has_many :judges, dependent: :restrict
   
   has_secure_password
   
@@ -17,7 +17,8 @@ class User < ActiveRecord::Base
   validates :first_name, presence: true, length: { maximum: 30,  minimum: 2 }
   validates :last_name, presence: true, length: { maximum: 50,  minimum: 2 }
   validates :suffix, allow_blank: true, length: { maximum: 10,  minimum: 2 }
-  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }, length: {maximum: 50 }
+  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false, 
+    message: "already exists in our database under another user's record. Is this you? Please call the IAFE office." }, length: {maximum: 50 }
   validates :phone, presence: true, length: { maximum: 20,  minimum: 9 }
   validates :password, length:  { maximum: 50,  minimum: 6 }, if: :password_changed?
   validates :email_confirmation, presence: true

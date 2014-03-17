@@ -1,6 +1,6 @@
 class Division < ActiveRecord::Base
   
-  has_many :submissions, dependent: :destroy
+  has_many :submissions, dependent: :restrict
   has_many :users, through: :judges
   has_many :categories, through: :judges
   

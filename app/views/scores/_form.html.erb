@@ -13,7 +13,7 @@
 
   <div class="field">
   	<%= f.label :user_id, "Scored By" %><br>
-  	<% if params[:action] == 'new' %>
+  	<% if params[:action] == 'new' || params[:action] == 'create' %>
 	  <%= f.hidden_field :user_id, value: current_user.id %> 
       <%= current_user.first_name %> <%= current_user.last_name %>
     <% elsif params[:action] == 'edit' %>
@@ -40,6 +40,7 @@
   </div>
   <div class="field">
     <%= f.label :total_score %><br>
+    Please denote fractions as .25, .5, or .75<br/>
     <%= f.text_field :total_score, size: 5 %> (Out of <%= @submission.category.score_items.sum(:max_points) %>)<br/><br/>
     Score item breakdown - add each item for total score:<br/>
     <% @submission.category.score_items.each do |score_item| %>

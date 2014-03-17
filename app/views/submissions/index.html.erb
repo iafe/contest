@@ -14,6 +14,8 @@
       <th>Physical version received?</th>
       <th>Digital version received?</th>
       <th>Disqualify?</th>
+      <th>Final Score</th>
+      <th>Winner?</th>
       <th></th>
       <th></th>
       <th></th>
@@ -35,6 +37,8 @@
         <td><%= submission.physical_version_received %></td>
         <td><%= submission.digital_version_received %></td>
         <td><%= submission.disqualify %></td>
+        <td><%= submission.calculate_final_score %></td>
+        <td><%= submission.winner? %></td>
         <td><%= link_to 'Show', submission %></td>
         <td><%= link_to 'Edit', edit_submission_path(submission) %></td>
         <td><%= link_to 'Destroy', submission, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -2,10 +2,12 @@ class Organization < ActiveRecord::Base
   
   has_many :submissions
   has_many :users, through: :user_organizations
-  has_many :user_organizations, dependent: :destroy
-  has_many :organization_details, dependent: :destroy
+  has_many :user_organizations, dependent: :restrict
+  has_many :organization_details, dependent: :restrict
   
-  validates :name, presence: true, length: { maximum: 80,  minimum: 3 }, uniqueness: { scope: :state_province }
+  validates :name, presence: true, length: { maximum: 80,  minimum: 3 }, uniqueness: { scope: :state_province, 
+    message: "of your organization already exists in our database with the same state/province you have listed. Please check the listing 
+    of all organizations again to find yours or call the IAFE office." }
   validates :primary_contact, presence: true, length: { maximum: 80,  minimum: 5 }
   validates :address_line_1, presence: true, length: { maximum: 50,  minimum: 5 }
   validates :address_line_2, length: { maximum: 50, minimum: 5 }, allow_blank: true

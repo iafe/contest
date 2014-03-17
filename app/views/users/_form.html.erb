@@ -33,13 +33,13 @@
   </div>
   <div class="field">
     <%= f.label :email_confirmation, "Email Confirmation" %><br>
-	<% if params[:action] == 'new' %>
+	<% if params[:action] == 'new' || params[:action] == 'create' %>
       <%= f.text_field :email_confirmation %>
 	<% else %>
 	  <%= f.text_field :email_confirmation, value: @user.email %>
 	<% end %>
     </div>
-  <% if params[:action] == 'new' %>
+  <% if params[:action] == 'new' || params[:action] == 'create' %>
     <div class="field">
       <%= f.label :password %><br>
       <%= f.password_field :password %>
@@ -50,7 +50,7 @@
     </div>
   <% end %>
   <div class="field">
-    <% if params[:action] == 'new' %>
+    <% if params[:action] == 'new' || params[:action] == 'create' %>
 	  <%= f.hidden_field :admin, value: false %> 
 	<% else %>
 	  <% if current_user.admin == true %>
@@ -62,7 +62,7 @@
 	<% end %>
   </div>
   <div class="field">
-    <% if params[:action] == 'new' %>
+    <% if params[:action] == 'new' || params[:action] == 'create' %>
 	  <%= f.hidden_field :judge, value: false %> 
 	<% else %>
 	  <% if current_user.admin == true %>
@@ -74,7 +74,7 @@
 	<% end %>
   </div>
   <div class="field">
-    <% if params[:action] == 'new' %>
+    <% if params[:action] == 'new' || params[:action] == 'create' %>
 	  <%= f.hidden_field :enabled, value: true %> 
 	<% else %>
 	  <% if current_user.admin == true %>

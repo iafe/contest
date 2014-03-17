@@ -26,7 +26,7 @@
     <%= collection_select(:submission, :organization_id, current_user.organizations.where({fair: true}), :id, :name_and_state) %>
   </div>
   <div class="field">
-  <% if params[:action] == 'new' %>
+  <% if params[:action] == 'new' || params[:action] == 'create' %>
     <%= f.hidden_field :notes %>
   <% else %>
     <% if current_user.admin == true %>
@@ -38,7 +38,7 @@
       <%= f.hidden_field :notes, value: :notes %>
     <% end %>
   <% end %>
-  <% if params[:action] == 'new' %>
+  <% if params[:action] == 'new' || params[:action] == 'create' %>
     <%= f.hidden_field :status, value: "Incomplete" %>
   <% else %>
     <% if current_user.admin == true %>
@@ -50,7 +50,7 @@
       <%= f.hidden_field :status, value: :status %>
     <% end %>
   <% end %>
-  <% if params[:action] == 'new' %>
+  <% if params[:action] == 'new' || params[:action] == 'create' %>
     <%= f.hidden_field :physical_version_received, value: false %>
   <% else %>
     <% if current_user.admin == true %>
@@ -62,7 +62,7 @@
       <%= f.hidden_field :physical_version_received, value: :physical_version_received %>
     <% end %>
   <% end %>
-  <% if params[:action] == 'new' %>
+  <% if params[:action] == 'new' || params[:action] == 'create' %>
     <%= f.hidden_field :digital_version_received, value: false %>
   <% else %>
     <% if current_user.admin == true %>
@@ -74,7 +74,7 @@
       <%= f.hidden_field :digital_version_received, value: :digital_version_received %>
     <% end %>
   <% end %>
-  <% if params[:action] == 'new' %>
+  <% if params[:action] == 'new' || params[:action] == 'create' %>
     <%= f.hidden_field :disqualify, value: false %>
   <% else %>
     <% if current_user.admin == true %>
