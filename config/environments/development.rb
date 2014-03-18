@@ -27,6 +27,12 @@ Contest::Application.configure do
   # number of complex assets.
   config.assets.debug = true
   
+  # Tests e-mail by opening a browser window in the development environment
+  config.action_mailer.delivery_method = :letter_opener
+  
+  # Default URL for Devise, must list actual host in production.rb
+  config.action_mailer.default_url_options = { host: 'localhost:3000'}
+  
   # Paperclip configuration
   config.paperclip_defaults = {
     storage: :s3,

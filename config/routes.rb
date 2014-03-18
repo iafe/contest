@@ -1,9 +1,13 @@
 Contest::Application.routes.draw do
+  #devise_for :users
+  devise_for :users, path: "auth", path_names: { sign_in: 'signin', sign_out: 'signout', password: 'secret', 
+    confirmation: 'verification', unlock: 'unblock', registration: 'register', sign_up: 'signup' }
+  
   get "static_pages/home"
   get "static_pages/about"
   get "static_pages/rules"
   get "static_pages/contact"
-  root  'static_pages#home'
+  root  "static_pages#home"
   
   resources :score_details
   resources :score_items
@@ -28,11 +32,11 @@ Contest::Application.routes.draw do
     resources :score_items
   end
   
-  resources :sessions, only: [:new, :create, :destroy]
+  #resources :sessions, only: [:new, :create, :destroy]
   
-  match '/signup',           to: 'users#new',         via: 'get'
-  match '/signin',           to: 'sessions#new',      via: 'get'
-  match '/signout',          to: 'sessions#destroy',  via: 'delete'
+  #match '/signup',           to: 'users#new',         via: 'get'
+  #match '/signin',           to: 'sessions#new',      via: 'get'
+  #match '/signout',          to: 'sessions#destroy',  via: 'delete'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -59,5 +59,11 @@ gem 'figaro'
 # Communicates with Amazon S3 Account
 gem 'aws-sdk'
 
-#Transforms YouTube links into embeddable content
-gem "auto_html"
+# Transforms YouTube links into embeddable content
+gem 'auto_html'
+
+# User sign in/sign out/sign up logic
+gem 'devise'
+
+# Test e-mail in development environment (opens in browser instead)
+gem 'letter_opener', group: :development
