@@ -4,8 +4,6 @@ class Category < ActiveRecord::Base
   
   has_many :submissions
   has_many :score_items, dependent: :restrict
-  has_many :users, through: :judges
-  has_many :divisions, through: :judges
   
   validates :name, presence: true, length: { maximum: 100,  minimum: 1 }
   validates :code, presence: true, length: { maximum: 3,  minimum: 1 }

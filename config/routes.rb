@@ -1,4 +1,7 @@
 Contest::Application.routes.draw do
+  
+  ActiveAdmin.routes(self)
+  
   #devise_for :users
   devise_for :users, path: "auth", path_names: { sign_in: 'signin', sign_out: 'signout', password: 'secret', 
     confirmation: 'verification', unlock: 'unblock', registration: 'register', sign_up: 'signup' }

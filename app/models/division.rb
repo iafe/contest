@@ -1,8 +1,7 @@
 class Division < ActiveRecord::Base
   
   has_many :submissions, dependent: :restrict
-  has_many :users, through: :judges
-  has_many :categories, through: :judges
+  has_many :judges
   
   validates :name, presence: true, length: { maximum: 20,  minimum: 4 }
   validates :division_smallest, presence: true, numericality: true, length: { maximum: 20,  minimum: 1 }

@@ -1,0 +1,8 @@
+@import "scaffolds";
+
+ /* add required field asterisk */
+label.required:after {
+    content: " *";
+	color: #FF0000;
+	font-weight: bold;
+}

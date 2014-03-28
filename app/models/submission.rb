@@ -1,11 +1,16 @@
 class Submission < ActiveRecord::Base
   
+  scope :current_year_pending, where(status: 'Pending', contest_year: Time.now.year)
+  scope :current_year_incomplete, where(status: 'Incomplete', contest_year: Time.now.year)
+  scope :current_year_approved, where(status: 'Approved', contest_year: Time.now.year)
+  scope :current_year_rejected, where(status: 'Rejected', contest_year: Time.now.year)
+  scope :current_year_disqualified, where(disqualify: true, contest_year: Time.now.year)
+  
   belongs_to :category
   belongs_to :user
   belongs_to :organization
   belongs_to :division
   
-  has_many :score_items, through: :score_details
   has_many :submission_details, dependent: :restrict
   has_many :scores, dependent: :restrict
   
@@ -26,11 +31,11 @@ class Submission < ActiveRecord::Base
     winners = Submission.select('distinct(category_id), AVG(scores.total_score) as avg_score').joins(:scores)
     .group('submissions.id').order('AVG(scores.total_score) DESC')
     if (self.scores.average(:total_score) == winners[0].avg_score)
-      return "First Place"
+      return "1st Place"
     elsif (self.scores.average(:total_score) == winners[1].avg_score)
-      return "Second Place"
+      return "2nd Place"
     elsif (self.scores.average(:total_score) == winners[2].avg_score)
-      return "Third Place"
+      return "3rd Place"
     else
       return ''
     end

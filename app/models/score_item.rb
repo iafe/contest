@@ -1,7 +1,6 @@
 class ScoreItem < ActiveRecord::Base
   
-  belongs_to :category
-  
+  belongs_to :category 
   belongs_to :score
   
   validates :name, presence: true, length: { maximum: 80,  minimum: 3 }

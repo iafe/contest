@@ -62,8 +62,11 @@ gem 'aws-sdk'
 # Transforms YouTube links into embeddable content
 gem 'auto_html'
 
-# User sign in/sign out/sign up logic
+# User sign in/sign out/sign up/confirmation/password retrieval/remember token logic
 gem 'devise'
 
 # Test e-mail in development environment (opens in browser instead)
 gem 'letter_opener', group: :development
+
+# The admin dashboard functionality, also installs formtastic, jquery-ui-rails, kaminari, polyamorous, and ransack (and devise)
+gem 'activeadmin', github: 'gregbell/active_admin'

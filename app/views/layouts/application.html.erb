@@ -36,6 +36,12 @@
 <li style="display:inline; padding-left:20px;"><%= link_to "Change Password", edit_user_registration_path %></li>
 <li style="display:inline; padding-left:20px;"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
 
+  <% if current_user.admin? == true %>
+
+  <li style="display:inline; padding-left:20px;"><%= link_to "Admin Dashboard", admin_root_path %></li>
+
+  <% end %>
+
 <% else %>
 <li style="display:inline; padding-left:20px;"><%= link_to "Create an Account", new_user_registration_path %></li>
 <li style="display:inline; padding-left:20px;"><%= link_to "Sign In", new_user_session_path %></li>
