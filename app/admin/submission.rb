@@ -8,6 +8,9 @@ ActiveAdmin.register Submission do
 
   menu priority: 9
   
+  permit_params :category_id, :user_id, :organization_id, :division_id,
+      :contest_year, :notes, :status, :physical_version_received, :digital_version_received, :disqualify
+  
   index do
     column :id, sortable: :id do |submission|
       link_to submission.id, admin_submission_path(submission)

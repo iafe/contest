@@ -70,3 +70,9 @@ gem 'letter_opener', group: :development
 
 # The admin dashboard functionality, also installs formtastic, jquery-ui-rails, kaminari, polyamorous, and ransack (and devise)
 gem 'activeadmin', github: 'gregbell/active_admin'
+
+# Searches for belongs_to relationships via a drop-down form
+gem 'select2-rails'
+
+# Sorts submission winners for first, second, third place
+gem 'ranked-model'

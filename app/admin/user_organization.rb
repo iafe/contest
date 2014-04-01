@@ -2,6 +2,8 @@ ActiveAdmin.register UserOrganization do
 
   menu label: "Relationships", priority: 3
   
+  permit_params :user_id, :organization_id, :primary
+  
   index do
     column :id, sortable: :id do |user_organization|
       link_to user_organization.id, admin_user_organization_path(user_organization)

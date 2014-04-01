@@ -2,6 +2,10 @@ ActiveAdmin.register User do
 
   menu priority: 1
   
+  permit_params :id, :first_name, :last_name, :suffix, :email, :email_confirmation, :phone, :created_at, :updated_at, 
+      :admin, :judge, :enabled, :reset_password_token, :reset_password_sent_at, :encrypted_password, :password_confirmation,
+      :remember_created_at, :sign_in_count, :current_sign_in_at, :last_sign_in_at, :current_sign_in_ip, :last_sign_in_ip
+  
   index do
     column :id, sortable: :id do |user|
       link_to user.id, admin_user_path(user)

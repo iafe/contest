@@ -2,6 +2,9 @@ ActiveAdmin.register Category do
 
   menu priority: 7
   
+  permit_params :name, :code, :award_id, :submission_file_type, :document_max_number, :photo_max_number, 
+      :video_max_number, :link_max_number, :max_total_file_size, :description, :rules, :enabled
+  
   index do
     column :id, sortable: :id do |category|
       link_to category.id, admin_category_path(category)

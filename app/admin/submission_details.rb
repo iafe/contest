@@ -2,6 +2,8 @@ ActiveAdmin.register SubmissionDetail do
 
   menu label: "Attachments", priority: 10
   
+  permit_params :submission_id, :file_url, :attachment
+  
   index as: :grid, columns: 5 do |submission_detail|
     if submission_detail.file_url != nil
       link_to "URL Submission", admin_submission_detail_path(submission_detail)

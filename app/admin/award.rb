@@ -2,6 +2,8 @@ ActiveAdmin.register Award do
   
   menu priority: 6
   
+  permit_params :name, :description, :rules, :sponsor, :sponsor_logo, :enabled
+  
   index do
     column :id, sortable: :id do |award|
       link_to award.id, admin_award_path(award)

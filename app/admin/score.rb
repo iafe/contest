@@ -2,6 +2,8 @@ ActiveAdmin.register Score do
 
   menu priority: 12
   
+  permit_params :user_id, :submission_id, :total_score, :comments, :disqualify
+  
   index do
     column :id, sortable: :id do |score|
       link_to score.id, admin_score_path(score)

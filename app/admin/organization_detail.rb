@@ -2,6 +2,8 @@ ActiveAdmin.register OrganizationDetail do
   
   menu label: "Dates & Attendance", priority: 4
   
+  permit_params :organization_id, :fair_start_date, :fair_end_date, :total_attendance
+  
   index do
     column :id, sortable: :id do |organization_detail|
       link_to organization_detail.id, admin_organization_detail_path(organization_detail)

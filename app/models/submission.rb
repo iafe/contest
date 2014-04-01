@@ -27,6 +27,10 @@ class Submission < ActiveRecord::Base
     self.scores.average(:total_score)
   end
   
+  include RankedModel
+  
+  ranks :calculate_final_score, with_same: :contest_year, with_same: :division_id, with_same: :category_id
+  
   def winner?
     winners = Submission.select('distinct(category_id), AVG(scores.total_score) as avg_score').joins(:scores)
     .group('submissions.id').order('AVG(scores.total_score) DESC')
@@ -40,5 +44,10 @@ class Submission < ActiveRecord::Base
       return ''
     end
   end
+  
+  #def winner?
+    #Submission.select('category_id, contest_year, division_id, AVG(scores.total_score) as calculate_final_score, 
+    #dense_rank() over (partition by calculate_final_score) as rank').joins(:scores)
+  #end
 
 end

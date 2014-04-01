@@ -2,6 +2,8 @@ ActiveAdmin.register Judge do
 
   menu priority: 11
   
+  permit_params :user_id, :category_id, :division_id
+  
   index do
     column :id, sortable: :id do |judge|
       link_to judge.id, admin_judge_path(judge)
@@ -24,6 +26,15 @@ ActiveAdmin.register Judge do
   filter :division_name, as: :string
   filter :created_at
   filter :updated_at
+  
+  form do |f|
+    f.inputs do
+      f.input :user_id, :label => 'User', :as => :select, :collection => User.where(judge: true).map{|u| ["#{u.last_name}, #{u.first_name}", u.id]}
+      f.input :division
+      f.input :category
+    end
+    f.actions
+  end
   
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

@@ -2,6 +2,8 @@ ActiveAdmin.register Division do
 
   menu priority: 5
   
+  permit_params :name, :division_smallest, :division_largest, :description
+  
   index do
     column :id, sortable: :id do |division|
       link_to division.id, admin_division_path(division)

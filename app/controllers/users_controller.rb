@@ -66,8 +66,8 @@ class UsersController < ApplicationController
 
     # Whitelist for user parameters
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :suffix, :email, :email_confirmation, :phone,  :admin, :judge, :enabled, 
-      :reset_password_token, :reset_password_sent_at, :encrypted_password, :password_confirmation, :remember_created_at, :sign_in_count,
-      :current_sign_in_at, :last_sign_in_at, :current_sign_in_ip, :last_sign_in_ip)
+      params.require(:user).permit(:first_name, :last_name, :suffix, :email, :email_confirmation, :phone, :created_at, :updated_at, 
+      :admin, :judge, :enabled, :reset_password_token, :reset_password_sent_at, :encrypted_password, :password_confirmation,
+      :remember_created_at, :sign_in_count, :current_sign_in_at, :last_sign_in_at, :current_sign_in_ip, :last_sign_in_ip)
     end
 end
