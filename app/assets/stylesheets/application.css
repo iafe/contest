@@ -9,12 +9,10 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require select2
+ *= require select2-bootstrap
+ *= require bootstrap
  *= require_tree .
  */
 
  /* add required field asterisk */
-label.required:after {
-    content: " *";
-	color: #FF0000;
-	font-weight: bold;
-}

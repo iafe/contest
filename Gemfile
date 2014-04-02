@@ -76,3 +76,6 @@ gem 'select2-rails'
 
 # Sorts submission winners for first, second, third place
 gem 'ranked-model'
+
+# Installs bootstrap with SASS compatibility
+gem 'bootstrap-sass'

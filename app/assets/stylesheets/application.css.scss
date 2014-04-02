@@ -1,10 +1,3 @@
-@import "scaffolds";
+@import "bootstrap";
 @import "select2";
 @import "select2-bootstrap";
-
- /* add required field asterisk */
-label.required:after {
-    content: " *";
-	color: #FF0000;
-	font-weight: bold;
-}
