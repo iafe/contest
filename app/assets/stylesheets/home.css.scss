@@ -1,0 +1,11 @@
+@import "colors";
+
+.jumbotron {
+  background-color: $theme-color5;
+  
+  .logo {
+    float: left;
+    padding-right: 50px;
+    padding-bottom: 10px;
+  }
+}

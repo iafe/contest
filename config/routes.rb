@@ -7,11 +7,11 @@ Contest::Application.routes.draw do
     confirmation: 'verification', unlock: 'unblock', registration: 'register', sign_up: 'signup' }
   
   get "static_pages/home"
-  get "static_pages/about"
-  get "static_pages/rules"
-  get "static_pages/contact"
+  get "about", to: "static_pages#about"
+  get "rules", to: "static_pages#rules", controller: "static_pages", action: "rules"
+  get "contact", to: "static_pages#contact"
   root  "static_pages#home"
-  
+
   resources :score_details
   resources :score_items
   resources :scores

@@ -1,0 +1,42 @@
+@import 'text';
+
+.left {
+  float: left;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+
+.right {
+  float: right;
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+
+.clear {
+  clear: both;
+}
+
+.center {
+  text-align: center;
+}
+
+hr {
+  background-color: $theme-color4;
+  height: 2px;
+}
+
+blockquote {
+  background-color: $theme-color5;
+  padding:20px;
+
+  border-radius:20px;
+  border: none;
+  
+  h2 {
+    margin-top: 0px;
+  }
+  
+  p {
+    font-size: 14px;
+  }
+}

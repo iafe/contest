@@ -1,0 +1,23 @@
+@import "colors";
+
+.navbar {
+  background-color: $theme-color2;
+}
+
+.navbar-default .navbar-nav > li > a:link, .navbar-default .navbar-nav > li > a:visited {
+  background-color: $theme-color2;
+  color: #ffffff;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  background-color: $theme-color4;
+  color: #ffffff;
+}
+
+.navbar-header a:link, .navbar-header a:hover, .navbar-header a:active, .navbar-header a:visited, .navbar-header a:focus {
+  color: #ffffff !important;
+}
+
+.navbar-toggle {
+  background-color: #ffffff;
+}

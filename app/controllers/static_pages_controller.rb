@@ -6,6 +6,7 @@ class StaticPagesController < ApplicationController
   end
 
   def rules
+    @awards = Award.all
   end
 
   def contact

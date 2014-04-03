@@ -1,0 +1,47 @@
+@import "colors";
+
+.btn-default {
+  border: 0;
+  color: #FFFFFF;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.btn-default:link {
+  background-color: $theme-color3;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.btn-default:visited {
+  background-color: $theme-color3;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.btn-default:hover {
+  background-color: $theme-color2;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.btn-default:active {
+  background-color: $theme-color2;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+
+.btn-lg {
+  background-color: $theme-color3;
+  border: 0;
+  color: #FFFFFF;
+  text-align: center;
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+.btn-lg:hover {
+  background-color: $theme-color2;
+}

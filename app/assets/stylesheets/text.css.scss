@@ -1,0 +1,40 @@
+@import "colors";
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+
+$h1-font: 'Lobster', cursive;
+$h2-font: 'Arial', bold;
+
+h1 {
+  color: $theme-color3;
+  font-family: $h1-font;
+  font-size: 52px;
+}
+
+
+h2 {
+  color: $theme-color1;
+  font-family: $h2-font;
+  font-size: 32px;
+}
+
+p {
+  
+  a:link, a:hover, a:active, a:visited {
+  color: $theme-color2;
+  text-decoration: underline;
+  font-weight: bold;
+  }
+  
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}
