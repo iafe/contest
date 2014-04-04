@@ -1,6 +1,6 @@
 class Division < ActiveRecord::Base
   
-  has_many :submissions, dependent: :restrict
+  has_many :submissions, dependent: :restrict_with_exception
   has_many :judges
   
   validates :name, presence: true, length: { maximum: 20,  minimum: 4 }

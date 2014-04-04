@@ -26,7 +26,15 @@
       <ul class="nav navbar-nav">
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "About", about_path %></li>
-        <li><%= link_to "Contest Rules", rules_path %></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contest Rules<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <% @awards.each do |award| %>
+                <li><%= link_to award.name, award %></li>
+              <% end %>
+            </ul>
+        </li>
+        <li><%= link_to "How to Submit", instructions_path %></li>
         <li><%= link_to "Contact Us", contact_path %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">

@@ -2,8 +2,8 @@ class Organization < ActiveRecord::Base
   
   has_many :submissions
   has_many :users, through: :user_organizations
-  has_many :user_organizations, dependent: :restrict
-  has_many :organization_details, dependent: :restrict
+  has_many :user_organizations, dependent: :restrict_with_exception
+  has_many :organization_details, dependent: :restrict_with_exception
   
   validates :name, presence: true, length: { maximum: 80,  minimum: 3 }, uniqueness: { scope: :state_province, 
     message: "of your organization already exists in our database with the same state/province you have listed. Please check the listing 

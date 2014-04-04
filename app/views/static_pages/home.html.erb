@@ -1,47 +1,23 @@
- <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
         <img src="/images/template/logo.png" class="logo"/>
         <p>Each year, the IAFE conducts contests for its fair members, which recognize and reward excellence. All contests are judged by IAFE member representatives and professionals from respective fields.</p>
         <p><a class="btn btn-primary btn-lg" role="button">Learn More &raquo;</a>
-        	<a class="btn btn-primary btn-lg" role="button">Sign Up &raquo;</a></p>
-        <p>The deadline for the 2014 contest is October 3.</p>
+        	<a class="btn btn-primary btn-lg" role="button">Create an Account &raquo;</a></p>
+        <p>The deadline for the <%= Time.now.year %> contest is October 3.</p>
       </div>
     </div>
 
-    <div class="container">
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-md-4">
-          <h2>Agricultural Awards</h2>
-          <p>Sponsored by <a href="http://www.deere.com/en_US/deerecom/usa_canada.html" target="_blank">John Deere</a> - The Agricultural Awards Program has three main goals: to improve the agricultural education of fairs; to help fairs determine ways to be of service to both fair exhibitors and the fairgoing public; and to recognize fairs that provide outstanding agricultural education.</p>
-          <p><%= link_to "View Categories and Rules &raquo;".html_safe, rules_path, class: "btn btn-default", role: "button" %></p>
+    <div class="container"> 
+      <% @awards.in_groups_of(3, false).each do |group| %>
+        <div class="row">
+          <% group.each do |award| %>
+            <div class="col-md-4">
+              <h2><%= award.name %></h2>
+              <p><%= sanitize(award.description) %></p>
+              <p><%= link_to "View Categories and Rules &raquo;".html_safe, award, class: "btn btn-default", role: "button" %></p>
+            </div>
+          <% end %>
         </div>
-        <div class="col-md-4">
-          <h2>Competitive Exhibits Awards</h2>
-          <p>Sponsored by <a href="http://www.namidway.com/" target="_blank">North American Midway Entertainment</a> - Established in 1988, the Competitive Exhibits Contest recognizes excellence in competitive exhibit display methods and supplements the IAFE resource library by increasing the amount of helpful information available for members.</p>
-          <p><%= link_to "View Categories and Rules &raquo;".html_safe, rules_path, class: "btn btn-default", role: "button" %></p>
-       </div>
-        <div class="col-md-4">
-          <h2>Communications Awards</h2>
-          <p>Sponsored by <a href="http://www.kandkinsurance.com/Pages/Home.aspx" target="_blank">K & K Insurance</a> - Member fairs can submit their promotional campaigns, marketing materials, and advertising ideas in the Communications Awards Program. The purpose of this program is to improve the advertising and publicity programs of fairs and to provide recognition for those fairs doing an outstanding job.</p>
-          <p><%= link_to "View Categories and Rules &raquo;".html_safe, rules_path, class: "btn btn-default", role: "button" %></p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-          <h2>Innovation in Sponsorship Awards</h2>
-          <p>Sponsored by <a href="http://www.saffireevents.com/" target="_blank">Saffire Events</a> - The Innovation in Sponsorship Awards Program will recognize member fairs creating successful sponsorships in conjunction with their fair. The IAFE will share these sponsorship stories with our membership, allowing sponsorship professionals to learn from the successes of others.</p>
-          <p><%= link_to "View Categories and Rules &raquo;".html_safe, rules_path, class: "btn btn-default", role: "button" %></p>
-        </div>
-        <div class="col-md-4">
-          <h2>Communication Awards (State/Provincial)</h2>
-          <p>Sponsored by <a href="http://www.kandkinsurance.com/Pages/Home.aspx" target="_blank">K & K Insurance</a> - In recognition of state/provincial fair association excellence. The panel of judges will consist of member media and ad agency representatives in addition to the Advertising, Promotions, and Public Relations Committee members.</p>
-          <p><%= link_to "View Categories and Rules &raquo;".html_safe, rules_path, class: "btn btn-default", role: "button" %></p>
-       </div>
-        <div class="col-md-4">
-          <h2>Individual Recognition</h2>
-          <p>Sponsors include <a href="http://www.hwins.com/" target="_blank">Haas & Wilkerson</a> and <a href="http://www.staatsawards.com/" target="_blank">Staats</a> - The IAFE recognizes excellence of individuals through the Hall of Fame Award, Heritage Awards, Rising Star Award, State or Provincial Association Secretary/Executive of the Year Award, and CFE designation.</p>
-          <p><%= link_to "View Categories and Rules &raquo;".html_safe, rules_path, class: "btn btn-default", role: "button" %></p>
-        </div>
-      </div>
+      <% end %>    
+    </div>

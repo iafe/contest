@@ -3,7 +3,7 @@ class Category < ActiveRecord::Base
   belongs_to :award
   
   has_many :submissions
-  has_many :score_items, dependent: :restrict
+  has_many :score_items, dependent: :restrict_with_exception
   
   validates :name, presence: true, length: { maximum: 100,  minimum: 1 }
   validates :code, presence: true, length: { maximum: 3,  minimum: 1 }

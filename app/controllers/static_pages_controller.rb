@@ -1,15 +1,15 @@
 class StaticPagesController < ApplicationController
   def home
+    @awards = Award.all
   end
 
   def about
   end
 
-  def rules
-    @awards = Award.all
-  end
-
   def contact
+  end
+  
+  def instructions
   end
   
 end

@@ -6,10 +6,10 @@ Contest::Application.routes.draw do
   devise_for :users, path: "auth", path_names: { sign_in: 'signin', sign_out: 'signout', password: 'secret', 
     confirmation: 'verification', unlock: 'unblock', registration: 'register', sign_up: 'signup' }
   
-  get "static_pages/home"
+  get "home", to: "static_pages#home", controller: "static_pages", action: "home"
   get "about", to: "static_pages#about"
-  get "rules", to: "static_pages#rules", controller: "static_pages", action: "rules"
   get "contact", to: "static_pages#contact"
+  get "instructions", to: "static_pages#instructions"
   root  "static_pages#home"
 
   resources :score_details
