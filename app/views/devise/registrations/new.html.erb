@@ -1,4 +1,4 @@
-<h2>Sign up</h2>
+<div class="container"><h1>Create a New User Account</h1>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -78,7 +78,9 @@
 	<% end %>
   </div>
 
-  <div><%= f.submit "Sign up" %></div>
+  <div><p><%= f.submit "Sign up" %></p></div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+</div>

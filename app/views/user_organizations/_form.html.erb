@@ -26,13 +26,13 @@
     your primary organization." %><br>
     <%= collection_select(:user_organization, :organization_id, Organization.all, :id, :name_and_state, 
     include_blank: "Select your organization") %><br>
-	<%= link_to "Don't see your organization? Click here to add it first.", new_organization_path %>
+	<p><%= link_to "Don't see your organization? Click here to add it first.", new_organization_path %></p>
   </div>
   <div class="field">
     <%= f.label :primary, "Is this your primary organization for this contest site?" %><br>
     <%= f.check_box :primary, {checked: "checked"} %>
   </div>
   <div class="actions">
-    <%= f.submit "Link this org to your account" %>
+   <p> <%= f.submit "Link this org to your account" %></p>
   </div>
 <% end %>

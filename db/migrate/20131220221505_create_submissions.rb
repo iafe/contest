@@ -7,7 +7,7 @@ class CreateSubmissions < ActiveRecord::Migration
       t.integer :division_id
       t.integer :contest_year
       t.text :notes
-      t.boolean :approved
+      t.string :status
       t.boolean :physical_version_received
       t.boolean :digital_version_received
       t.boolean :disqualify

@@ -18,18 +18,15 @@ class Submission < ActiveRecord::Base
   validates :notes, length: { maximum: 500,  minimum: 4 }, allow_blank: true
   validates :user_id, presence: true
   validates :organization_id, presence: true
-  validates :category_id, presence: true, uniqueness: { scope: :contest_year, scope: :organization_id, 
-    message: "already has a submission for this year. Please choose a different category."  }
+  validates :category_id, presence: true
   validates :division_id, presence: true
   validates :status, presence: true
+  validates_uniqueness_of :category_id, scope: [:contest_year, :organization_id], unless: :multi_submit? == true, 
+    message: "already has a submission for this year. Please choose a different category."
   
   def calculate_final_score
     self.scores.average(:total_score)
   end
-  
-  include RankedModel
-  
-  ranks :calculate_final_score, with_same: :contest_year, with_same: :division_id, with_same: :category_id
   
   def winner?
     winners = Submission.select('distinct(category_id), AVG(scores.total_score) as avg_score').joins(:scores)
@@ -49,5 +46,14 @@ class Submission < ActiveRecord::Base
     #Submission.select('category_id, contest_year, division_id, AVG(scores.total_score) as calculate_final_score, 
     #dense_rank() over (partition by calculate_final_score) as rank').joins(:scores)
   #end
+  
+  private
+    def multi_submit?
+      if submission.category.accepts_multiple_submissions == true
+        return true
+      else
+        return false
+      end
+    end
 
 end

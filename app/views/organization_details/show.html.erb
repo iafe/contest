@@ -1,8 +1,8 @@
-<p id="notice"><%= notice %></p>
+<div class="container"><p id="notice"><%= notice %></p>
 
 <p>
   <strong>Organization:</strong>
-  <%= @organization_detail.organization_id %>
+  <%= @organization_detail.organization.name %>
 </p>
 
 <p>
@@ -20,5 +20,6 @@
   <%= @organization_detail.total_attendance %>
 </p>
 
-<%= link_to 'Edit', edit_organization_detail_path(@organization_detail) %> |
-<%= link_to 'Back', organization_details_path %>
+<p><%= link_to 'Edit', edit_organization_detail_path(@organization_detail) %> | <%= link_to 'Continue to My Submissions', submissions_path %></p>
+
+</div>

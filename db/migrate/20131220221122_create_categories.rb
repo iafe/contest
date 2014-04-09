@@ -7,7 +7,9 @@ class CreateCategories < ActiveRecord::Migration
       t.integer :document_max_number
       t.integer :photo_max_number
       t.integer :video_max_number
+      t.integer :link_max_number
       t.integer :max_total_file_size
+      t.string :submission_file_type
       t.text :description
       t.text :rules
       t.boolean :enabled

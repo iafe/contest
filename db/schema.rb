@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140318171204) do
+ActiveRecord::Schema.define(version: 20140409170717) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -46,14 +46,15 @@ ActiveRecord::Schema.define(version: 20140318171204) do
     t.integer  "document_max_number"
     t.integer  "photo_max_number"
     t.integer  "video_max_number"
+    t.integer  "link_max_number"
     t.integer  "max_total_file_size"
+    t.string   "submission_file_type"
     t.text     "description"
     t.text     "rules"
     t.boolean  "enabled"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "link_max_number"
-    t.string   "submission_file_type"
+    t.boolean  "accepts_multiple_submissions"
   end
 
   create_table "divisions", force: true do |t|
@@ -100,14 +101,6 @@ ActiveRecord::Schema.define(version: 20140318171204) do
 
   add_index "organizations", ["name", "state_province"], name: "index_organizations_on_name_and_state_province", unique: true
 
-  create_table "score_details", force: true do |t|
-    t.integer  "score_id"
-    t.integer  "points"
-    t.integer  "score_item_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "score_items", force: true do |t|
     t.string   "name"
     t.text     "description"
@@ -145,12 +138,12 @@ ActiveRecord::Schema.define(version: 20140318171204) do
     t.integer  "division_id"
     t.integer  "contest_year"
     t.text     "notes"
+    t.string   "status"
     t.boolean  "physical_version_received"
     t.boolean  "digital_version_received"
     t.boolean  "disqualify"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "status"
   end
 
   add_index "submissions", ["organization_id", "category_id", "contest_year"], name: "index_submissions_on_organization_id", unique: true
@@ -171,8 +164,6 @@ ActiveRecord::Schema.define(version: 20140318171204) do
     t.boolean  "admin"
     t.boolean  "judge"
     t.boolean  "enabled"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -183,6 +174,8 @@ ActiveRecord::Schema.define(version: 20140318171204) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -3,7 +3,7 @@ class CreateScores < ActiveRecord::Migration
     create_table :scores do |t|
       t.integer :user_id
       t.integer :submission_id
-      t.integer :total_score
+      t.decimal :total_score, precision: 5, scale: 2
       t.text :comments
       t.boolean :disqualify
 

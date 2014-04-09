@@ -1,3 +1,3 @@
 # Be sure to restart your server when you modify this file.
 
-Contest::Application.config.session_store :cookie_store, key: '_contest_session'
+RachelMundhenke::Application.config.session_store :cookie_store, key: '_Rachel Mundhenke_session'

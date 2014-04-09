@@ -30,10 +30,10 @@
   </div>
   <div class="field">
     <%= f.label :total_attendance, "Total Attendance (Free & Paid Combined)" %><br>
-    Please enter in a whole number with no commas.<br>
+    <span class="italic">Please enter in a whole number with no commas.</span><br>
     <%= f.text_field :total_attendance %>
   </div>
-  <div class="actions">
-    <%= f.submit "Submit Dates and Attendance" %>
+  <div class="actions"><br/>
+    <p><%= f.submit "Submit Dates and Attendance" %></p>
   </div>
 <% end %>

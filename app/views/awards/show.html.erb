@@ -30,7 +30,11 @@
 			</div>
 			<% @award.categories.sort_by_category_codes(Category.all).each do |category| %>
 				<% if category.award_id == @award.id %>
-					<div id="div<%= category.id %>" class="idDiv"><%= sanitize(category.rules) %></div>
+					<div id="div<%= category.id %>" class="idDiv">
+						<h3><%= category.name %></h3>
+						<%= sanitize(category.description) %>
+						<h3>Submission Rules</h3>
+						<%= sanitize(category.rules) %></div>
 				<% end %>
 			<% end %>
 		</div>

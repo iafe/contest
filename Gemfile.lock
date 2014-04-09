@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/gregbell/active_admin.git
-  revision: 3fb7f03335b1ec5743c305f2c37103e2bfface97
+  revision: 76db61e9c9f8d2009a37fdb17a84dc85ef87922f
   specs:
     activeadmin (1.0.0.pre)
       arbre (~> 1.0)
@@ -46,8 +46,7 @@ GEM
     addressable (2.3.5)
     arbre (1.0.1)
       activesupport (>= 3.0.0)
-    arel (4.0.1)
-    atomic (1.1.14)
+    arel (4.0.2)
     auto_html (1.6.1)
       redcarpet (~> 2.0)
       rinku (~> 1.5.0)
@@ -56,7 +55,6 @@ GEM
       nokogiri (>= 1.4.4)
       uuidtools (~> 2.1)
     bcrypt (3.1.7-x86-mingw32)
-    bcrypt-ruby (3.1.2-x86-mingw32)
     bootstrap-sass (3.1.1.0)
       sass (~> 3.2)
     bourbon (3.1.8)
@@ -73,7 +71,7 @@ GEM
     coffee-script (2.2.0)
       coffee-script-source
       execjs
-    coffee-script-source (1.6.3)
+    coffee-script-source (1.7.0)
     country_select (1.2.0)
     devise (3.2.4)
       bcrypt (~> 3.0)
@@ -96,10 +94,10 @@ GEM
     inherited_resources (1.4.1)
       has_scope (~> 0.6.0.rc)
       responders (~> 1.0.0.rc)
-    jbuilder (1.5.2)
+    jbuilder (1.5.3)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
-    jquery-rails (3.0.4)
+    jquery-rails (3.1.0)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (4.2.0)
@@ -118,7 +116,7 @@ GEM
     mime-types (1.25.1)
     mini_portile (0.5.2)
     minitest (4.7.5)
-    multi_json (1.8.4)
+    multi_json (1.9.2)
     nokogiri (1.6.1-x86-mingw32)
       mini_portile (~> 0.5.0)
     orm_adapter (0.5.0)
@@ -129,7 +127,7 @@ GEM
       mime-types
     polyamorous (0.6.4)
       activerecord (>= 3.0)
-    polyglot (0.3.3)
+    polyglot (0.3.4)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -146,14 +144,12 @@ GEM
       activesupport (= 4.0.1)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
-    rake (10.1.0)
-    ranked-model (0.4.0)
-      activerecord (>= 3.1.12)
+    rake (10.2.2)
     ransack (1.1.0)
       actionpack (>= 3.0)
       activerecord (>= 3.0)
       polyamorous (~> 0.6.0)
-    rdoc (3.12.2)
+    rdoc (4.1.1)
       json (~> 1.4)
     redcarpet (2.3.0)
     responders (1.0.0)
@@ -161,17 +157,18 @@ GEM
     rinku (1.5.1)
     sanitize (2.1.0)
       nokogiri (>= 1.4.4)
-    sass (3.2.12)
-    sass-rails (4.0.1)
+    sass (3.2.19)
+    sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
-      sass (>= 3.1.10)
-      sprockets-rails (~> 2.0.0)
-    sdoc (0.3.20)
-      json (>= 1.1.3)
-      rdoc (~> 3.10)
+      sass (~> 3.2.0)
+      sprockets (~> 2.8, <= 2.11.0)
+      sprockets-rails (~> 2.0)
+    sdoc (0.4.0)
+      json (~> 1.8)
+      rdoc (~> 4.0, < 5.0)
     select2-rails (3.5.4)
       thor (~> 0.14)
-    sprockets (2.10.0)
+    sprockets (2.11.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
@@ -180,18 +177,17 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
-    sqlite3 (1.3.8-x86-mingw32)
-    thor (0.18.1)
-    thread_safe (0.1.3)
-      atomic
+    sqlite3 (1.3.9-x86-mingw32)
+    thor (0.19.1)
+    thread_safe (0.3.3)
     tilt (1.4.1)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    turbolinks (1.3.0)
+    turbolinks (2.2.2)
       coffee-rails
-    tzinfo (0.3.38)
-    uglifier (2.3.1)
+    tzinfo (0.3.39)
+    uglifier (2.5.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
     uuidtools (2.1.4)
@@ -205,18 +201,15 @@ DEPENDENCIES
   activeadmin!
   auto_html
   aws-sdk
-  bcrypt-ruby (~> 3.1.2)
   bootstrap-sass
   coffee-rails (~> 4.0.0)
   country_select
-  devise
   figaro
   jbuilder (~> 1.2)
   jquery-rails
   letter_opener
   paperclip
   rails (= 4.0.1)
-  ranked-model
   sanitize
   sass-rails (~> 4.0.0)
   sdoc

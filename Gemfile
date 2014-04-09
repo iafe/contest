@@ -33,7 +33,7 @@ group :doc do
 end
 
 # Use ActiveModel has_secure_password
-  gem 'bcrypt-ruby', '~> 3.1.2'
+# gem 'bcrypt-ruby', '~> 3.1.2'
 
 # Use unicorn as the app server
 # gem 'unicorn'
@@ -43,6 +43,11 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# The admin dashboard functionality, also installs formtastic, jquery-ui-rails, kaminari, polyamorous, and ransack (and devise)
+# Puts an email field in the user table, do not create a new user's table, use this instead and add extra fields to the generated migration
+# Move the generated css file into vendor assets
+gem 'activeadmin', github: 'gregbell/active_admin'
 
 # Country-select dropdown
 gem 'country_select'
@@ -62,20 +67,11 @@ gem 'aws-sdk'
 # Transforms YouTube links into embeddable content
 gem 'auto_html'
 
-# User sign in/sign out/sign up/confirmation/password retrieval/remember token logic
-gem 'devise'
-
 # Test e-mail in development environment (opens in browser instead)
 gem 'letter_opener', group: :development
 
-# The admin dashboard functionality, also installs formtastic, jquery-ui-rails, kaminari, polyamorous, and ransack (and devise)
-gem 'activeadmin', github: 'gregbell/active_admin'
-
 # Searches for belongs_to relationships via a drop-down form
 gem 'select2-rails'
-
-# Sorts submission winners for first, second, third place
-gem 'ranked-model'
 
 # Installs bootstrap with SASS compatibility
 gem 'bootstrap-sass'

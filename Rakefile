@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Contest::Application.load_tasks
+RachelMundhenke::Application.load_tasks

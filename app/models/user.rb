@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
-  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
   
   has_many :submissions
   has_many :scores
@@ -32,5 +32,4 @@ class User < ActiveRecord::Base
   def first_last_email
     "#{last_name}, #{first_name} - #{email}"
   end
-
 end

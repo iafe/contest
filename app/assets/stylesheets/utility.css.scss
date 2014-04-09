@@ -40,3 +40,11 @@ blockquote {
     font-size: 14px;
   }
 }
+
+#error_explanation {
+  border: 3px #FF0000 solid;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #FF0000;
+  font-weight: bold;
+}

@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Contest::Application.config.secret_key_base = 'cdf6dae60e1424dbcb82b20c5a1e5936204504b247f8d729762541f8d5b52eedafcd28da1226f6e29c27501f23bc24940fa190231fd5627a5cec6582dad73bfe'
+RachelMundhenke::Application.config.secret_key_base = 'c42db6063a3f7e52473e55a959c74e2017e67772be99d20bb43a105b0622193f61e02e4bc3bc4e4c7514b60646ee79618df6aa1a7b4d4320f50c5187e7b7dd7f'

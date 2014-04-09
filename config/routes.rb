@@ -1,10 +1,11 @@
-Contest::Application.routes.draw do
+RachelMundhenke::Application.routes.draw do
   
   ActiveAdmin.routes(self)
   
-  #devise_for :users
+  # devise_for :users
   devise_for :users, path: "auth", path_names: { sign_in: 'signin', sign_out: 'signout', password: 'secret', 
-    confirmation: 'verification', unlock: 'unblock', registration: 'register', sign_up: 'signup' }
+    confirmation: 'verification', unlock: 'unblock', registration: 'register', sign_up: 'signup' }, 
+    :controllers => { :registrations => "registrations" }
   
   get "home", to: "static_pages#home", controller: "static_pages", action: "home"
   get "about", to: "static_pages#about"
@@ -34,13 +35,6 @@ Contest::Application.routes.draw do
   resources :categories do
     resources :score_items
   end
-  
-  #resources :sessions, only: [:new, :create, :destroy]
-  
-  #match '/signup',           to: 'users#new',         via: 'get'
-  #match '/signin',           to: 'sessions#new',      via: 'get'
-  #match '/signout',          to: 'sessions#destroy',  via: 'delete'
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

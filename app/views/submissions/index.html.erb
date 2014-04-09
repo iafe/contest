@@ -1,4 +1,14 @@
-<h1>Listing submissions</h1>
+<div class="container">
+	
+<h1>My Submissions</h1>
+
+<%= link_to 'Create a New Submission', new_submission_path, class: "btn btn-default", role: "button" %> <%= link_to 'Add Fair Dates/Attendance', new_organization_detail_path, class: "btn btn-default", role: "button" %>
+
+<% current_user.user_organizations.each do |user_organization| %>
+	<% if user_organization.organization.organization_details.order('created_at DESC').first.created_at.year == Time.now.year %>
+		<p><%= user_organization.organization.name %> has updated its fair dates/attendance for the <%= Time.now.year %> contest. Its dates are <%= user_organization.organization.organization_details.order('created_at DESC').first.fair_start_date %> - <%= user_organization.organization.organization_details.order('created_at DESC').first.fair_end_date %> and its attendance is <%= user_organization.organization.organization_details.order('created_at DESC').first.total_attendance %>, putting it under <%= user_organization.organization.submission_division %> for this year's contest.</p>
+	 <% else %> Nothing entered!<% end %>
+<% end %>
 
 <table>
   <thead>
@@ -51,4 +61,4 @@
 
 <br>
 
-<%= link_to 'New Submission', new_submission_path %>
+</div>
