@@ -61,7 +61,7 @@ class SubmissionDetailsController < ApplicationController
     @submission_detail.attachment = nil
     @submission_detail.destroy
     respond_to do |format|
-      format.html { redirect_to submission_details_url }
+      format.html { redirect_to submissions_url }
       format.json { head :no_content }
     end
   end

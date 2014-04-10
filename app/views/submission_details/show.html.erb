@@ -1,15 +1,15 @@
+<div class="container">
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Submission:</strong>
-  <%= @submission_detail.submission_id %>
-</p>
+<p>Click the thumbnail or link to view fullsize:</p>
 
-<p>
-  <strong>File url:</strong>
-  <%= @submission_detail.file_url %>
-</p>
+<% if @submission_detail.submission.category.submission_file_type == "URL Link Only" || @submission_detail.submission.category.submission_file_type == "Video Only" %>
+  <p><%= link_to 'Submission Link', @submission_detail.file_url, target: "_blank" %></p>
+<% else %>
+  <p><%= link_to image_tag(@submission_detail.attachment.url(:thumb)), @submission_detail.attachment.url(:original), target: "_blank" %></p>
+<% end %>
 
-<%= link_to 'Edit', edit_submission_detail_path(@submission_detail) %> |
-<%= link_to 'Back', submission_details_path %> | 
-<%= link_to 'Upload Another Submission Document', new_submission_submission_detail_path(@submission) %>
+<p><%= link_to 'Edit', edit_submission_submission_detail_path %> | <%= link_to 'Delete', @submission_detail, method: :delete, data: { confirm: 'Are you sure?' } %> | <%= link_to 'Back to My Submissions', submissions_path %> | <%= link_to 'Upload Another Submission Document', new_submission_submission_detail_path(@submission) %></p>
+
+</div>

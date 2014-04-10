@@ -21,7 +21,7 @@ class Submission < ActiveRecord::Base
   validates :category_id, presence: true
   validates :division_id, presence: true
   validates :status, presence: true
-  validates_uniqueness_of :category_id, scope: [:contest_year, :organization_id], unless: :multi_submit? == true, 
+  validates_uniqueness_of :category_id, scope: [:contest_year, :organization_id], unless: :multi_submit?, 
     message: "already has a submission for this year. Please choose a different category."
   
   def calculate_final_score
@@ -49,7 +49,7 @@ class Submission < ActiveRecord::Base
   
   private
     def multi_submit?
-      if submission.category.accepts_multiple_submissions == true
+      if self.category.accepts_multiple_submissions == true
         return true
       else
         return false

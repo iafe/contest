@@ -78,6 +78,22 @@ ActiveAdmin.register Submission do
     column("Winner?")  { |submission| submission.winner? }
   end
   
+  form do |f|
+    f.inputs do
+      f.input :category_id, as: :select, :collection => Category.where(enabled: true).map{|c| ["#{c.award.name} #{c.code}: #{c.name}", c.id]}
+      f.input :organization_id, label: "Organization ID"
+      f.input :user_id, label: "User ID"
+      f.input :division_id, label: "Division ID"
+      f.input :contest_year
+      f.input :status, as: :select, :collection => ["Incomplete", "Pending", "Approved", "Rejected"]
+      f.input :notes
+      f.input :physical_version_received, as: :select
+      f.input :digital_version_received, as: :select
+      f.input :disqualify, as: :select
+    end
+    f.actions
+  end
+  
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #

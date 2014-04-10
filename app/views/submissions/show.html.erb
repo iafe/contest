@@ -1,23 +1,23 @@
-<p id="notice"><%= notice %></p>
+<div class="container"><p id="notice"><%= notice %></p>
 
 <p>
   <strong>Category:</strong>
-  <%= @submission.category_id %>
+  <%= @submission.category.award.name %> <%= @submission.category.code %>: <%= @submission.category.name %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @submission.user_id %>
+  <%= @submission.user.first_name %> <%= @submission.user.last_name %>
 </p>
 
 <p>
   <strong>Organization:</strong>
-  <%= @submission.organization_id %>
+  <%= @submission.organization.name %>
 </p>
 
 <p>
   <strong>Division:</strong>
-  <%= @submission.division_id %>
+  <%= @submission.division.name %>
 </p>
 
 <p>
@@ -25,31 +25,6 @@
   <%= @submission.contest_year %>
 </p>
 
-<p>
-  <strong>Notes:</strong>
-  <%= @submission.notes %>
-</p>
+<p><%= link_to 'Next: Upload Submission Document', new_submission_submission_detail_path(@submission), class: "btn btn-default", role: "button" %></p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @submission.status %>
-</p>
-
-<p>
-  <strong>Physical version received:</strong>
-  <%= @submission.physical_version_received %>
-</p>
-
-<p>
-  <strong>Digital version received:</strong>
-  <%= @submission.digital_version_received %>
-</p>
-
-<p>
-  <strong>Disqualify:</strong>
-  <%= @submission.disqualify %>
-</p>
-
-<%= link_to 'Edit', edit_submission_path(@submission) %> |
-<%= link_to 'Back', submissions_path %> | 
-<%= link_to 'Upload Submission Document', new_submission_submission_detail_path(@submission) %>
+</div>

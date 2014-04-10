@@ -12,6 +12,12 @@ class SubmissionDetail < ActiveRecord::Base
   
   validates :submission_id, presence: true
   
+  validate on: :create do
+    if submission.submission_details.size >= submission.category.document_max_number
+      errors.add :base, ("You have submitted more documents to this entry than what is allowed under this category. Please delete another attachment currently saved to this submission before uploading additional items.")
+    end
+  end
+  
   has_attached_file :attachment, styles: {
     thumb: ['200x200>', :jpg]
   }

@@ -27,66 +27,26 @@
   </div>
   <div class="field">
   <% if params[:action] == 'new' || params[:action] == 'create' %>
-    <%= f.hidden_field :notes %>
-  <% else %>
-    <% if current_user.admin == true %>
-      <div class="field">
-        <%= f.label :notes %><br>
-        <%= f.text_area :notes, size: "30x10" %>
-      </div>
-    <% else %>
-      <%= f.hidden_field :notes, value: :notes %>
-    <% end %>
-  <% end %>
-  <% if params[:action] == 'new' || params[:action] == 'create' %>
     <%= f.hidden_field :status, value: "Incomplete" %>
   <% else %>
-    <% if current_user.admin == true %>
-      <div class="field">
-        <%= f.label :status, "Status" %><br>
-        <%= f.select :status, options_for_select([ "Incomplete", "Pending", "Approved", "Rejected" ]), include_blank: "Change the submission's status" %>
-      </div>
-    <% else %>
       <%= f.hidden_field :status, value: :status %>
-    <% end %>
   <% end %>
   <% if params[:action] == 'new' || params[:action] == 'create' %>
     <%= f.hidden_field :physical_version_received, value: false %>
   <% else %>
-    <% if current_user.admin == true %>
-      <div class="field">
-        <%= f.label :physical_version_received, "Physical version received?" %><br>
-        <%= f.check_box :physical_version_received %>
-      </div>
-    <% else %>
-      <%= f.hidden_field :physical_version_received, value: :physical_version_received %>
-    <% end %>
+    <%= f.hidden_field :physical_version_received, value: :physical_version_received %>
   <% end %>
   <% if params[:action] == 'new' || params[:action] == 'create' %>
     <%= f.hidden_field :digital_version_received, value: false %>
   <% else %>
-    <% if current_user.admin == true %>
-      <div class="field">
-        <%= f.label :digital_version_received, "Digital version received?" %><br>
-        <%= f.check_box :digital_version_received %>
-      </div>
-    <% else %>
-      <%= f.hidden_field :digital_version_received, value: :digital_version_received %>
-    <% end %>
+    <%= f.hidden_field :digital_version_received, value: :digital_version_received %>
   <% end %>
   <% if params[:action] == 'new' || params[:action] == 'create' %>
     <%= f.hidden_field :disqualify, value: false %>
   <% else %>
-    <% if current_user.admin == true %>
-      <div class="field">
-        <%= f.label :disqualify, "Disqualify?" %><br>
-        <%= f.check_box :disqualify %>
-      </div>
-    <% else %>
-      <%= f.hidden_field :disqualify, value: :disqualify %>
-    <% end %>
+    <%= f.hidden_field :disqualify, value: :disqualify %>
   <% end %>
   <div class="actions">
-    <%= f.submit "Next: Upload Contest Documents" %>
+    <p><%= f.submit "Next: Upload Document(s)" %></p>
     </div>
 <% end %>

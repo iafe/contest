@@ -31,8 +31,9 @@
       <%= f.label :attachment %><br />
       <%= f.file_field :attachment %>
     </div>
-  <% end %>
+  <% end %><br/>
+  <p class="bold ">Note: if you are submitting multiple documents for one submission, please submit them in the order you want the judges to view them.</p>
   <div class="actions">
-    <%= f.submit %>
+    <p><%= f.submit "Upload New Document/Link" %></p>
   </div>
 <% end %>
