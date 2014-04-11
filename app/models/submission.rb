@@ -22,7 +22,7 @@ class Submission < ActiveRecord::Base
   validates :division_id, presence: true
   validates :status, presence: true
   validates_uniqueness_of :category_id, scope: [:contest_year, :organization_id], unless: :multi_submit?, 
-    message: "already has a submission for this year. Please choose a different category."
+    message: "already has a submission for this year. Please choose a different category. Note: it is possible a different user within your organization already submitted an entry for this category, please check or call the IAFE office."
   
   def calculate_final_score
     self.scores.average(:total_score)

@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     if @user.save
         sign_in @user
         flash[:success] = "Account successfully created!"
-        redirect_to new_user_organization_path(@user_organization)
+        redirect_to new_user_organization_path(@user_organization), notice: 'User was successfully created.'
     else
       render 'new'
     end

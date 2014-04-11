@@ -13,8 +13,12 @@
   
   <div class="field">
     <%= f.label :category_id %><br>
-    <%= collection_select(:submission, :category_id, Category.sort_by_category_codes(Category.all), :id, :award_code_category,
+    <% if params[:action] == 'new' || params[:action] == 'create' %>
+      <%= collection_select(:submission, :category_id, Category.sort_by_category_codes(Category.all), :id, :award_code_category,
       include_blank: "Select the category you wish to enter") %>
+    <% else %>
+      <%= @submission.category.award.name %> <%= @submission.category.code %>: <%= @submission.category.name %>
+    <% end %>
   </div>
   <div class="field">
   	<%= f.label :user_id, "Submitted By" %><br>
@@ -47,6 +51,10 @@
     <%= f.hidden_field :disqualify, value: :disqualify %>
   <% end %>
   <div class="actions">
-    <p><%= f.submit "Next: Upload Document(s)" %></p>
+    <% if params[:action] == 'new' || params[:action] == 'create' %>
+      <p><%= f.submit "Next: Upload New Document/Link" %></p>
+    <% else %>
+      <p><%= f.submit "Submit" %></p>
+    <% end %>
     </div>
 <% end %>

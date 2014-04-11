@@ -18,9 +18,7 @@ class SubmissionDetail < ActiveRecord::Base
     end
   end
   
-  has_attached_file :attachment, styles: {
-    thumb: ['200x200>', :jpg]
-  }
+  has_attached_file :attachment, styles: {thumb: ['200x200>', :jpg]}, convert_options: { all: '-flatten -background white'}
   
   validates_presence_of :attachment, if: :nonlink?
   

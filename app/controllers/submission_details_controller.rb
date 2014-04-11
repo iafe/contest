@@ -44,9 +44,10 @@ class SubmissionDetailsController < ApplicationController
   # PATCH/PUT /submission_details/1
   # PATCH/PUT /submission_details/1.json
   def update
+    @submission = Submission.find(params[:submission_id])
     respond_to do |format|
       if @submission_detail.update(submission_detail_params)
-        format.html { redirect_to @submission_detail, notice: 'Submission detail was successfully updated.' }
+        format.html { redirect_to submission_submission_detail_path(@submission, @submission_detail), notice: 'Submission detail was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
