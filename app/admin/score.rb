@@ -29,6 +29,17 @@ ActiveAdmin.register Score do
   filter :created_at
   filter :updated_at
   
+  form do |f|
+    f.inputs do
+      f.input :user_id, :label => 'Judge', :as => :select, :collection => User.where(judge: true).map{|u| ["#{u.last_name}, #{u.first_name}", u.id]}
+      f.input :submission_id, :label => 'Submission ID'
+      f.input :total_score
+      f.input :comments
+      f.input :disqualify, as: :select, label: "Disqualify?"
+    end
+    f.actions
+  end
+  
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #

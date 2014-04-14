@@ -1,4 +1,14 @@
-<h1>Listing scores</h1>
+<div class="container">
+	
+	<h1>Judge Dashboard</h1>
+
+<% current_user.judges.each do |judge| %>
+  <% @submissions.each do |submission| %>
+    <% if submission.category_id == judge.category_id && submission.division_id == judge.division_id && submission.contest_year == Time.now.year && submission.status == 'Approved' %>
+      <p><%= submission.category.name %></p>
+    <% end %>
+  <% end %>
+<% end %>
 
 <table>
   <thead>
@@ -32,4 +42,6 @@
 
 <br>
 
-<%= link_to 'New Score', new_score_path %>
+<p><%= link_to 'New Score', new_score_path %></p>
+
+</div>

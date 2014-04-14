@@ -42,10 +42,11 @@
     <%= f.label :total_score %><br>
     Please denote fractions as .25, .5, or .75<br/>
     <%= f.text_field :total_score, size: 5 %> (Out of <%= @submission.category.score_items.sum(:max_points) %>)<br/><br/>
-    Score item breakdown - add each item for total score:<br/>
+    <p class="bold">Score item breakdown - add each item for total score:</p>
+    <ul>
     <% @submission.category.score_items.each do |score_item| %>
-      <%= score_item.name %>: <%= score_item.max_points %> points<br/>
-    <% end %>
+      <li><%= score_item.name %>: <%= score_item.max_points %> points</li>
+    <% end %></ul>
   </div>
   <div class="field">
     <%= f.label :comments %><br>
@@ -56,6 +57,6 @@
     <%= f.check_box :disqualify %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <p><%= f.submit %></p>
   </div>
 <% end %>

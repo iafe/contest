@@ -49,6 +49,10 @@
                 <li class="divider"></li>
                 <li><%= link_to "Admin Dashboard", admin_root_path %></li>
               <% end %>
+              <% if current_user.judge? == true %>
+                <li class="divider"></li>
+                <li><%= link_to "Judge Dashboard", scores_path %></li>
+              <% end %>
               <li class="divider"></li>
               <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
             </ul>

@@ -5,6 +5,7 @@ class ScoresController < ApplicationController
   # GET /scores.json
   def index
     @scores = Score.all
+    @submissions = Submission.all
   end
 
   # GET /scores/1

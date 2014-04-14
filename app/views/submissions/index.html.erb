@@ -28,7 +28,7 @@
 <% current_user.submissions.group([:contest_year, :organization_id]).each do |contest| %>
   <div class="submissionheading"><h2><%= contest.contest_year %>: <%= contest.organization.name %></h2></div>
   <% current_user.submissions.in_groups_of(3, false).each do |group| %>
-    <div class="row" style="display: block; height: 100%%;">
+    <div class="row">
     <% group.each do |submission| %>
       <div class="col-md-4">
       <p class="bold"><%= submission.category.award.name %> <%= submission.category.code %>: <%= submission.category.name %></p>
@@ -45,7 +45,7 @@
       <p><%= link_to 'Add Digital File', new_submission_submission_detail_path(submission) %> | <%= link_to 'Delete Submission', submission, method: :delete, data: { confirm: 'Are you sure?' } %></p>
       </div>
     <% end %>
-  </div>
+  </div><br/>
   <% end %>
 <% end %>
 
