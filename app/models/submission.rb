@@ -42,11 +42,6 @@ class Submission < ActiveRecord::Base
     end
   end
   
-  #def winner?
-    #Submission.select('category_id, contest_year, division_id, AVG(scores.total_score) as calculate_final_score, 
-    #dense_rank() over (partition by calculate_final_score) as rank').joins(:scores)
-  #end
-  
   private
     def multi_submit?
       if self.category.accepts_multiple_submissions == true

@@ -1,13 +1,25 @@
+<div class="container">
+
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>User:</strong>
-  <%= @score.user_id %>
+  <strong>Judge:</strong>
+  <%= @score.user.first_name %> <%= @score.user.last_name %>
 </p>
 
 <p>
-  <strong>Submission:</strong>
-  <%= @score.submission_id %>
+  <strong>Category:</strong>
+  <%= @score.submission.category.award.name %> <%= @score.submission.category.code %>: <%= @score.submission.category.name %>
+</p>
+
+<p>
+  <strong>Organization:</strong>
+  <%= @score.submission.organization.name %>
+</p>
+
+<p>
+  <strong>Division:</strong>
+  <%= @score.submission.division.name %>
 </p>
 
 <p>
@@ -25,5 +37,6 @@
   <%= @score.disqualify %>
 </p>
 
-<%= link_to 'Edit', edit_score_path(@score) %> |
-<%= link_to 'Back', scores_path %>
+<p><%= link_to 'Return to Your Judging Dashboard', scores_path %></p>
+
+</div>

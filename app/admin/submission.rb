@@ -36,9 +36,6 @@ ActiveAdmin.register Submission do
     column "Score" do |submission|
       submission.calculate_final_score
     end
-    column "Winner?" do |submission|
-      submission.winner?
-    end
   end
   
   filter :category

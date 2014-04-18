@@ -14,10 +14,11 @@
 	
 <h1>My Submissions</h1>
 
+<p><%= link_to 'Create a New Submission', new_submission_path, class: "btn btn-default", role: "button" %></p>
+
 <% current_user.user_organizations.each do |user_organization| %>
   <% if user_organization.organization.fair == true %>
 	<% if user_organization.organization.submission_division != '' %>
-	  <p><%= link_to 'Create a New Submission', new_submission_path, class: "btn btn-default", role: "button" %></p>
 	  <p class="bold"><span class="italic"><%= user_organization.organization.name %></span> has updated its fair dates/attendance for the <%= Time.now.year %> contest. Its dates are <%= user_organization.organization.organization_details.order('created_at DESC').first.fair_start_date.to_formatted_s(:long)  %> - <%= user_organization.organization.organization_details.order('created_at DESC').first.fair_end_date.to_formatted_s(:long)  %> and its attendance is <%= user_organization.organization.organization_details.order('created_at DESC').first.total_attendance %>, putting it under Division <%= user_organization.organization.submission_division %> for this year's contest. <%= link_to 'Edit these dates/attendance', edit_organization_detail_path(user_organization.organization.organization_details.order('created_at DESC').first) %></p>
 	 <% else %>
 	   <p class="important">Total attendance/fair dates for the <%= user_organization.organization.name %> has not been inputted for the <%= Time.now.year %> contest. <%= link_to 'Add fair dates/attendance now.', new_organization_detail_path %></p>
@@ -25,24 +26,40 @@
   <% end %>
 <% end %>
 
-<% current_user.submissions.group([:contest_year, :organization_id]).each do |contest| %>
+<% current_user.submissions.group([:contest_year, :organization_id]).order('contest_year DESC').each do |contest| %>
   <div class="submissionheading"><h2><%= contest.contest_year %>: <%= contest.organization.name %></h2></div>
-  <% current_user.submissions.in_groups_of(3, false).each do |group| %>
+  <% current_user.submissions.order('created_at DESC').where(organization_id: contest.organization_id, contest_year: contest.contest_year).in_groups_of(3, false) do |group| %>
     <div class="row">
     <% group.each do |submission| %>
       <div class="col-md-4">
-      <p class="bold"><%= submission.category.award.name %> <%= submission.category.code %>: <%= submission.category.name %></p>
-      <p>Submitted By: <%= submission.user.first_name %> <%= submission.user.last_name %></p>
-      <p>Uploaded Documents/Links (click image/link to edit/view):</p>
-      <p><% if submission.submission_details.count > 1 %><div class="slider"><% end %>
-      <% submission.submission_details.each do |submission_detail| %>
-        <% if submission.category.submission_file_type == "URL Link Only" || submission.category.submission_file_type == "Video Only" %>
-          <%= link_to 'Submission Link', submission_submission_detail_path(submission_id: submission.id, id: submission_detail.id) %>
-        <% else %>
-          <div class="slide"><%= link_to image_tag(submission_detail.attachment.url(:thumb)), submission_submission_detail_path(submission_id: submission.id, id: submission_detail.id) %></div>
-        <% end %>
-      <% end %><% if submission.submission_details.count > 1 %></div><% end %></p>
-      <p><%= link_to 'Add Digital File', new_submission_submission_detail_path(submission) %> | <%= link_to 'Delete Submission', submission, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+          <p class="bold"><%= submission.category.award.name %> <%= submission.category.code %>: <%= submission.category.name %></p>
+          <p>Submitted By: <%= submission.user.first_name %> <%= submission.user.last_name %></p>
+          <% if submission.status == 'Approved' %>
+            <p class="completed">Status: Approved</p>
+          <% elsif submission.status == 'Pending' %>
+            <p class="pending">Status: Pending for IAFE Staff to Process</p>
+          <% elsif submission.status == 'Rejected' %>
+            <p class="rejected">Status: Rejected</p>
+          <% elsif submission.status == 'Pending' %>
+            <p class="pending">Status: Incomplete, <%= link_to 'please upload document/link', new_submission_submission_detail_path(submission) %></p>
+          <% end %>
+          <p>Uploaded Documents/Links (click image/link to edit/view):</p>
+          <p>
+          <% if submission.submission_details.count > 1 %>
+            <div class="slider">
+          <% end %>
+          <% submission.submission_details.each do |submission_detail| %>
+            <% if submission.category.submission_file_type == "URL Link Only" || submission.category.submission_file_type == "Video Only" %>
+              <%= link_to 'Submission Link', submission_submission_detail_path(submission_id: submission.id, id: submission_detail.id) %>
+            <% else %>
+              <div class="slide"><%= link_to image_tag(submission_detail.attachment.url(:thumb)), submission_submission_detail_path(submission_id: submission.id, id: submission_detail.id) %></div>
+            <% end %>
+          <% end %>
+          <% if submission.submission_details.count > 1 %>
+            </div>
+          <% end %>
+          </p>
+          <p><%= link_to 'Add Digital File', new_submission_submission_detail_path(submission) %> | <%= link_to 'Delete Submission', submission, method: :delete, data: { confirm: 'Are you sure?' } %></p>
       </div>
     <% end %>
   </div><br/>

@@ -52,40 +52,25 @@
   <div class="field">
     <% if params[:action] == 'new' || params[:action] == 'create' %>
 	  <%= f.hidden_field :admin, value: false %> 
-	<% else %>
-	  <% if current_user.admin == true %>
-	    <%= f.label :admin, "Admin?" %><br>
-        <%= f.check_box :admin %>
-      <% else %>
-	    <%= f.hidden_field :admin, value: :admin %> 
-	  <% end %>
+    <% else %>
+	  <%= f.hidden_field :admin, value: @user.admin %> 
 	<% end %>
   </div>
   <div class="field">
     <% if params[:action] == 'new' || params[:action] == 'create' %>
 	  <%= f.hidden_field :judge, value: false %> 
 	<% else %>
-	  <% if current_user.admin == true %>
-	    <%= f.label :judge, "Judge?" %><br>
-        <%= f.check_box :judge %>
-      <% else %>
-	    <%= f.hidden_field :judge, value: :judge %> 
-	  <% end %>
+	  <%= f.hidden_field :judge, value: @user.judge %> 
 	<% end %>
   </div>
   <div class="field">
     <% if params[:action] == 'new' || params[:action] == 'create' %>
 	  <%= f.hidden_field :enabled, value: true %> 
 	<% else %>
-	  <% if current_user.admin == true %>
-	    <%= f.label :enabled, "Enabled?" %><br>
-        <%= f.check_box :enabled %>
-      <% else %>
-	    <%= f.hidden_field :enabled, value: :enabled %> 
-	  <% end %>
+	  <%= f.hidden_field :enabled, value: @user.enabled %> 
 	<% end %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <p><%= f.submit %></p>
   </div>
 <% end %>

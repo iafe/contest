@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<div class="container"><p id="notice"><%= notice %></p>
 
 <p>
   <strong>Name:</strong>
@@ -46,19 +46,10 @@
 </p>
 
 <p>
-  <strong>Fair:</strong>
+  <strong>Fair?</strong>
   <%= @organization.fair %>
 </p>
 
-<p>
-  <strong>Enabled:</strong>
-  <%= @organization.enabled %>
-</p>
+<p><%= link_to 'Edit', edit_organization_path(@organization) %></p>
 
-<p>
-  <strong>Division:</strong>
-  <%= sanitize(@organization.which_division) %>
-</p>
-
-<%= link_to 'Edit', edit_organization_path(@organization) %> |
-<%= link_to 'Link this organization to your user account.', new_user_organization_path %>
+</div>

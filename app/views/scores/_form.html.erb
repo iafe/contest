@@ -1,4 +1,4 @@
-<%= form_for([@submission, @user, @score], html: {multipart: true}) do |f| %>
+<%= form_for([@submission, @score], html: {multipart: true}) do |f| %>
   <% if @score.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@score.errors.count, "error") %> prohibited this score from being saved:</h2>
@@ -17,8 +17,8 @@
 	  <%= f.hidden_field :user_id, value: current_user.id %> 
       <%= current_user.first_name %> <%= current_user.last_name %>
     <% elsif params[:action] == 'edit' %>
-      <%= f.hidden_field :user_id, value: :user_id %>
-      <%= @user.first_name %> <%= @user.last_name %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= current_user.first_name %> <%= current_user.last_name %>
     <% end %>
   </div>
   <div class="field">
@@ -56,6 +56,7 @@
     <%= f.label :disqualify, "Disqualify?" %><br>
     <%= f.check_box :disqualify %>
   </div>
+  <p class="italic">Note: if you choose to disqualify, the IAFE will e-mail all judges of this category to gain a consensus</p>
   <div class="actions">
     <p><%= f.submit %></p>
   </div>

@@ -23,7 +23,6 @@ class ScoresController < ApplicationController
   # GET /scores/1/edit
   def edit
     @submission = Submission.find(params[:submission_id])
-    @user = User.find(params[:user_id])
   end
 
   # POST /scores
@@ -46,9 +45,10 @@ class ScoresController < ApplicationController
   # PATCH/PUT /scores/1
   # PATCH/PUT /scores/1.json
   def update
+    @submission = Submission.find(params[:submission_id])
     respond_to do |format|
       if @score.update(score_params)
-        format.html { redirect_to @score, notice: 'Score was successfully updated.' }
+        format.html { redirect_to submission_score_path(@submission, @score), notice: 'Score was successfully created.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

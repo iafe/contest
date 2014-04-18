@@ -2,46 +2,31 @@
 	
 	<h1>Judge Dashboard</h1>
 
-<% current_user.judges.each do |judge| %>
-  <% @submissions.each do |submission| %>
-    <% if submission.category_id == judge.category_id && submission.division_id == judge.division_id && submission.contest_year == Time.now.year && submission.status == 'Approved' %>
-      <p><%= submission.category.name %></p>
-    <% end %>
+<% current_user.judges.group(:category_id, :division_id).order('category_id DESC').each do |judge| %>
+  <div class="submissionheading"><h3><%= judge.category.award.name %> <%= judge.category.code %>: <%= judge.category.name %> - <%= judge.division.name %></h3></div>
+  <% @submissions.where(category_id: judge.category_id, division_id: judge.division_id, status: 'Approved', contest_year: Time.now.year).in_groups_of(3, false) do |group| %>
+    <div class="row">
+      <% group.each do |submission| %>
+        <div class="col-md-4">
+          <p><%= submission.organization.name %>, <%= submission.organization.state_province %></p>
+          <% if submission.scores.count == 0 %>
+            <p><%= link_to 'Score This Entry', new_submission_score_path(submission) %></p>
+          <% else %>
+            <% submission.scores.each do |s| %>
+              <% if s.user_id == current_user.id %>
+                <p class="completed">Your score: <%= s.total_score %></p>
+                <p>Your comments: <%= s.comments %></p>
+                <p>Did you disqualify this entry? <span class="bold"><%= s.disqualify %></span></p>
+                <p><%= link_to 'View Entry/Edit Score', edit_submission_score_path(submission_id: s.submission_id, id: s.id) %></p>
+              <% elsif s.where(:user_id == current_user.id).count == 0 %>
+                <p><%= link_to 'Score This Entry', new_submission_score_path(submission) %></p>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </div><br/>
   <% end %>
 <% end %>
-
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Submission</th>
-      <th>Total score</th>
-      <th>Comments</th>
-      <th>Disqualify</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @scores.each do |score| %>
-      <tr>
-        <td><%= score.user_id %></td>
-        <td><%= score.submission_id %></td>
-        <td><%= score.total_score %></td>
-        <td><%= score.comments %></td>
-        <td><%= score.disqualify %></td>
-        <td><%= link_to 'Show', score %></td>
-        <td><%= link_to 'Edit', edit_score_path(score) %></td>
-        <td><%= link_to 'Destroy', score, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<p><%= link_to 'New Score', new_score_path %></p>
 
 </div>

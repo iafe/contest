@@ -33,22 +33,22 @@
   <% if params[:action] == 'new' || params[:action] == 'create' %>
     <%= f.hidden_field :status, value: "Incomplete" %>
   <% else %>
-      <%= f.hidden_field :status, value: :status %>
+      <%= f.hidden_field :status, value: @submission.status %>
   <% end %>
   <% if params[:action] == 'new' || params[:action] == 'create' %>
     <%= f.hidden_field :physical_version_received, value: false %>
   <% else %>
-    <%= f.hidden_field :physical_version_received, value: :physical_version_received %>
+    <%= f.hidden_field :physical_version_received, value: @submission.physical_version_received %>
   <% end %>
   <% if params[:action] == 'new' || params[:action] == 'create' %>
     <%= f.hidden_field :digital_version_received, value: false %>
   <% else %>
-    <%= f.hidden_field :digital_version_received, value: :digital_version_received %>
+    <%= f.hidden_field :digital_version_received, value: @submission.digital_version_received %>
   <% end %>
   <% if params[:action] == 'new' || params[:action] == 'create' %>
     <%= f.hidden_field :disqualify, value: false %>
   <% else %>
-    <%= f.hidden_field :disqualify, value: :disqualify %>
+    <%= f.hidden_field :disqualify, value: @submission.disqualify %>
   <% end %>
   <div class="actions">
     <% if params[:action] == 'new' || params[:action] == 'create' %>
