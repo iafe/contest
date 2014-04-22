@@ -32,6 +32,23 @@ ActiveAdmin.register Organization do
   filter :created_at
   filter :updated_at
   
+  form do |f|
+    f.inputs do
+      f.input :name
+      f.input :primary_contact
+      f.input :address_line_1
+      f.input :address_line_2
+      f.input :city
+      f.input :state_province
+      f.input :country, as: :select
+      f.input :zip_code
+      f.input :phone
+      f.input :fair, as: :select, required: true
+      f.input :enabled, as: :select, required: true
+    end
+    f.actions
+  end
+  
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #

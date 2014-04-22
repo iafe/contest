@@ -25,6 +25,18 @@ ActiveAdmin.register Award do
   filter :enabled, as: :select, label: "Enabled?"
   filter :created_at
   filter :updated_at
+  
+  form do |f|
+    f.inputs do
+      f.input :name
+      f.input :description
+      f.input :rules
+      f.input :sponsor, label: "Sponsor Name"
+      f.input :sponsor_logo, label: "URL of Sponsor's Logo"
+      f.input :enabled, as: :select, label: "Enabled?", required: true
+    end
+    f.actions
+  end
 
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

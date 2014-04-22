@@ -28,6 +28,10 @@ class Submission < ActiveRecord::Base
     self.scores.average(:total_score)
   end
   
+  def ranking
+    self.id
+  end
+  
   def winner?
     winners = Submission.select('distinct(category_id), AVG(scores.total_score) as avg_score').joins(:scores)
     .group('submissions.id').order('AVG(scores.total_score) DESC')

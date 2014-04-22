@@ -28,6 +28,16 @@ ActiveAdmin.register OrganizationDetail do
   filter :created_at
   filter :updated_at
   
+  form do |f|
+    f.inputs do
+      f.input :organization_id, as: :string, label: "Organization ID", required: true
+      f.input :fair_start_date
+      f.input :fair_end_date
+      f.input :total_attendance
+    end
+    f.actions
+  end
+  
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #

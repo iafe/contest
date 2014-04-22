@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :organization_id %><br>
+    <%= f.label :organization_id %> <span class="required">*</span><br>
 	<% if params[:action] == 'new' || params[:action] == 'create' %>
 	  <%= collection_select(:organization_detail, :organization_id, current_user.organizations.where({fair: true}), :id, :name_and_state,  
 	  include_blank: true) %>
@@ -21,15 +21,15 @@
 	<% end %>
   </div>
   <div class="field">
-    <%= f.label :fair_start_date, "Contest Year's Fair Start Date" %><br>
+    <%= f.label :fair_start_date, "Contest Year's Fair Start Date" %> <span class="required">*</span><br>
     <%= f.date_select :fair_start_date %>
   </div>
   <div class="field">
-    <%= f.label :fair_end_date, "Contest Year's Fair End Date" %><br>
+    <%= f.label :fair_end_date, "Contest Year's Fair End Date" %> <span class="required">*</span><br>
     <%= f.date_select :fair_end_date %>
   </div>
   <div class="field">
-    <%= f.label :total_attendance, "Total Attendance (Free & Paid Combined)" %><br>
+    <%= f.label :total_attendance, "Total Attendance (Free & Paid Combined)" %> <span class="required">*</span><br>
     <span class="italic">Please enter in a whole number with no commas.</span><br>
     <%= f.text_field :total_attendance %>
   </div>

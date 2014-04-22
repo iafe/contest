@@ -75,3 +75,7 @@ gem 'select2-rails'
 
 # Installs bootstrap with SASS compatibility
 gem 'bootstrap-sass'
+
+# Provides pdf generation capability
+gem 'wkhtmltopdf-binary'
+gem 'wicked_pdf'

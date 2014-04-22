@@ -19,8 +19,6 @@ class Organization < ActiveRecord::Base
   
   before_save { self.name = name.titleize }
   before_save { self.primary_contact = primary_contact.titleize }
-  before_save { self.address_line_1 = address_line_1.titleize }
-  before_save { self.address_line_2 = address_line_2.titleize }
   before_save { self.city = city.titleize }
   before_save { self.state_province = state_province.upcase }
   before_save { self.country = country.titleize }

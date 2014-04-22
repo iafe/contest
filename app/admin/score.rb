@@ -31,11 +31,11 @@ ActiveAdmin.register Score do
   
   form do |f|
     f.inputs do
-      f.input :user_id, :label => 'Judge', :as => :select, :collection => User.where(judge: true).map{|u| ["#{u.last_name}, #{u.first_name}", u.id]}
-      f.input :submission_id, :label => 'Submission ID'
+      f.input :user_id, :label => 'Judge', :as => :select, required: true, :collection => User.where(judge: true).map{|u| ["#{u.last_name}, #{u.first_name}", u.id]}
+      f.input :submission_id, :label => 'Submission ID', required: true
       f.input :total_score
       f.input :comments
-      f.input :disqualify, as: :select, label: "Disqualify?"
+      f.input :disqualify, as: :select, label: "Disqualify?", required: true
     end
     f.actions
   end

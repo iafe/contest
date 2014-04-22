@@ -12,15 +12,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name, "Organization Name" %><br>
+    <%= f.label :name, "Organization Name" %> <span class="required">*</span><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :primary_contact, "Primary Contact (First and Last)" %><br>
+    <%= f.label :primary_contact, "Primary Contact (First and Last)" %> <span class="required">*</span><br>
     <%= f.text_field :primary_contact %>
   </div>
   <div class="field">
-    <%= f.label :address_line_1, "Address Line 1" %><br>
+    <%= f.label :address_line_1, "Address Line 1" %> <span class="required">*</span><br>
     <%= f.text_field :address_line_1 %>
   </div>
   <div class="field">
@@ -28,35 +28,34 @@
     <%= f.text_field :address_line_2 %>
   </div>
   <div class="field">
-    <%= f.label :city %><br>
+    <%= f.label :city %> <span class="required">*</span><br>
     <%= f.text_field :city %>
   </div>
   <div class="field">
-    <%= f.label :state_province, "State or Province/Territory Postal Code" %><br>
+    <%= f.label :state_province, "State or Province/Territory Postal Code" %> <span class="required">*</span><br>
     <%= f.text_field :state_province, size: 2 %>
   </div>
   <div class="field">
-    <%= f.label :country %><br>
+    <%= f.label :country %> <span class="required">*</span><br>
     <%= f.country_select :country, [ "United States", "Canada", "United Kingdom", "Mexico", "Australia", "South Korea" ] %>
   </div>
   <div class="field">
-    <%= f.label :zip_code, "Zip Code" %><br>
+    <%= f.label :zip_code, "Zip Code" %> <span class="required">*</span><br>
     <%= f.text_field :zip_code %>
   </div>
   <div class="field">
-    <%= f.label :phone %><br>
+    <%= f.label :phone %> <span class="required">*</span><br>
     <%= f.text_field :phone %>
   </div>
   <div class="field">
-    <%= f.label :fair, "Is this a fair?" %><br>
+    <%= f.label :fair, "Is this a fair?" %> <span class="required">*</span><br>
     <%= f.check_box :fair, {checked: "checked"}  %>
   </div>
   <div class="field">
-    <% if current_user.admin == true %>
-      <%= f.label :enabled, "Enabled?" %><br>
-      <%= f.check_box :enabled, {checked: "checked"} %>
-	<% else %>
+    <% if params[:action] == 'new' || params[:action] == 'create' %>
 	  <%= f.hidden_field :enabled, value: true %> 
+	<% else %>
+	  <%= f.hidden_field :enabled, value: @organization.enabled %> 
 	<% end %>
   </div>
   <div class="actions">

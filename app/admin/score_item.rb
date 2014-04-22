@@ -26,6 +26,16 @@ ActiveAdmin.register ScoreItem do
   filter :created_at
   filter :updated_at
   
+  form do |f|
+    f.inputs do
+      f.input :category_id, :label => 'Category', :as => :select, required: true, :collection => Category.where(enabled: true).map{|c| ["#{c.award.name} #{c.code}: #{c.name}", c.id]}
+      f.input :name
+      f.input :description
+      f.input :max_points
+    end
+    f.actions
+  end
+  
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #

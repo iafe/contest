@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field">
-  	<%= f.label :user_id, "Scored By" %><br>
+  	<%= f.label :user_id, "Scored By" %> <span class="required">*</span><br>
   	<% if params[:action] == 'new' || params[:action] == 'create' %>
 	  <%= f.hidden_field :user_id, value: current_user.id %> 
       <%= current_user.first_name %> <%= current_user.last_name %>
@@ -22,7 +22,7 @@
     <% end %>
   </div>
   <div class="field">
-    <%= f.label :submission_id, "Submission Information" %><br>
+    <%= f.label :submission_id, "Submission Information" %> <span class="required">*</span><br>
 	<%= f.hidden_field :submission_id, value: @submission.id %> 
     <%= @submission.category.award.name %><br/>
     Category <%= @submission.category.code %>: <%= @submission.category.name %><br/>
@@ -39,7 +39,7 @@
     <% end %>
   </div>
   <div class="field">
-    <%= f.label :total_score %><br>
+    <%= f.label :total_score %> <span class="required">*</span><br>
     Please denote fractions as .25, .5, or .75<br/>
     <%= f.text_field :total_score, size: 5 %> (Out of <%= @submission.category.score_items.sum(:max_points) %>)<br/><br/>
     <p class="bold">Score item breakdown - add each item for total score:</p>

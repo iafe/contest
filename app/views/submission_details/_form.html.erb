@@ -11,7 +11,7 @@
     </div>
   <% end %>
   <div class="field">
-    <%= f.label :submission_id, "Submission Information" %><br>
+    <%= f.label :submission_id, "Submission Information" %> <span class="required">*</span><br>
 	<%= f.hidden_field :submission_id, value: @submission.id %> 
     <%= @submission.category.award.name %>: <%= @submission.category.code %> <%= @submission.category.name %> 
     (<%= @submission.organization.name %>)
@@ -22,13 +22,13 @@
         <%= f.label :file_url, "Please paste in the URL to your YouTube video." %><br>
         <p>For example, http://www.youtube.com/watch?v=hnkhgu_hVDQ</p>
       <% else %>
-        <%= f.label :file_url, "Site URL" %><br>
+        <%= f.label :file_url, "Site URL" %> <span class="required">*</span><br>
       <% end %>
       <%= f.text_field :file_url, size: 60 %>
     </div>
   <% else %>
     <div class="field">
-      <%= f.label :attachment %><br />
+      <%= f.label :attachment %> <span class="required">*</span><br />
       <%= f.file_field :attachment %>
     </div>
   <% end %><br/>

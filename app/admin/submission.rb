@@ -36,6 +36,9 @@ ActiveAdmin.register Submission do
     column "Score" do |submission|
       submission.calculate_final_score
     end
+    column "Rank" do |submission|
+      submission.ranking
+    end
   end
   
   filter :category
@@ -77,16 +80,16 @@ ActiveAdmin.register Submission do
   
   form do |f|
     f.inputs do
-      f.input :category_id, as: :select, :collection => Category.where(enabled: true).map{|c| ["#{c.award.name} #{c.code}: #{c.name}", c.id]}
+      f.input :category_id, as: :select, required: true, :collection => Category.where(enabled: true).map{|c| ["#{c.award.name} #{c.code}: #{c.name}", c.id]}
       f.input :organization_id, label: "Organization ID"
       f.input :user_id, label: "User ID"
-      f.input :division_id, label: "Division ID"
+      f.input :division, label: "Division", required: true
       f.input :contest_year
-      f.input :status, as: :select, :collection => ["Incomplete", "Pending", "Approved", "Rejected"]
+      f.input :status, as: :select, :collection => ["Incomplete", "Pending", "Approved", "Rejected"], required: true
       f.input :notes
-      f.input :physical_version_received, as: :select
-      f.input :digital_version_received, as: :select
-      f.input :disqualify, as: :select
+      f.input :physical_version_received, as: :select, required: true
+      f.input :digital_version_received, as: :select, required: true
+      f.input :disqualify, as: :select, required: true
     end
     f.actions
   end

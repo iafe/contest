@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140411170717) do
+ActiveRecord::Schema.define(version: 20140422184508) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -44,9 +44,6 @@ ActiveRecord::Schema.define(version: 20140411170717) do
     t.string   "code"
     t.integer  "award_id"
     t.integer  "document_max_number"
-    t.integer  "photo_max_number"
-    t.integer  "video_max_number"
-    t.integer  "link_max_number"
     t.integer  "max_total_file_size"
     t.string   "submission_file_type"
     t.text     "description"

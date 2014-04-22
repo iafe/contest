@@ -16,7 +16,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :user_id, "User" %><br>
+    <%= f.label :user_id, "User" %> <span class="required">*</span><br>
 	<%= f.hidden_field :user_id, value: current_user.id %> 
     <%= current_user.first_name %> <%= current_user.last_name %>
   </div>
@@ -25,11 +25,11 @@
     example, if you are with a third-party agency submitting on behalf of a fair, you must assign yourself to that agency first as 
     your primary organization." %><br>
     <%= collection_select(:user_organization, :organization_id, Organization.all, :id, :name_and_state, 
-    include_blank: "Select your organization") %><br>
+    include_blank: "Select your organization") %>&nbsp;&nbsp;<span class="required">*</span><br>
 	<p><%= link_to "Don't see your organization? Click here to add it first.", new_organization_path %></p>
   </div>
   <div class="field">
-    <%= f.label :primary, "Is this your primary organization for this contest site?" %><br>
+    <%= f.label :primary, "Is this your primary organization for this contest site?" %> <span class="required">*</span><br>
     <%= f.check_box :primary, {checked: "checked"} %>
   </div>
   <div class="actions">

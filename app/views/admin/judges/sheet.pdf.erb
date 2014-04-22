@@ -1,0 +1,54 @@
+<style>
+	table {
+		width: 900px;
+	}
+	
+	td {
+		border: 1px solid #000000;
+    }
+</style>
+
+<p style="text-align: center; font-size: 36px;"><%= Time.now.year %> <%= @judge.category.award.name %> Program<br/>
+	Score Card</p>
+
+<p style="font-size: 24px;">Category <%= @judge.category.code %>: <%= @judge.category.name %></p>
+
+<p style="font-size: 24px;">Judge: <%= @judge.user.first_name %> <%= @judge.user.last_name %></p>
+
+<p style="float: right; font-size: 24px; background-color: #FFFF00; font-style: italic;">Please Print Scores and Comments Clearly</p>
+
+<p style="float: left; font-size: 24px;"><%= @judge.division.name %></p>
+
+<div style="clear: both;">
+
+<table cellspacing=0 cellpadding=5 style="font-size: 20px;">
+  <thead>
+    <tr>
+      <th style="width:100px;">Entry ID</th>
+      <th>Fair Name</th>
+      <th style="width: 70px;">Score</th>
+      <th style="width: 450px;">Comments</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @submissions.each do |submission| %>
+      <tr>
+        <td><%= submission.id %></td>
+        <td><%= submission.organization.name %> - <%= submission.organization.state_province%></td>
+        <td></td>
+        <td></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<p style="font-size: 20px;">Use scores of 1-<%= @judge.category.score_items.sum(:max_points) %>, feel free to use 1/4 and 1/2 points when you deem necessary. Judging is based on the following criteria:</p>
+
+<ol>
+<% @score_items.each do |item| %>
+  <li style="font-size: 20px;"><%= item.name %> - <%= item.max_points%> points</li>
+<% end %>
+</ol>
+
+<p style="font-style: italic; font-size: 20px;">Please use the below space for writing notes:</p>

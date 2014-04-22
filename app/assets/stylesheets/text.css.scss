@@ -55,6 +55,12 @@ p {
   color: #FF0000;
 }
 
+.required {
+  font-weight: bold;
+  color: #FF0000;
+  font-size: 18px;
+}
+
 #notice {
   font-weight: bold;
   color: $theme-color3;

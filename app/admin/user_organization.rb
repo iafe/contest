@@ -24,6 +24,16 @@ ActiveAdmin.register UserOrganization do
   filter :created_at
   filter :updated_at
   
+  form do |f|
+    f.inputs do
+      f.input :user_id, as: :string, label: "User ID", required: true
+      f.input :organization_id, as: :string, label: "Organization ID", required: true
+      f.input :primary, as: :select, label: "User's Primary Organization?", required: true
+    end
+    f.actions
+  end
+  
+  
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
