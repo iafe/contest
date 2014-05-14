@@ -1,10 +1,12 @@
 class ScoresController < ApplicationController
   before_action :set_score, only: [:show, :edit, :update, :destroy]
+  
+  load_and_authorize_resource
 
   # GET /scores
   # GET /scores.json
   def index
-    @scores = Score.all
+    @scores = Score.all.page
     @submissions = Submission.all
   end
 

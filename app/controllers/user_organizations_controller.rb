@@ -1,5 +1,7 @@
 class UserOrganizationsController < ApplicationController
   before_action :set_user_organization, only: [:show, :edit, :update, :destroy]
+  
+  load_and_authorize_resource
 
   # GET /user_organizations
   # GET /user_organizations.json

@@ -1,10 +1,13 @@
 class SubmissionsController < ApplicationController
   before_action :set_submission, only: [:show, :edit, :update, :destroy]
+  
+  load_and_authorize_resource
 
   # GET /submissions
   # GET /submissions.json
   def index
     @submissions = Submission.all
+    @paginate = current_user.submissions.page(params[:page]).per(3).group([:contest_year, :organization_id]).order('contest_year DESC')
   end
   
   # GET /submissions/1

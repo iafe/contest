@@ -17,8 +17,13 @@
 
   <div class="field">
     <%= f.label :user_id, "User" %> <span class="required">*</span><br>
-	<%= f.hidden_field :user_id, value: current_user.id %> 
-    <%= current_user.first_name %> <%= current_user.last_name %>
+    <% if params[:action] == 'new' || params[:action] == 'create' %>
+	  <%= f.hidden_field :user_id, value: current_user.id %> 
+      <%= current_user.first_name %> <%= current_user.last_name %>
+    <% else %>
+      <%= f.hidden_field :user_id, value: @user_organization.user_id %> 
+      <%= @user_organization.user.first_name %> <%= @user_organization.user.last_name %>
+    <% end %>
   </div>
   <div class="field">
     <%= f.label :organization_id, "Please select the organization you are with. You can assign yourself to multiple organizations; for 

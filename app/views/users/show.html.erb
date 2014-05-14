@@ -20,7 +20,7 @@
     <% group.each do |user_organization| %>
       <div class="col-md-4">
         <p><strong>Name:</strong> <%= user_organization.organization.name %></p>
-        <p><strong>Primary Contact:</strong> <%= user_organization.organization.primary_contact %></p>
+        <p><strong>Fair Manager:</strong> <%= user_organization.organization.primary_contact %></p>
         <p><strong>Address Line 1:</strong> <%= user_organization.organization.address_line_1 %></p>
         <p><strong>Address Line 2:</strong> <%= user_organization.organization.address_line_2 %></p>
         <p><strong>City:</strong> <%= user_organization.organization.city %></p>
@@ -30,8 +30,9 @@
         <p><strong>Phone:</strong> <%= user_organization.organization.phone %></p>
         <p><strong>Is This a Fair?</strong> <%= user_organization.organization.fair? %></p>
         <p><strong>Is This Your Primary Org?</strong> <%= user_organization.primary? %></p>
-        <p><%= link_to "Edit Organization Information".html_safe, 
-        edit_organization_path(user_organization.organization), class: "btn btn-default", role: "button" %></p>
+        <p><%= link_to "Edit Organization".html_safe, 
+        edit_organization_path(user_organization.organization), class: "btn btn-default", role: "button" %> <%= link_to "Delete This Relationship".html_safe, 
+        user_organization, method: :delete, data: { confirm: 'Are you sure? A notification will be sent to the IAFE.' }, class: "btn btn-default", role: "button" %></p>
       </div>
     <% end %>
   </div>

@@ -16,25 +16,29 @@
     <%= @submission.category.award.name %>: <%= @submission.category.code %> <%= @submission.category.name %> 
     (<%= @submission.organization.name %>)
   </div>
-  <% if @submission.category.submission_file_type == "Video Only" || @submission.category.submission_file_type == "URL Link Only" %>
-    <div class="field">
-      <% if @submission.category.submission_file_type == "Video Only" %>
-        <%= f.label :file_url, "Please paste in the URL to your YouTube video." %><br>
+  <% if @submission.status == 'Pending' || @submission.status == 'Incomplete' %>
+    <% if @submission.category.submission_file_type == "Video Only" || @submission.category.submission_file_type == "URL Link Only" %>
+      <div class="field">
+        <% if @submission.category.submission_file_type == "Video Only" %>
+          <%= f.label :file_url, "Please paste in the URL to your YouTube video." %><br>
         <p>For example, http://www.youtube.com/watch?v=hnkhgu_hVDQ</p>
-      <% else %>
-        <%= f.label :file_url, "Site URL" %> <span class="required">*</span><br>
-      <% end %>
-      <%= f.text_field :file_url, size: 60 %>
-    </div>
-  <% else %>
-    <div class="field">
-      <%= f.label :attachment %> <span class="required">*</span><br />
-      <%= f.file_field :attachment %>
-    </div>
+        <% else %>
+          <%= f.label :file_url, "Site URL" %> <span class="required">*</span><br>
+        <% end %>
+        <%= f.text_field :file_url, size: 60 %>
+      </div>
+    <% else %>
+      <div class="field">
+        <%= f.label :attachment %> <span class="required">*</span><br />
+        <%= f.file_field :attachment %>
+      </div>
+    <% end %>
   <% end %><br/>
   <p class="bold ">Note: if you are submitting multiple documents for one submission, please submit them in the order you want the judges to view them.</p>
   <p class="bold">When you hit "Submit" please do not hit "Submit" again. Page may take some time to process the upload.</p>
   <div class="actions">
-    <p><%= f.submit "Submit" %></p>
+    <% if @submission.status == 'Pending' || @submission.status == 'Incomplete' %><p><%= f.submit "Submit" %></p>
+    <% else %><p class="important">This submission has been approved or rejected, you cannot add or change its documents.</p>
+    <p><%= link_to 'Back to My Submissions', submissions_path %></p><% end %>
   </div>
 <% end %>

@@ -1,5 +1,7 @@
 class OrganizationDetailsController < ApplicationController
   before_action :set_organization_detail, only: [:show, :edit, :update, :destroy]
+  
+  load_and_authorize_resource
 
   # GET /organization_details
   # GET /organization_details.json

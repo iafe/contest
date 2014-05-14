@@ -29,9 +29,9 @@
     <%= f.date_select :fair_end_date %>
   </div>
   <div class="field">
-    <%= f.label :total_attendance, "Total Attendance (Free & Paid Combined)" %> <span class="required">*</span><br>
+    <p><span class="bold">Total Attendance <span class="italic">FROM THE PREVIOUS YEAR (<%= Time.now.year - 1 %>)</span> (Free & Paid Combined) <span class="required">*</span></span><br>
     <span class="italic">Please enter in a whole number with no commas.</span><br>
-    <%= f.text_field :total_attendance %>
+    <%= f.text_field :total_attendance %></p>
   </div>
   <div class="actions"><br/>
     <p><%= f.submit "Submit Dates and Attendance" %></p>

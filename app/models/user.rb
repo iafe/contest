@@ -32,4 +32,5 @@ class User < ActiveRecord::Base
   def first_last_email
     "#{last_name}, #{first_name} - #{email}"
   end
+
 end

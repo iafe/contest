@@ -61,6 +61,7 @@ GEM
       sass (>= 3.2.0)
       thor
     builder (3.1.4)
+    cancan (1.6.10)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.3)
@@ -207,6 +208,7 @@ DEPENDENCIES
   auto_html
   aws-sdk
   bootstrap-sass
+  cancan
   coffee-rails (~> 4.0.0)
   country_select
   figaro

@@ -58,6 +58,9 @@
   </div>
   <p class="italic">Note: if you choose to disqualify, the IAFE will e-mail all judges of this category to gain a consensus</p>
   <div class="actions">
-    <p><%= f.submit %></p>
+  	<% if params[:action] == 'new' || params[:action] == 'create' %>
+      <% if @submission.scores.where(user_id: current_user.id).count == 0 %><p><%= f.submit %></p>
+      <% else %><p class="important">You have already scored this entry.</p><% end %>
+    <% else %><p class="important">You have already scored this entry.</p><% end %>
   </div>
 <% end %>

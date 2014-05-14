@@ -1,5 +1,7 @@
 class SubmissionDetailsController < ApplicationController
   before_action :set_submission_detail, only: [:show, :edit, :update, :destroy]
+  
+  load_and_authorize_resource
 
   # GET /submission_details
   # GET /submission_details.json

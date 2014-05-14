@@ -1,4 +1,4 @@
-ActiveAdmin.register Award do
+ActiveAdmin.register Award, as: "Contest" do
   
   menu priority: 6
   
@@ -6,7 +6,7 @@ ActiveAdmin.register Award do
   
   index do
     column :id, sortable: :id do |award|
-      link_to award.id, admin_award_path(award)
+      link_to award.id, admin_contest_path(award)
     end
     column :name
     column :sponsor
@@ -16,6 +16,9 @@ ActiveAdmin.register Award do
     end
     column "Updated", :updated_at, sortable: :updated_at do |award|
       award.updated_at.strftime("%m/%d/%Y")
+    end
+    column "Winner Sheet" do |contest|
+      link_to "Sheet", pdf_admin_contest_path(id: contest.id, format: :pdf), target: "_blank"
     end
     default_actions
   end
@@ -36,6 +39,18 @@ ActiveAdmin.register Award do
       f.input :enabled, as: :select, label: "Enabled?", required: true
     end
     f.actions
+  end
+  
+  member_action :pdf do
+    @contest = Award.find(params[:id])
+    @categories = Category.where(award_id: @contest.id)
+    respond_to do |format|
+      format.pdf do
+        render :pdf => "sheet",
+        :template => 'admin/contests/sheet.pdf.erb',
+        :wkhtmltopdf => 'C:/Program Files/wkhtmltopdf/bin/wkhtmltopdf.exe'
+      end
+    end
   end
 
   # See permitted parameters documentation:

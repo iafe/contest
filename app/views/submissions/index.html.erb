@@ -19,14 +19,16 @@
 <% current_user.user_organizations.each do |user_organization| %>
   <% if user_organization.organization.fair == true %>
 	<% if user_organization.organization.submission_division != '' %>
-	  <p class="bold"><span class="italic"><%= user_organization.organization.name %></span> has updated its fair dates/attendance for the <%= Time.now.year %> contest. Its dates are <%= user_organization.organization.organization_details.order('created_at DESC').first.fair_start_date.to_formatted_s(:long)  %> - <%= user_organization.organization.organization_details.order('created_at DESC').first.fair_end_date.to_formatted_s(:long)  %> and its attendance is <%= user_organization.organization.organization_details.order('created_at DESC').first.total_attendance %>, putting it under Division <%= user_organization.organization.submission_division %> for this year's contest. <%= link_to 'Edit these dates/attendance', edit_organization_detail_path(user_organization.organization.organization_details.order('created_at DESC').first) %></p>
+	  <p class="bold"><span class="italic"><%= user_organization.organization.name %></span> has updated its fair dates/attendance for the <%= Time.now.year %> contest. Its dates are <%= user_organization.organization.organization_details.order('created_at DESC').first.fair_start_date.to_formatted_s(:long)  %> - <%= user_organization.organization.organization_details.order('created_at DESC').first.fair_end_date.to_formatted_s(:long)  %> and its <%= Time.now.year - 1 %> attendance was <%= user_organization.organization.organization_details.order('created_at DESC').first.total_attendance %>, putting it under Division <%= user_organization.organization.submission_division %> for this year's contest. <%= link_to 'Edit these dates/attendance', edit_organization_detail_path(user_organization.organization.organization_details.order('created_at DESC').first) %></p>
 	 <% else %>
 	   <p class="important">Total attendance/fair dates for the <%= user_organization.organization.name %> has not been inputted for the <%= Time.now.year %> contest. <%= link_to 'Add fair dates/attendance now.', new_organization_detail_path %></p>
      <% end %>
   <% end %>
 <% end %>
 
-<% current_user.submissions.group([:contest_year, :organization_id]).order('contest_year DESC').each do |contest| %>
+<p>Note: You will be able to add digital files or edit your submission as long as the submission's status is pending or incomplete. The IAFE will wait at least 12 hours to approve or reject once a new submission is created.</p>
+
+<% @paginate.each do |contest| %>
   <div class="submissionheading"><h2><%= contest.contest_year %>: <%= contest.organization.name %></h2></div>
   <% current_user.submissions.order('created_at DESC').where(organization_id: contest.organization_id, contest_year: contest.contest_year).in_groups_of(3, false) do |group| %>
     <div class="row">
@@ -59,12 +61,13 @@
             </div>
           <% end %>
           </p>
-          <p><%= link_to 'Add Digital File', new_submission_submission_detail_path(submission) %> | <%= link_to 'Delete Submission', submission, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+          <% if submission.status == 'Pending' || submission.status == 'Incomplete' %><p><%= link_to 'Add Digital File', new_submission_submission_detail_path(submission) %> | <%= link_to 'Delete Submission', submission, method: :delete, data: { confirm: 'Are you sure?' } %></p><% end %>
       </div>
     <% end %>
   </div><br/>
   <% end %>
 <% end %>
 
+<p><%= paginate @paginate %></p>
 
 </div>

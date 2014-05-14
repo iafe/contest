@@ -11,6 +11,11 @@ class ApplicationController < ActionController::Base
       :email_confirmation, :admin, :judge, :enabled, :email, :password, :password_confirmation)}
   end
   
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:error] = "You are not permitted to access that page."
+    redirect_to root_url
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_awards

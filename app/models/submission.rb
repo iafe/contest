@@ -29,7 +29,7 @@ class Submission < ActiveRecord::Base
   end
   
   def ranking
-    self.id
+    Submission.connection.select_value("SELECT COUNT(*)+1 AS ranking FROM submissions "+"WHERE id > "+"(SELECT id FROM submissions WHERE id = #{self.id})").to_i
   end
   
   def winner?
