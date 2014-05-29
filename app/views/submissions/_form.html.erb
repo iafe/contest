@@ -11,6 +11,8 @@
     </div>
   <% end %>
   
+  <% if Time.now < @actual_deadline + 1 %>
+  
   <div class="field">
     <%= f.label :category_id %> <span class="required">*</span><br>
     <% if params[:action] == 'new' || params[:action] == 'create' %>
@@ -50,6 +52,16 @@
   <% else %>
     <%= f.hidden_field :disqualify, value: @submission.disqualify %>
   <% end %>
+  <% if params[:action] == 'new' || params[:action] == 'create' %>
+    <%= f.hidden_field :best_of_division, value: false %>
+  <% else %>
+    <%= f.hidden_field :best_of_division, value: @submission.best_of_division %>
+  <% end %>
+  <% if params[:action] == 'new' || params[:action] == 'create' %>
+    <%= f.hidden_field :judges_choice, value: false %>
+  <% else %>
+    <%= f.hidden_field :judges_choice, value: @submission.judges_choice %>
+  <% end %>
   <div class="actions">
     <% if params[:action] == 'new' || params[:action] == 'create' %>
       <p><%= f.submit "Next: Upload New Document/Link" %></p>
@@ -58,4 +70,11 @@
       <% else %><p class="important">This submission has been approved or rejected, you cannot change it.</p><% end %>
     <% end %>
     </div>
+    
+  <% else %>
+    
+  <p class="important">The deadline has passed for the current contest year. Submission creation/editing has closed. See you next year!</p>
+    
+  <% end %>
+  
 <% end %>

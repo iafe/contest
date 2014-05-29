@@ -9,7 +9,24 @@ ActiveAdmin.register Submission do
   menu priority: 9
   
   permit_params :category_id, :user_id, :organization_id, :division_id,
-      :contest_year, :notes, :status, :physical_version_received, :digital_version_received, :disqualify
+      :contest_year, :notes, :status, :physical_version_received, :digital_version_received, :disqualify, :disqualify_reason,
+      :best_of_division, :judges_choice
+      
+  # Prevents N+1 Queries
+  controller do
+    def scoped_collection
+      resource_class.includes(:user, :organization, :division, category: :award)
+    end
+    
+  end
+  
+  before_save do |submission|
+    if submission.status_changed?
+      if submission.status == "Approved"
+        SubmissionApproved.approved(submission).deliver
+      end
+    end
+  end
   
   index do
     column :id, sortable: :id do |submission|
@@ -36,9 +53,11 @@ ActiveAdmin.register Submission do
     column "Score" do |submission|
       submission.calculate_final_score
     end
-    column "Rank" do |submission|
-      submission.ranking
-    end
+    #column "Rank" do |submission|
+      #submission.ranking
+    #end
+    column "BoD?", :best_of_division
+    column "JC?", :judges_choice
   end
   
   filter :category
@@ -49,6 +68,8 @@ ActiveAdmin.register Submission do
   filter :physical_version_received, as: :select, label: "Physical Version Received?"
   filter :digital_version_received, as: :select, label: "Digital Version Received?"
   filter :disqualify, as: :select, label: "Disqualified?"
+  filter :best_of_division, as: :select, label: "Best of Division?"
+  filter :judges_choice, as: :select, label: "Judge's Choice?"
   filter :created_at
   filter :updated_at
   
@@ -74,8 +95,11 @@ ActiveAdmin.register Submission do
     column :physical_version_received
     column :digital_version_received
     column :disqualify
+    column :disqualify_reason
     column("Score")  { |submission| submission.calculate_final_score }
-    column("Winner?")  { |submission| submission.winner? }
+    column :best_of_division
+    column :judges_choice
+    #column("Winner?")  { |submission| submission.ranking }
   end
   
   form do |f|
@@ -90,6 +114,9 @@ ActiveAdmin.register Submission do
       f.input :physical_version_received, as: :select, required: true
       f.input :digital_version_received, as: :select, required: true
       f.input :disqualify, as: :select, required: true
+      f.input :disqualify_reason, label: "Disqualification Reason"
+      f.input :best_of_division, as: :select, required: true, label: "Best of Division?"
+      f.input :judges_choice, as: :select, required: true, label: "Judge's Choice?"
     end
     f.actions
   end

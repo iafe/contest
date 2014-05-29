@@ -4,6 +4,13 @@ ActiveAdmin.register UserOrganization do
   
   permit_params :user_id, :organization_id, :primary
   
+  # Prevents N+1 Queries
+  controller do
+    def scoped_collection
+      resource_class.includes(:user, :organization)
+    end
+  end
+  
   index do
     column :id, sortable: :id do |user_organization|
       link_to user_organization.id, admin_user_organization_path(user_organization)

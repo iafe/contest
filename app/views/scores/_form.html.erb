@@ -28,7 +28,7 @@
     Category <%= @submission.category.code %>: <%= @submission.category.name %><br/>
     Division <%= @submission.organization.submission_division %><br/>
     <%= @submission.organization.name %> - <%= @submission.organization.city %>, <%= @submission.organization.state_province %><br/><br/>
-    <% @submission.submission_details.each do |submission_detail| %>
+    <% @submission.submission_details.includes(:submission).each do |submission_detail| %>
       <% if @submission.category.submission_file_type == "URL Link Only" %>
         <%= link_to 'Submission Link', submission_detail.file_url, target: "_blank" %>
       <% elsif @submission.category.submission_file_type == "Video Only" %>
@@ -37,6 +37,7 @@
         <%= link_to image_tag(submission_detail.attachment.url(:thumb)), submission_detail.attachment.url(:original), target: "_blank" %>
       <% end %>
     <% end %>
+    <p><%= f.label :notes, "IAFE Special Notes:" %> <% if @submission.notes.blank? %>None<% else %><%= @submission.notes %><% end %></p>
   </div>
   <div class="field">
     <%= f.label :total_score %> <span class="required">*</span><br>

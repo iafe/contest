@@ -40,7 +40,7 @@ ActiveAdmin.register Organization do
       f.input :address_line_2
       f.input :city
       f.input :state_province
-      f.input :country, as: :select
+      f.input :country
       f.input :zip_code
       f.input :phone
       f.input :fair, as: :select, required: true

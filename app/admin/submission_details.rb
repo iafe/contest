@@ -4,6 +4,13 @@ ActiveAdmin.register SubmissionDetail do
   
   permit_params :submission_id, :file_url, :attachment
   
+  # Prevents N+1 Queries
+  controller do
+    def scoped_collection
+      resource_class.includes(submission: [:organization, :division, category: :award])
+    end
+  end
+  
   index as: :grid, columns: 5 do |submission_detail|
     if submission_detail.file_url != nil
       link_to "URL Submission", admin_submission_detail_path(submission_detail)

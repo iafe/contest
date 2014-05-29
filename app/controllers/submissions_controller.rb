@@ -6,8 +6,7 @@ class SubmissionsController < ApplicationController
   # GET /submissions
   # GET /submissions.json
   def index
-    @submissions = Submission.all
-    @paginate = current_user.submissions.page(params[:page]).per(3).group([:contest_year, :organization_id]).order('contest_year DESC')
+    @paginate = current_user.submissions.includes(:organization).page(params[:page]).per(3).group([:contest_year, :organization_id]).order('contest_year DESC')
   end
   
   # GET /submissions/1
@@ -51,6 +50,7 @@ class SubmissionsController < ApplicationController
       if @submission.update(submission_params)
         format.html { redirect_to @submission, notice: 'Submission was successfully updated.' }
         format.json { head :no_content }
+
       else
         format.html { render action: 'edit' }
         format.json { render json: @submission.errors, status: :unprocessable_entity }
@@ -77,6 +77,7 @@ class SubmissionsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def submission_params
       params.require(:submission).permit(:category_id, :user_id, :organization_id, :division_id,
-      :contest_year, :notes, :status, :physical_version_received, :digital_version_received, :disqualify)
+      :contest_year, :notes, :status, :physical_version_received, :digital_version_received, :disqualify,
+      :disqualify_reason, :best_of_division, :judges_choice)
     end
 end

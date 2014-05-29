@@ -43,7 +43,7 @@ ActiveAdmin.register_page "Dashboard" do
               th "Organization"
               th "Created"
             end
-            Submission.order('created_at DESC').limit(10).map do |submission|
+            Submission.includes(:organization, category: :award).order('created_at DESC').limit(10).map do |submission|
               tr do
                 td link_to(submission.id, admin_submission_path(submission))
                 td submission.status
@@ -110,7 +110,7 @@ ActiveAdmin.register_page "Dashboard" do
               th "Organization"
               th "Created"
             end
-            UserOrganization.order('created_at DESC').limit(10).map do |user_organization|
+            UserOrganization.includes(:organization, :user).order('created_at DESC').limit(10).map do |user_organization|
               tr do
                 td link_to(user_organization.id, admin_user_organization_path(user_organization))
                 td user_organization.user.first_name

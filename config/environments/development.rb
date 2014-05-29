@@ -14,7 +14,7 @@ RachelMundhenke::Application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -27,11 +27,31 @@ RachelMundhenke::Application.configure do
   # number of complex assets.
   config.assets.debug = true
   
-  # Tests e-mail by opening a browser window in the development environment
-  config.action_mailer.delivery_method = :letter_opener
+  # Bullet configuration (development only)
+  config.after_initialize do
+    Bullet.enable = true
+    Bullet.alert = true
+    Bullet.bullet_logger = true
+    Bullet.console = true
+    Bullet.rails_logger = true
+    Bullet.add_footer = true
+  end
+  
+  config.action_mailer.delivery_method = :smtp
   
   # Default URL for Devise, must list actual host in production.rb
   config.action_mailer.default_url_options = { host: 'localhost:3000'}
+  
+  # Mandrill configuration
+  config.action_mailer.smtp_settings = {
+    :address   => "smtp.mandrillapp.com",
+    :port      => 587, # ports 587 and 2525 are also supported with STARTTLS
+    :enable_starttls_auto => true, # detects and uses STARTTLS
+    :user_name => ENV['MANDRILL_USERNAME'],
+    :password  => ENV['MANDRILL_PASSWORD'], # SMTP password is any valid API key
+    :authentication => 'login', # Mandrill supports 'plain' or 'login'
+    :domain => ENV['MANDRILL_DOMAIN'], # your domain to identify your server when connecting
+  }
   
   # Paperclip configuration
   config.paperclip_defaults = {

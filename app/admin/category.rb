@@ -5,6 +5,13 @@ ActiveAdmin.register Category do
   permit_params :name, :code, :award_id, :submission_file_type, :document_max_number, 
   :max_total_file_size, :description, :rules, :enabled, :accepts_multiple_submissions
   
+  # Prevents N+1 Queries
+  controller do
+    def scoped_collection
+      resource_class.includes(:award)
+    end
+  end
+  
   index do
     column :id, sortable: :id do |category|
       link_to category.id, admin_category_path(category)

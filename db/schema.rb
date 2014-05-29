@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140422184508) do
+ActiveRecord::Schema.define(version: 20140529154708) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -141,6 +141,9 @@ ActiveRecord::Schema.define(version: 20140422184508) do
     t.boolean  "disqualify"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "disqualify_reason"
+    t.boolean  "best_of_division"
+    t.boolean  "judges_choice"
   end
 
   create_table "user_organizations", force: true do |t|

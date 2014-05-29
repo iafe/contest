@@ -46,6 +46,7 @@ class OrganizationsController < ApplicationController
       if @organization.update(organization_params)
         format.html { redirect_to @organization, notice: 'Organization was successfully updated.' }
         format.json { head :no_content }
+        OrganizationChange.changed(@organization).deliver
       else
         format.html { render action: 'edit' }
         format.json { render json: @organization.errors, status: :unprocessable_entity }

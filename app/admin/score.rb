@@ -4,6 +4,13 @@ ActiveAdmin.register Score do
   
   permit_params :user_id, :submission_id, :total_score, :comments, :disqualify
   
+  # Prevents N+1 Queries
+  controller do
+    def scoped_collection
+      resource_class.includes(:user, :submission)
+    end
+  end
+  
   index do
     column :id, sortable: :id do |score|
       link_to score.id, admin_score_path(score)

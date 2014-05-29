@@ -82,3 +82,9 @@ gem 'wicked_pdf'
 
 # Denies or allows access to certain pages
 gem 'cancan'
+
+# Detects N+1 queries/helps with optimization
+gem 'bullet', group: :development
+
+# Allows transaction e-mail
+gem 'mandrill-api'

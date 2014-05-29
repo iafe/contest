@@ -29,21 +29,28 @@ class Submission < ActiveRecord::Base
   end
   
   def ranking
-    Submission.connection.select_value("SELECT COUNT(*)+1 AS ranking FROM submissions "+"WHERE id > "+"(SELECT id FROM submissions WHERE id = #{self.id})").to_i
-  end
-  
-  def winner?
-    winners = Submission.select('distinct(category_id), AVG(scores.total_score) as avg_score').joins(:scores)
-    .group('submissions.id').order('AVG(scores.total_score) DESC')
-    if (self.scores.average(:total_score) == winners[0].avg_score)
-      return "1st Place"
-    elsif (self.scores.average(:total_score) == winners[1].avg_score)
-      return "2nd Place"
-    elsif (self.scores.average(:total_score) == winners[2].avg_score)
-      return "3rd Place"
-    else
-      return ''
-    end
+    sql_query = %Q{SELECT 
+   *, dense_rank() OVER (
+       PARTITION BY contest_year, category_id, division_id
+       ORDER BY final_score DESC
+   )
+FROM (
+    SELECT 
+        Submissions.id, 
+        Submission.contest_year AS contest_year, 
+        Submission.category_id AS category_id, 
+        Submission.division_id AS division_id, 
+        AVG(Scores.total_score) AS final_score
+    FROM Submissions 
+        INNER JOIN Scores ON (Submissions.id = Scores.submission_id)
+    GROUP BY 
+        Submissions.id, 
+        Submission.contest_year, 
+        Submission.category_id, 
+        Submission.division_id
+) AS FinalScores}
+
+submissions_by_rank = Submission.find_by_sql(sql_query)
   end
   
   private

@@ -4,6 +4,13 @@ ActiveAdmin.register Judge do
   
   permit_params :user_id, :category_id, :division_id
   
+  # Prevents N+1 Queries
+  controller do
+    def scoped_collection
+      resource_class.includes(:user, :category, :division)
+    end
+  end
+  
   index do
     column :id, sortable: :id do |judge|
       link_to judge.id, admin_judge_path(judge)

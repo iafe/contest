@@ -15,12 +15,12 @@
 
 <p><%= link_to "Add An Organization".html_safe, new_user_organization_path, class: "btn btn-default", role: "button" %> <%= link_to "Update Fair Dates/Attendance".html_safe, new_organization_detail_path, class: "btn btn-default", role: "button" %></p>
 
-<% @user.user_organizations.in_groups_of(3, false).each do |group| %>
+<% @user.user_organizations.includes(:organization).in_groups_of(3, false).each do |group| %>
   <div class="row">
     <% group.each do |user_organization| %>
       <div class="col-md-4">
         <p><strong>Name:</strong> <%= user_organization.organization.name %></p>
-        <p><strong>Fair Manager:</strong> <%= user_organization.organization.primary_contact %></p>
+        <p><strong>Primary Contact:</strong> <%= user_organization.organization.primary_contact %></p>
         <p><strong>Address Line 1:</strong> <%= user_organization.organization.address_line_1 %></p>
         <p><strong>Address Line 2:</strong> <%= user_organization.organization.address_line_2 %></p>
         <p><strong>City:</strong> <%= user_organization.organization.city %></p>

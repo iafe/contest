@@ -4,9 +4,9 @@
 
 <p>Note: Please score carefully--once you score an entry, you cannot go back to change the score. The IAFE encourages the use of fractions to prevent ties.</p>
 
-<% current_user.judges.group(:category_id, :division_id).order('category_id DESC').each do |judge| %>
+<% current_user.judges.group(:category_id, :division_id).includes(:category, :division).order('category_id DESC').each do |judge| %>
   <div class="submissionheading"><h3><%= judge.category.award.name %> <%= judge.category.code %>: <%= judge.category.name %> - <%= judge.division.name %></h3></div>
-  <% @submissions.where(category_id: judge.category_id, division_id: judge.division_id, status: 'Approved', contest_year: Time.now.year).in_groups_of(3, false) do |group| %>
+  <% @submissions.includes(:organization, :scores).where(category_id: judge.category_id, division_id: judge.division_id, status: 'Approved', contest_year: Time.now.year).in_groups_of(3, false) do |group| %>
     <div class="row">
       <% group.each do |submission| %>
         <div class="col-md-4">

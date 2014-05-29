@@ -4,6 +4,13 @@ ActiveAdmin.register ScoreItem do
   
   permit_params :name, :description, :category_id, :max_points
   
+  # Prevents N+1 Queries
+  controller do
+    def scoped_collection
+      resource_class.includes(:category)
+    end
+  end
+  
   index do
     column :id, sortable: :id do |score_item|
       link_to score_item.id, admin_score_item_path(score_item)

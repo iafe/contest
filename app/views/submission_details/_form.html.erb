@@ -10,6 +10,9 @@
       </ul>
     </div>
   <% end %>
+  
+  <% if Time.now < @actual_deadline + 1 %>
+  
   <div class="field">
     <%= f.label :submission_id, "Submission Information" %> <span class="required">*</span><br>
 	<%= f.hidden_field :submission_id, value: @submission.id %> 
@@ -41,4 +44,11 @@
     <% else %><p class="important">This submission has been approved or rejected, you cannot add or change its documents.</p>
     <p><%= link_to 'Back to My Submissions', submissions_path %></p><% end %>
   </div>
+  
+  <% else %>
+    
+  <p class="important">The deadline has passed for the current contest year. Submission creation/editing has closed. See you next year!</p>
+    
+  <% end %>
+  
 <% end %>

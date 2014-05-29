@@ -4,6 +4,13 @@ ActiveAdmin.register OrganizationDetail do
   
   permit_params :organization_id, :fair_start_date, :fair_end_date, :total_attendance
   
+    # Prevents N+1 Queries
+  controller do
+    def scoped_collection
+      resource_class.includes(:organization)
+    end
+  end
+  
   index do
     column :id, sortable: :id do |organization_detail|
       link_to organization_detail.id, admin_organization_detail_path(organization_detail)
