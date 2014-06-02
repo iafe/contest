@@ -16,7 +16,7 @@
   <div class="field">
     <%= f.label :category_id %> <span class="required">*</span><br>
     <% if params[:action] == 'new' || params[:action] == 'create' %>
-      <%= collection_select(:submission, :category_id, Category.sort_by_category_codes(Category.all), :id, :award_code_category,
+      <%= collection_select(:submission, :category_id, Category.sort_by_category_codes(Category.where(enabled: true).includes(:award)), :id, :award_code_category,
       include_blank: "Select the category you wish to enter") %>
     <% else %>
       <%= @submission.category.award.name %> <%= @submission.category.code %>: <%= @submission.category.name %>
@@ -29,7 +29,7 @@
   </div>
   <div class="field">
     <%= f.label :organization_id, "Organization of Submission" %> <span class="required">*</span><br>
-    <%= collection_select(:submission, :organization_id, current_user.organizations.where({fair: true}), :id, :name_and_state) %>
+    <%= collection_select(:submission, :organization_id, current_user.organizations.where({fair: true, enabled: true}), :id, :name_and_state) %>
   </div>
   <div class="field">
   <% if params[:action] == 'new' || params[:action] == 'create' %>

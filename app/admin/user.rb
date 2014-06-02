@@ -34,6 +34,20 @@ ActiveAdmin.register User do
   filter :created_at
   filter :updated_at
   
+  form do |f|
+    f.inputs do
+      f.input :first_name, required: true
+      f.input :last_name, required: true
+      f.input :suffix
+      f.input :phone, required: true
+      f.input :email, required: true
+      f.input :admin, as: :select, required: true, label: "Admin?"
+      f.input :judge, as: :select, required: true, label: "Judge?"
+      f.input :enabled, as: :select, required: true, label: "Enabled?"
+    end
+    f.actions
+  end
+  
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #

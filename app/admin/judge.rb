@@ -29,6 +29,7 @@ ActiveAdmin.register Judge do
     column "Sheet" do |judge|
       link_to "Sheet", pdf_admin_judge_path(id: judge.id, format: :pdf), target: "_blank"
     end
+    default_actions
   end
   
   filter :category_name, as: :string
@@ -41,7 +42,7 @@ ActiveAdmin.register Judge do
     f.inputs do
       f.input :user_id, :label => 'User', :as => :select, required: true, :collection => User.where(judge: true).map{|u| ["#{u.last_name}, #{u.first_name}", u.id]}
       f.input :division, required: true
-            f.input :category_id, as: :select, required: true, :collection => Category.where(enabled: true).map{|c| ["#{c.award.name} #{c.code}: #{c.name}", c.id]}
+            f.input :category_id, as: :select, required: true, :collection => Category.includes(:award).where(enabled: true).map{|c| ["#{c.award.name} #{c.code}: #{c.name}", c.id]}
     end
     f.actions
   end

@@ -1,5 +1,7 @@
 class AwardsController < ApplicationController
   before_action :set_award, only: [:show, :edit, :update, :destroy]
+  
+  load_and_authorize_resource
 
   # GET /awards
   # GET /awards.json

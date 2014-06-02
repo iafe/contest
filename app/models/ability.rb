@@ -12,6 +12,9 @@ class Ability
          can [:new, :create], Organization
          can [:new, :create, :destroy, :delete], UserOrganization
          can [:new, :create], OrganizationDetail
+         can [:show], Award do |contest|
+           contest.enabled?
+         end
          can [:show, :edit, :update], User do |current_user|
            user.id == current_user.id && user.enabled?
          end
@@ -19,7 +22,7 @@ class Ability
            user.id == submission.user_id
          end
          can [:show, :edit, :update, :new, :create], SubmissionDetail do |submission_detail|
-           user.id == submission_detail.submission.user_id
+           Submission.where(user_id: user.id)
          end
          can [:show, :edit, :update], Organization do |organization|
            UserOrganization.where(user_id: user.id, organization_id: organization.id).any? && organization.enabled?
@@ -28,10 +31,14 @@ class Ability
            user.id == user_organization.user_id
          end
          can [:show, :edit, :update], OrganizationDetail do |organization_detail|
-           UserOrganization.where(user_id: user.id, organization_id: organization_detail.organization.id).any? && organization_detail.organziation.enabled?
+           UserOrganization.where(user_id: user.id, organization_id: organization_detail.organization.id).any?
          end
          if user.judge?
            can [:new, :create, :index, :show, :edit, :update], Score
+         end
+       else
+         can [:show], Award do |contest|
+           contest.enabled?
          end
        end
     #

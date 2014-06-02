@@ -7,7 +7,7 @@ ActiveAdmin.register ScoreItem do
   # Prevents N+1 Queries
   controller do
     def scoped_collection
-      resource_class.includes(:category)
+      resource_class.includes(category: :award)
     end
   end
   

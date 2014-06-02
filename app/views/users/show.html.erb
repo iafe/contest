@@ -30,6 +30,7 @@
         <p><strong>Phone:</strong> <%= user_organization.organization.phone %></p>
         <p><strong>Is This a Fair?</strong> <%= user_organization.organization.fair? %></p>
         <p><strong>Is This Your Primary Org?</strong> <%= user_organization.primary? %></p>
+        <% if user_organization.organization.enabled == false %><p class="important">Note: This organization has been disabled for contest submission, possibly because its IAFE membership has lapsed or it is no longer in existence. Contact the IAFE office to re-enable.</p><% end %>
         <p><%= link_to "Edit Organization".html_safe, 
         edit_organization_path(user_organization.organization), class: "btn btn-default", role: "button" %> <%= link_to "Delete This Relationship".html_safe, 
         user_organization, method: :delete, data: { confirm: 'Are you sure? A notification will be sent to the IAFE.' }, class: "btn btn-default", role: "button" %></p>

@@ -2,6 +2,8 @@
 <html>
 <head>
   <title>IAFE Contest</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="The IAFE annually awards excellence in fair programming through four educational contests: Agriculture, Competitive Exhibits, Communications, and Sponsorship."/>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -29,7 +31,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contest Rules<b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <% @awards.each do |award| %>
+              <% @awards.where(enabled: true).each do |award| %>
                 <li><%= link_to award.name, award %></li>
               <% end %>
             </ul>

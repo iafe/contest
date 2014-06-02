@@ -14,7 +14,7 @@
 		<div class="col-md-4">
 			<p><a href="#" class="showSingle" id="0">Award Overview</a></p>
 			<% @award.categories.sort_by_category_codes(Category.includes(:award)).each do |category| %>
-				<% if category.award_id == @award.id %>
+				<% if category.award_id == @award.id && category.enabled == true %>
 					<p><a href="#" class="showSingle" id="<%= category.id %>"><%= category.code %>: <%= category.name %></a></p>
 				<% end %>
 			<% end %>
@@ -29,7 +29,7 @@
 				<p><%= sanitize(@award.rules) %></p>
 			</div>
 			<% @award.categories.sort_by_category_codes(Category.includes(:award)).each do |category| %>
-				<% if category.award_id == @award.id %>
+				<% if category.award_id == @award.id && category.enabled == true %>
 					<div id="div<%= category.id %>" class="idDiv">
 						<h3><%= category.name %></h3>
 						<%= sanitize(category.description) %>

@@ -104,7 +104,7 @@ ActiveAdmin.register Submission do
   
   form do |f|
     f.inputs do
-      f.input :category_id, as: :select, required: true, :collection => Category.where(enabled: true).map{|c| ["#{c.award.name} #{c.code}: #{c.name}", c.id]}
+      f.input :category_id, as: :select, required: true, :collection => Category.includes(:award).where(enabled: true).map{|c| ["#{c.award.name} #{c.code}: #{c.name}", c.id]}
       f.input :organization_id, label: "Organization ID"
       f.input :user_id, label: "User ID"
       f.input :division, label: "Division", required: true

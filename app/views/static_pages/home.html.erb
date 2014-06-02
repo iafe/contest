@@ -2,6 +2,8 @@
   <p class="important center" style="background-color: #ffcccc; padding: 5px;"><%=h flash[:error] %></p>
 <% end -%>
 
+<%= render 'layouts/messages' %>
+
     <div class="jumbotron">
       <div class="container">
         <img src="/images/template/logo.png" class="logo"/>
@@ -15,7 +17,7 @@
     </div>
 
     <div class="container"> 
-      <% @awards.in_groups_of(3, false).each do |group| %>
+      <% @awards.where(enabled: true).in_groups_of(3, false).each do |group| %>
         <div class="row">
           <% group.each do |award| %>
             <div class="col-md-4">

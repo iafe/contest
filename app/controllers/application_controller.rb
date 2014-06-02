@@ -6,6 +6,13 @@ class ApplicationController < ActionController::Base
   before_filter :update_sanitized_params, if: :devise_controller?
   before_filter :contest_deadline
   
+  # CanCan workaround for allowed parameters
+  before_filter do
+    resource = controller_name.singularize.to_sym
+    method = "#{resource}_params"
+    params[resource] &&= send(method) if respond_to?(method, true)
+  end
+  
   before_action :set_awards
 
   def update_sanitized_params

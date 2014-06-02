@@ -16,7 +16,7 @@
   <div class="field">
     <%= f.label :organization_id %> <span class="required">*</span><br>
 	<% if params[:action] == 'new' || params[:action] == 'create' %>
-	  <%= collection_select(:organization_detail, :organization_id, current_user.organizations.where({fair: true}), :id, :name_and_state,  
+	  <%= collection_select(:organization_detail, :organization_id, current_user.organizations.where({fair: true, enabled: true}), :id, :name_and_state,  
 	  include_blank: true) %>
 	<% else %>
 	  <%= f.hidden_field :organization_id, value: @organization_detail.organization_id %><%= @organization_detail.organization.name %>
