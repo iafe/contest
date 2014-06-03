@@ -8,8 +8,10 @@
   <div><p><%= f.label :email %><br/>
   <%= f.email_field :email, autofocus: true %><p></div>
 
-  <div><p><%= f.submit "Send me reset password instructions" %></p></div>
+  <div><p><%= f.submit "E-mail me reset password instructions" %></p></div>
 <% end %>
+
+<p class="bold">Note: this e-mail may take up to 15-20 minutes to send, please be patient.</p>
 
 <%= render "devise/shared/links" %>
 

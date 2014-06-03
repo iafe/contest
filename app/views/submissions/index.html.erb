@@ -53,7 +53,7 @@
               <p class="pending">Status: Pending for IAFE Staff to Process</p>
             <% elsif submission.status == 'Rejected' %>
               <p class="rejected">Status: Rejected</p>
-            <% elsif submission.status == 'Pending' %>
+            <% elsif submission.status == 'Incomplete' %>
               <p class="pending">Status: Incomplete, <%= link_to 'please upload document/link', new_submission_submission_detail_path(submission) %></p>
             <% end %>
           <% end %>

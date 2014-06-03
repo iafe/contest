@@ -21,9 +21,7 @@ class Ability
          can [:show, :edit, :update, :destroy, :delete], Submission do |submission|
            user.id == submission.user_id
          end
-         can [:show, :edit, :update, :new, :create], SubmissionDetail do |submission_detail|
-           Submission.where(user_id: user.id)
-         end
+         can [:show, :edit, :update, :new, :create], SubmissionDetail, submission: {user_id: user.id }
          can [:show, :edit, :update], Organization do |organization|
            UserOrganization.where(user_id: user.id, organization_id: organization.id).any? && organization.enabled?
          end

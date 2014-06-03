@@ -4,11 +4,11 @@
   <%= devise_error_messages! %>
   
   <div class="field">
-    <%= f.label :first_name %><br>
+    <%= f.label :first_name %> <span class="required">*</span><br>
     <%= f.text_field :first_name %>
   </div>
   <div class="field">
-    <%= f.label :last_name %><br>
+    <%= f.label :last_name %> <span class="required">*</span><br>
     <%= f.text_field :last_name %>
   </div>
   <div class="field">
@@ -16,15 +16,15 @@
     <%= f.text_field :suffix %>
   </div>
   <div class="field">
-    <%= f.label :phone %><br>
+    <%= f.label :phone %> <span class="required">*</span><br>
     <%= f.text_field :phone %>
   </div>
   <div class="field">
-    <%= f.label :email %><br>
+    <%= f.label :email %> <span class="required">*</span><br>
     <%= f.text_field :email, autofocus: true %>
   </div>
   <div class="field">
-    <%= f.label :email_confirmation, "Email Confirmation" %><br>
+    <%= f.label :email_confirmation, "Email Confirmation" %> <span class="required">*</span><br>
 	<% if params[:action] == 'new' || params[:action] == 'create' %>
       <%= f.text_field :email_confirmation, autofocus: true %>
 	<% else %>
@@ -33,11 +33,11 @@
     </div>
   <% if params[:action] == 'new' || params[:action] == 'create' %>
     <div class="field">
-      <%= f.label :password %><br>
+      <%= f.label :password %> <span class="required">*</span><br>
       <%= f.password_field :password, autocomplete: "off" %>
     </div>
     <div class="field">
-     <%= f.label :password_confirmation, "Password Confirmation" %><br>
+     <%= f.label :password_confirmation, "Password Confirmation" %> <span class="required">*</span><br>
      <%= f.password_field :password_confirmation, autocomplete: "off" %>
     </div>
   <% end %>
