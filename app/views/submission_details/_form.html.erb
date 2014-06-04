@@ -1,3 +1,5 @@
+<p id="notice"><%= notice %></p>
+
 <%= form_for([@submission, @submission_detail], html: {multipart: true}) do |f| %>
   <% if @submission_detail.errors.any? %>
     <div id="error_explanation">

@@ -2,6 +2,8 @@
   $('select').select2();
 });</script>
 
+<p id="notice"><%= notice %></p>
+
 <%= form_for(@user_organization) do |f| %>
   <% if @user_organization.errors.any? %>
     <div id="error_explanation">
