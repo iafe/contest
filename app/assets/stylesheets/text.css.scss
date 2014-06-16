@@ -20,7 +20,25 @@ h2 {
 h3 {
   color: $theme-color1;
   font-family: $h2-font;
-  font-size: 24px;
+  font-size: 28px;
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 28px;
+  }
+    
+  h2 {
+    font-size: 24px;  
+  }
+  
+  h3 {
+    font-size: 20px;
+  }
+  
+  .jumbotron p {
+    font-size: 16px;
+  }
 }
 
 p {
