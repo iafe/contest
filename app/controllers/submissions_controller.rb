@@ -36,6 +36,10 @@ class SubmissionsController < ApplicationController
         # format.html { redirect_to new_submission_submission_detail_path(@submission, @submission_detail), 
           # notice: 'Submission was successfully created.' }
         format.json { render action: 'show', status: :created, location: @submission }
+        # notifies IAFE staff of a new contest submission prior to the start of September
+        if Time.now.month < 9
+          SubmissionAdd.added(@submission).deliver
+        end
       else
         format.html { render action: 'new' }
         format.json { render json: @submission.errors, status: :unprocessable_entity }
