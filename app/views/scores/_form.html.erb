@@ -27,7 +27,8 @@
     <%= @submission.category.award.name %><br/>
     Category <%= @submission.category.code %>: <%= @submission.category.name %><br/>
     Division <%= @submission.organization.submission_division %><br/>
-    <%= @submission.organization.name %> - <%= @submission.organization.city %>, <%= @submission.organization.state_province %><br/><br/>
+    <%= @submission.organization.name %> - <%= @submission.organization.city %>, <%= @submission.organization.state_province %><br/>
+    Fair Dates: <%= @submission.organization.organization_details.order("created_at").last.fair_start_date.strftime('%m/%d/%Y') %> - <%= @submission.organization.organization_details.order("created_at").last.fair_end_date.strftime('%m/%d/%Y') %><br/><br/>
     <% @submission.submission_details.includes(:submission).each do |submission_detail| %>
       <% if @submission.category.submission_file_type == "URL Link Only" %>
         <%= link_to 'Submission Link', submission_detail.file_url, target: "_blank" %>
