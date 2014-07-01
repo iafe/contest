@@ -3,7 +3,7 @@ ActiveAdmin.register Category do
   menu priority: 7
   
   permit_params :name, :code, :award_id, :submission_file_type, :document_max_number, 
-  :max_total_file_size, :description, :rules, :enabled, :accepts_multiple_submissions
+  :max_total_file_size, :description, :rules, :enabled, :accepts_multiple_submissions, :required_format
   
   # Prevents N+1 Queries
   controller do
@@ -19,6 +19,7 @@ ActiveAdmin.register Category do
     column :award, sortable: :award
     column :code
     column :name
+    column "Format", :required_format
     column "File Type", :submission_file_type
     column "Doc Max #", :document_max_number
     column "Max Size", :max_total_file_size
@@ -31,6 +32,7 @@ ActiveAdmin.register Category do
   filter :code, as: :string
   filter :name, as: :string
   filter :submission_file_type, as: :select
+  filter :required_format, as: :select
   filter :enabled, as: :select, label: "Enabled?"
   filter :accepts_multiple_submissions, as: :select, label: "Accepts Multiple Submissions?"
   filter :created_at
@@ -41,6 +43,7 @@ ActiveAdmin.register Category do
       f.input :award, required: true
       f.input :name
       f.input :code
+      f.input :required_format, as: :select, :collection => ["Digital Only", "Physical Only", "Digital and Physical"]
       f.input :submission_file_type, as: :select, :collection => ["Mixed (PDF and Images)", "Images Only", "Video Only", "URL Link Only"]
       f.input :document_max_number
       f.input :max_total_file_size

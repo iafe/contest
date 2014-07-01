@@ -33,7 +33,6 @@
   </div>
   <div class="field">
   <% if params[:action] == 'new' || params[:action] == 'create' %>
-    <%= f.hidden_field :status, value: "Incomplete" %>
   <% else %>
       <%= f.hidden_field :status, value: @submission.status %>
   <% end %>
@@ -64,7 +63,7 @@
   <% end %>
   <div class="actions">
     <% if params[:action] == 'new' || params[:action] == 'create' %>
-      <p><%= f.submit "Next: Upload New Document/Link" %></p>
+      <p><%= f.submit "Next: Upload New Document/Link (if Digital Format is Required)" %></p>
     <% else %>
       <% if @submission.status == 'Pending' || @submission.status == 'Incomplete' %><p><%= f.submit "Submit" %></p>
       <% else %><p class="important">This submission has been approved or rejected, you cannot change it.</p><% end %>

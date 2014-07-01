@@ -39,12 +39,16 @@
       </div>
     <% end %>
   <% end %><br/>
-  <p class="bold ">Note: if you are submitting multiple documents for one submission, please submit them in the order you want the judges to view them.</p>
+  <p class="bold ">Note: if you are submitting multiple documents for one submission, please submit them in the order you want the judges to view them. You will have the opportunity to upload another document after this page.</p>
   <p class="bold">When you hit "Submit" please do not hit "Submit" again. Page may take some time to process the upload.</p>
   <div class="actions">
-    <% if @submission.status == 'Pending' || @submission.status == 'Incomplete' %><p><%= f.submit "Submit" %></p>
-    <% else %><p class="important">This submission has been approved or rejected, you cannot add or change its documents.</p>
-    <p><%= link_to 'Back to My Submissions', submissions_path %></p><% end %>
+  	<% if @submission.category.required_format == 'Physical Only' %>
+  	  <p class="important">This category does not require any digital files. Please return to the submissions page.</p>
+  	<% else %>
+      <% if @submission.status == 'Pending' || @submission.status == 'Incomplete' %><p><%= f.submit "Submit" %></p>
+      <% else %><p class="important">This submission has been approved or rejected, you cannot add or change its documents.</p>
+      <p><%= link_to 'Back to My Submissions', submissions_path %></p><% end %>
+    <% end %>
   </div>
   
   <% else %>

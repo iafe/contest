@@ -32,10 +32,12 @@ class SubmissionsController < ApplicationController
     
     respond_to do |format|
       if @submission.save
-        format.html { redirect_to new_submission_submission_detail_path(@submission), notice: 'Submission was successfully created.' }
-        # format.html { redirect_to new_submission_submission_detail_path(@submission, @submission_detail), 
-          # notice: 'Submission was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @submission }
+        if @submission.category.required_format == "Physical Only"
+          format.html { redirect_to submissions_path, notice: 'Submission was successfully created.' }
+        else
+          format.html { redirect_to new_submission_submission_detail_path(@submission), notice: 'Submission was successfully created.' }
+          format.json { render action: 'show', status: :created, location: @submission }
+        end
         # notifies IAFE staff of a new contest submission prior to the start of September
         if Time.now.month < 9
           SubmissionAdd.added(@submission).deliver

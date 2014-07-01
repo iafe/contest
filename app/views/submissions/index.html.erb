@@ -14,6 +14,8 @@
 	
 <h1>My Submissions</h1>
 
+<p id="notice"><%= notice %></p>
+
 <% if Time.now < @actual_deadline + 1 %>
   <p><%= link_to 'Create a New Submission', new_submission_path, class: "btn btn-default", role: "button" %></p>
 
@@ -41,28 +43,34 @@
     <div class="row">
     <% group.each do |submission| %>
       <div class="col-md-4">
-          <p class="bold"><%= submission.category.award.name %> <%= submission.category.code %>: <%= submission.category.name %></p>
-          <p>Submitted By: <%= submission.user.first_name %> <%= submission.user.last_name %></p>
-          <% if submission.disqualify == true %>
-            <p class="rejected">This entry was disqualified</p>
-            <p><span class="bold">Disqualification Reason:</span> <%= submission.disqualify_reason %></p>
-          <% else %>
-            <% if submission.status == 'Approved' %>
-              <p class="completed">Status: Approved</p>
-            <% elsif submission.status == 'Pending' %>
-              <p class="pending">Status: Pending for IAFE Staff to Process</p>
-            <% elsif submission.status == 'Rejected' %>
-              <p class="rejected">Status: Rejected</p>
-            <% elsif submission.status == 'Incomplete' %>
-              <p class="pending">Status: Incomplete, <%= link_to 'please upload document/link', new_submission_submission_detail_path(submission) %></p>
-            <% end %>
+        <p class="bold"><%= submission.category.award.name %> <%= submission.category.code %>: <%= submission.category.name %></p>
+        <p>Submitted By: <%= submission.user.first_name %> <%= submission.user.last_name %></p>
+        <% if submission.disqualify == true %>
+          <p class="rejected">This entry was disqualified</p>
+          <p><span class="bold">Disqualification Reason:</span> <%= submission.disqualify_reason %></p>
+        <% else %>
+          <% if submission.status == 'Approved' %>
+            <p class="completed">Status: Approved</p>
+          <% elsif submission.status == 'Pending' %>
+            <p class="pending">Status: Pending for IAFE Staff to Process
+             <% if submission.category.required_format == "Physical Only" || submission.category.required_format == "Digital and Physical" %>
+              	<br/>Remember: this category requires that you mail in a physical entry to the IAFE Office</p>
+             <% else %>
+              	</p>
+             <% end %>
+          <% elsif submission.status == 'Rejected' %>
+            <p class="rejected">Status: Rejected</p>
+          <% elsif submission.status == 'Incomplete' %>
+            <p class="pending">Status: Incomplete, <%= link_to 'please upload document/link', new_submission_submission_detail_path(submission) %></p>
           <% end %>
-          <% if submission.scores.where("comments <> ''").count > 0 %>
-            <p class="bold">Judge's Comments:</p>
-            <% submission.scores.includes(:submission).where("comments <> ''").each do |c| %>
-              <p>"<%= c.comments %>"</p>
-            <% end %>
+        <% end %>
+        <% if submission.scores.where("comments <> ''").count > 0 %>
+          <p class="bold">Judge's Comments:</p>
+          <% submission.scores.includes(:submission).where("comments <> ''").each do |c| %>
+            <p>"<%= c.comments %>"</p>
           <% end %>
+        <% end %>
+        <% if submission.category.required_format == "Digital Only" || submission.category.required_format == "Digital and Physical" %>
           <p>Uploaded Documents/Links (click image/link to edit/view):</p>
           <p>
           <% if submission.submission_details.count > 1 %>
@@ -84,6 +92,7 @@
               <p><%= link_to 'Add Digital File', new_submission_submission_detail_path(submission) %> | <%= link_to 'Delete Submission', submission, method: :delete, data: { confirm: 'Are you sure?' } %></p>
             <% end %>
           <% end %>
+        <% end %>
       </div>
     <% end %>
   </div><br/>

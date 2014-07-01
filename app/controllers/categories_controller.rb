@@ -70,6 +70,6 @@ class CategoriesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def category_params
       params.require(:category).permit(:name, :code, :award_id, :submission_file_type, :document_max_number,
-      :max_total_file_size, :accepts_multiple_submissions, :description, :rules, :enabled)
+      :max_total_file_size, :accepts_multiple_submissions, :description, :rules, :enabled, :required_format)
     end
 end

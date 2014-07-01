@@ -1,5 +1,7 @@
 class Submission < ActiveRecord::Base
   
+  after_create :set_status
+  
   scope :current_year_pending, -> {where(status: 'Pending', contest_year: Time.now.year)}
   scope :current_year_incomplete, -> {where(status: 'Incomplete', contest_year: Time.now.year)}
   scope :current_year_approved, -> {where(status: 'Approved', contest_year: Time.now.year)}
@@ -20,7 +22,6 @@ class Submission < ActiveRecord::Base
   validates :organization_id, presence: true
   validates :category_id, presence: true
   validates :division_id, presence: true
-  validates :status, presence: true
   validates_uniqueness_of :category_id, scope: [:contest_year, :organization_id], unless: :multi_submit?, 
     message: "already has a submission for this year. Please choose a different category. Note: it is possible a different user within your organization already submitted an entry for this category, please check or call the IAFE office."
   
@@ -59,6 +60,14 @@ submissions_by_rank = Submission.find_by_sql(sql_query)
         return true
       else
         return false
+      end
+    end
+    
+    def set_status
+      if self.category.required_format == "Physical Only"
+        self.update(status: "Pending")
+      else
+        self.update(status: "Incomplete")
       end
     end
 
