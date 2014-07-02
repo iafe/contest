@@ -13,7 +13,7 @@
     </div>
   <% end %>
   
-  <% if Time.now < @actual_deadline + 1 %>
+  <% if Time.now < @award_deadline.actual_deadline + 1 %>
   
   <div class="field">
     <%= f.label :submission_id, "Submission Information" %> <span class="required">*</span><br>

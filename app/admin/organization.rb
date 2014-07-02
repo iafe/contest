@@ -1,6 +1,6 @@
 ActiveAdmin.register Organization do
   
-  menu priority: 2
+  menu label: "Orgs", priority: 2
   
   permit_params :name, :primary_contact, :address_line_1, :address_line_2, :city, :state_province, :country, :zip_code, :phone, :fair, :enabled
   

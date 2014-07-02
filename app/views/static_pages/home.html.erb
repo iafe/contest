@@ -11,7 +11,7 @@
         <p><a class="btn btn-primary btn-lg" role="button">Learn More &raquo;</a>
         	<a class="btn btn-primary btn-lg" role="button">Create an Account &raquo;</a>
         </p>
-        <p>The deadline for the <%= @deadline.strftime('%Y') %> contest is <%= @deadline.strftime('%B %e') %>.
+        <p>The deadline for the <%= @award_deadline.deadline.strftime('%Y') %> contest is <%= @award_deadline.deadline.strftime('%B %e') %>.
 
 <span class="countdown">
 <span class="days">00</span><span class="seperator">d</span>
@@ -19,7 +19,7 @@
 <span class="minutes">00</span><span class="seperator">m</span>
 <span class="seconds">00</span><span class="seperator">s</span>
 </span>
-<script type="text/javascript">$('.countdown').downCount({ date: '<%= @deadline + 2 %>', offset: +14});</script></p>
+<script type="text/javascript">$('.countdown').downCount({ date: '<%= @award_deadline.deadline + 2 %>', offset: +14});</script></p>
       </div>
     </div>
 

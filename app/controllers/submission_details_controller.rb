@@ -19,11 +19,13 @@ class SubmissionDetailsController < ApplicationController
   def new
     @submission_detail = SubmissionDetail.new
     @submission = Submission.find(params[:submission_id])
+    @award_deadline = Deadline.order("created_at").last
   end
 
   # GET /submission_details/1/edit
   def edit
     @submission = Submission.find(params[:submission_id])
+    @award_deadline = Deadline.order("created_at").last
   end
 
   # POST /submission_details

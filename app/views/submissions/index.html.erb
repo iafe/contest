@@ -16,7 +16,7 @@
 
 <p id="notice"><%= notice %></p>
 
-<% if Time.now < @actual_deadline + 1 %>
+<% if Time.now < @award_deadline.actual_deadline + 1 %>
   <p><%= link_to 'Create a New Submission', new_submission_path, class: "btn btn-default", role: "button" %></p>
 
   <% current_user.user_organizations.includes(:organization).each do |user_organization| %>
@@ -87,7 +87,7 @@
             </div>
           <% end %>
           </p>
-          <% if Time.now < @actual_deadline + 1 %>
+          <% if Time.now < @award_deadline.actual_deadline + 1 %>
             <% if submission.status == 'Pending' || submission.status == 'Incomplete' %>
               <p><%= link_to 'Add Digital File', new_submission_submission_detail_path(submission) %> | <%= link_to 'Delete Submission', submission, method: :delete, data: { confirm: 'Are you sure?' } %></p>
             <% end %>

@@ -18,10 +18,12 @@ class OrganizationDetailsController < ApplicationController
   def new
     @organization_detail = OrganizationDetail.new
 	  @user = User.find(current_user)
+	  @award_deadline = Deadline.order("created_at").last
   end
 
   # GET /organization_details/1/edit
   def edit
+    @award_deadline = Deadline.order("created_at").last
   end
 
   # POST /organization_details

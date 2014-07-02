@@ -2,7 +2,7 @@ ActiveAdmin.setup do |config|
   
   config.namespace :admin do |admin|
     admin.build_menu do |menu|
-      menu.add label: "Public Site", url: '/', priority: 0
+      menu.add label: "Public", url: '/', priority: 0
     end
     admin.build_menu :utility_navigation do |menu|
       admin.add_logout_button_to_menu menu
