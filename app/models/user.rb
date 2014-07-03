@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   
   has_many :submissions
+  has_many :submission_details, through: :submissions
   has_many :scores
   has_many :organizations, through: :user_organizations
   has_many :user_organizations, dependent: :restrict_with_exception

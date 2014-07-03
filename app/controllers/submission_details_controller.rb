@@ -1,7 +1,8 @@
 class SubmissionDetailsController < ApplicationController
   before_action :set_submission_detail, only: [:show, :edit, :update, :destroy]
   
-  load_and_authorize_resource
+  load_and_authorize_resource :submission, through: :current_user
+  load_and_authorize_resource :submission_detail, through: :submission
 
   # GET /submission_details
   # GET /submission_details.json
@@ -33,6 +34,7 @@ class SubmissionDetailsController < ApplicationController
   def create
     @submission = Submission.find(params[:submission_id])
     @submission_detail = SubmissionDetail.new(submission_detail_params)
+    @award_deadline = Deadline.order("created_at").last
 
     respond_to do |format|
       if @submission_detail.save
@@ -49,6 +51,7 @@ class SubmissionDetailsController < ApplicationController
   # PATCH/PUT /submission_details/1.json
   def update
     @submission = Submission.find(params[:submission_id])
+    @award_deadline = Deadline.order("created_at").last
     respond_to do |format|
       if @submission_detail.update(submission_detail_params)
         format.html { redirect_to submission_submission_detail_path(@submission, @submission_detail), notice: 'Submission detail was successfully updated.' }

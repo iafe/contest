@@ -1,7 +1,7 @@
 class SubmissionsController < ApplicationController
   before_action :set_submission, only: [:show, :edit, :update, :destroy]
   
-  load_and_authorize_resource
+  load_and_authorize_resource through: :current_user
 
   # GET /submissions
   # GET /submissions.json
@@ -32,6 +32,7 @@ class SubmissionsController < ApplicationController
     @submission = Submission.new(submission_params)
     @submission.division_id = @submission.organization.submission_division
     @submission.contest_year = Time.now.year
+    @award_deadline = Deadline.order("created_at").last
     
     respond_to do |format|
       if @submission.save
@@ -55,6 +56,7 @@ class SubmissionsController < ApplicationController
   # PATCH/PUT /submissions/1
   # PATCH/PUT /submissions/1.json
   def update
+    @award_deadline = Deadline.order("created_at").last
     respond_to do |format|
       if @submission.update(submission_params)
         format.html { redirect_to @submission, notice: 'Submission was successfully updated.' }
