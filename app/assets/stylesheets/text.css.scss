@@ -41,6 +41,12 @@ h3 {
   }
 }
 
+ul li {
+  a:link, a:hover, a:active, a:visited {
+  color: $theme-color2;
+  }
+}
+
 p {
   
   a:link, a:hover, a:active, a:visited {

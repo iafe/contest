@@ -67,7 +67,7 @@ ActiveAdmin.setup do |config|
     config.authentication_method = :authenticate_admin_user!
   
   def authenticate_admin_user!
-   redirect_to new_user_session_path unless current_user.admin == true
+   redirect_to new_user_session_path unless user_signed_in? && current_user.admin == true
   end
 
   # == User Authorization

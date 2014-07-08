@@ -17,9 +17,9 @@ ActiveAdmin.register Award, as: "Contest" do
     column "Updated", :updated_at, sortable: :updated_at do |award|
       award.updated_at.strftime("%m/%d/%Y")
     end
-    column "Winner Sheet" do |contest|
-      link_to "Sheet", pdf_admin_contest_path(id: contest.id, format: :pdf), target: "_blank"
-    end
+    #column "Winner Sheet" do |contest|
+      #link_to "Sheet", pdf_admin_contest_path(id: contest.id, format: :pdf), target: "_blank"
+    #end
     default_actions
   end
   

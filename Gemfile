@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'
@@ -88,3 +89,9 @@ gem 'bullet', group: :development
 
 # Allows transaction e-mail
 gem 'mandrill-api'
+
+# Heroku uses PostgreSQL for the database and needs rails_12factor for the asset pipeline as of Rails 4
+group :production do
+  gem 'pg', '0.15.1'
+  gem 'rails_12factor', '0.0.2'
+end

@@ -22,6 +22,10 @@
   background-color: #ffffff;
 }
 
-.dropdown {
+.dropdown li {
   background-color: #ffffff;
+  
+  a:link, a:hover, a:active, a:visited, a:focus {
+    color: #000000 !important;
+  }
 }
