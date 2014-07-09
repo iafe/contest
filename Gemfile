@@ -49,7 +49,7 @@ end
 # Puts an email field in the user table, do not create a new user's table, use this instead and add extra fields to the generated migration
 # Move the generated css file into vendor assets
 gem 'activeadmin', github: 'gregbell/active_admin'
-gem 'devise'
+
 
 # Country-select dropdown
 gem 'country_select'
