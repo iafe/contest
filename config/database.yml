@@ -21,10 +21,10 @@ test:
 production:
   adapter: postgresql
   encoding: utf8
-  database: d9846slj7r7vo3
-  username: aualtigyiusydv
-  password: Ei5Eq5_j6cqrgVGYm7-YqGCIHH
+  database: d6s61pf4dramka
+  username: abiqrcalaxdytn
+  password: uGbP5gjtXEHYg_eBnXJOSmGto7
   port: 5432
   pool: 5
   timeout: 5000
-  host: ec2-54-197-241-94.compute-1.amazonaws.com
+  host: ec2-54-204-16-70.compute-1.amazonaws.com
