@@ -11,3 +11,5 @@ User.new({ email: 'tech@fairsandexpos.com', email_confirmation: 'tech@fairsandex
 Organization.new({ name: 'International Association of Fairs and Expositions', primary_contact: 'Jim Tucker', address_line_1: '3043 E Cairo St', city: 'Springfield', state: 'MO', zip_code: '65802', phone: '417-862-5771', fair: false, enabled: true }).save
 
 UserOrganization.new({ user_id: 1, organization_id: 1 }).save
+
+Award.new({ name: 'Agricultural Awards', description: 'Description to come later.', rules: 'Rules to come later.', enabled: true }).save
