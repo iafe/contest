@@ -48,7 +48,7 @@ end
 # The admin dashboard functionality, also installs formtastic, jquery-ui-rails, kaminari, polyamorous, and ransack (and devise)
 # Puts an email field in the user table, do not create a new user's table, use this instead and add extra fields to the generated migration
 # Move the generated css file into vendor assets
-gem 'devise' # needed for production
+#gem 'devise' # needed for production
 gem 'activeadmin', github: 'gregbell/active_admin'
 
 # Country-select dropdown
