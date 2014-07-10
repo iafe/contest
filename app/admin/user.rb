@@ -21,7 +21,7 @@ ActiveAdmin.register User do
     column :created_at, sortable: :created_at do |user|
       user.created_at.strftime("%m/%d/%Y")
     end
-    default_actions
+    actions
   end
   
   filter :first_name

@@ -8,7 +8,5 @@ class Award < ActiveRecord::Base
   validates :sponsor, length: { maximum: 100,  minimum: 1 }, allow_blank: true
   validates :sponsor_logo, length: { maximum: 300,  minimum: 1 }, allow_blank: true
   
-  
-  
 end
 
