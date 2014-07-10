@@ -224,6 +224,7 @@ DEPENDENCIES
   cancan
   coffee-rails (~> 4.0.0)
   country_select
+  devise
   figaro
   jbuilder (~> 1.2)
   jquery-rails
