@@ -1,3 +1,0 @@
-module ScoresHelper
-  
-end
