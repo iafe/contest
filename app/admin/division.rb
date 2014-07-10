@@ -15,7 +15,7 @@ ActiveAdmin.register Division do
     column "Created", :created_at, sortable: :created_at do |division|
       division.created_at.strftime("%m/%d/%Y")
     end
-    default_actions
+    actions
   end
   
   filter :name

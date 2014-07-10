@@ -20,7 +20,7 @@ ActiveAdmin.register Award, as: "Contest" do
     #column "Winner Sheet" do |contest|
       #link_to "Sheet", pdf_admin_contest_path(id: contest.id, format: :pdf), target: "_blank"
     #end
-    default_actions
+    actions
   end
   
   filter :name

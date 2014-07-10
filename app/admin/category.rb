@@ -25,7 +25,7 @@ ActiveAdmin.register Category do
     column "Max Size", :max_total_file_size
     column "Multi-Submit", :accepts_multiple_submissions
     column :enabled
-    default_actions
+    actions
   end
   
   filter :award

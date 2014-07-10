@@ -20,7 +20,7 @@ ActiveAdmin.register Organization do
     column :updated_at, sortable: :updated_at do |organization|
       organization.updated_at.strftime("%m/%d/%Y")
     end
-    default_actions
+    actions
   end
   
   filter :name

@@ -16,7 +16,7 @@ ActiveAdmin.register Deadline do
     column "Updated", :updated_at, sortable: :updated_at do |deadline|
       deadline.updated_at.strftime("%m/%d/%Y")
     end
-    default_actions
+    actions
   end
   
   filter :deadline

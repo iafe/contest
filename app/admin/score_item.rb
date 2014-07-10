@@ -24,7 +24,7 @@ ActiveAdmin.register ScoreItem do
     column "Updated", :updated_at, sortable: :updated_at do |score_item|
       score_item.updated_at.strftime("%m/%d/%Y")
     end
-    default_actions
+    actions
   end
   
   filter :category_name, as: :string

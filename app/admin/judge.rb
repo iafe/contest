@@ -29,7 +29,7 @@ ActiveAdmin.register Judge do
     column "Sheet" do |judge|
       link_to "Sheet", pdf_admin_judge_path(id: judge.id, format: :pdf), target: "_blank"
     end
-    default_actions
+    actions
   end
   
   filter :category_name, as: :string

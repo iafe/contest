@@ -27,7 +27,7 @@ ActiveAdmin.register Score do
     column "Created", :created_at, sortable: :created_at do |award|
       award.created_at.strftime("%m/%d/%Y")
     end
-    default_actions
+    actions
   end
   
   filter :user_last_name, as: :string
