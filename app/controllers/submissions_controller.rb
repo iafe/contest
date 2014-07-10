@@ -7,7 +7,7 @@ class SubmissionsController < ApplicationController
   # GET /submissions.json
   def index
     @award_deadline = Deadline.order("created_at").last
-    @paginate = current_user.submissions.includes(:organization).page(params[:page]).per(3).group([:contest_year, :organization_id, submissions.id]).order('contest_year DESC')
+    @paginate = current_user.submissions.includes(:organization).page(params[:page]).per(3).group([:contest_year, :organization_id, submission.id]).order('contest_year DESC')
   end
   
   # GET /submissions/1
