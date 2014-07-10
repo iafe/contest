@@ -29,31 +29,6 @@ class Submission < ActiveRecord::Base
     self.scores.average(:total_score)
   end
   
-  def ranking
-    sql_query = %Q{SELECT 
-   *, dense_rank() OVER (
-       PARTITION BY contest_year, category_id, division_id
-       ORDER BY final_score DESC
-   )
-FROM (
-    SELECT 
-        Submissions.id, 
-        Submission.contest_year AS contest_year, 
-        Submission.category_id AS category_id, 
-        Submission.division_id AS division_id, 
-        AVG(Scores.total_score) AS final_score
-    FROM Submissions 
-        INNER JOIN Scores ON (Submissions.id = Scores.submission_id)
-    GROUP BY 
-        Submissions.id, 
-        Submission.contest_year, 
-        Submission.category_id, 
-        Submission.division_id
-) AS FinalScores}
-
-submissions_by_rank = Submission.find_by_sql(sql_query)
-  end
-  
   private
     def multi_submit?
       if self.category.accepts_multiple_submissions == true
