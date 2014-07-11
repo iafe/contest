@@ -55,7 +55,7 @@ ActiveAdmin.register Judge do
             format.pdf do
               render :pdf => "sheet",
               :template => 'admin/judges/sheet.pdf.erb',
-              :wkhtmltopdf => 'C:/Program Files/wkhtmltopdf/bin/wkhtmltopdf.exe'
+              :wkhtmltopdf => Rails.root.join('bin', 'wkhtmltopdf-amd64').to_s
           end
         end
     end
