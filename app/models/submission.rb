@@ -21,7 +21,7 @@ class Submission < ActiveRecord::Base
   validates :user_id, presence: true
   validates :organization_id, presence: true
   validates :category_id, presence: true
-  validates :division_id, presence: true, message: "cannot be blank. Please return to My Submissions or your account profile first and fill out your fair dates and attendance figures. This information must be added once each year."
+  validates_presence_of :division_id, message: "cannot be blank. Please return to My Submissions or your account profile first and fill out your fair dates and attendance figures. This information must be added once each year."
   validates_uniqueness_of :category_id, scope: [:contest_year, :organization_id], unless: :multi_submit?, 
     message: "already has a submission for this year. Please choose a different category. Note: it is possible a different user within your organization already submitted an entry for this category, please check or call the IAFE office."
   
