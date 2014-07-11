@@ -34,7 +34,7 @@
       </div>
     <% else %>
       <div class="field">
-      	<p class="bold underline">The file size limit for this category is <%= @submission.category.max_total_file_size %> MB.</p>
+      	<p class="bold italic">The file size limit for this category is <span class="underline"><%= @submission.category.max_total_file_size %> MB</span>.</p>
         <%= f.label :attachment %> <span class="required">*</span><br />
         <%= f.file_field :attachment %>
       </div>
