@@ -94,6 +94,10 @@ RachelMundhenke::Application.configure do
     :domain => ENV['MANDRILL_DOMAIN'], # your domain to identify your server when connecting
   }
   
+  require 'mandrill'
+  
+  mandrill = Mandrill::API.new ENV["MANDRILL_API_KEY"]
+  
   # Paperclip configuration
   config.paperclip_defaults = {
     storage: :s3,
