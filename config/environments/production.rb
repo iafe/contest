@@ -81,7 +81,7 @@ RachelMundhenke::Application.configure do
   config.action_mailer.delivery_method = :smtp
   
   # Default URL for Devise, must list actual host in production.rb
-  config.action_mailer.default_url_options = { host: 'guarded-harbor-6214.herokuapp.com'}
+  config.action_mailer.default_url_options = { host: 'www.iafecontest.com'}
   
   # Mandrill configuration
   config.action_mailer.smtp_settings = {
@@ -93,7 +93,6 @@ RachelMundhenke::Application.configure do
     :authentication => 'login', # Mandrill supports 'plain' or 'login'
     :domain => ENV['MANDRILL_DOMAIN'], # your domain to identify your server when connecting
   }
-  
   
   # Paperclip configuration
   config.paperclip_defaults = {
