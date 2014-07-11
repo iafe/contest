@@ -2,6 +2,8 @@ class SubmissionsController < ApplicationController
   before_action :set_submission, only: [:show, :edit, :update, :destroy]
   
   load_and_authorize_resource through: :current_user
+  
+  require 'mandrill'
 
   # GET /submissions
   # GET /submissions.json
