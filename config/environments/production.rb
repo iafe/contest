@@ -81,7 +81,7 @@ RachelMundhenke::Application.configure do
   config.action_mailer.delivery_method = :smtp
   
   # Default URL for Devise, must list actual host in production.rb
-  config.action_mailer.default_url_options = { host: 'guarded-harbor-6214.herokuapp.com'}
+  config.action_mailer.default_url_options = { host: 'iafecontest.com'}
   
   # Mandrill configuration
   config.action_mailer.smtp_settings = {
