@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_awards
-      @awards = Award.all.order('created_at ASC')
+      @awards = Award.all
     end
     
 end
