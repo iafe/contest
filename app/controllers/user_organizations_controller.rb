@@ -59,7 +59,7 @@ class UserOrganizationsController < ApplicationController
   def destroy
     @user_organization.destroy
     respond_to do |format|
-      format.html { redirect_to user_organizations_url }
+      format.html { redirect_to user_path(current_user.id) }
       format.json { head :no_content }
     end
   end
