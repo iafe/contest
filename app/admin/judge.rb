@@ -51,11 +51,21 @@ ActiveAdmin.register Judge do
         @judge = Judge.find(params[:id])
         @score_items = ScoreItem.where(category_id: @judge.category_id)
         @submissions = Submission.where(division_id: @judge.division_id, category_id: @judge.category_id, status: "Approved", contest_year: Time.now.year)
+        if Rails.env.development?
         respond_to do |format|
             format.pdf do
               render :pdf => "sheet",
-              :template => 'admin/judges/sheet.pdf.erb'
+              :template => 'admin/judges/sheet.pdf.erb',
+              :wkhtmltopdf => 'C:/Program Files/wkhtmltopdf/bin/wkhtmltopdf.exe'
           end
+        end
+        else
+        respond_to do |format|
+            format.pdf do
+              render :pdf => "sheet",
+              :template => 'admin/judges/sheet.pdf.erb',
+          end
+        end
         end
     end
   
