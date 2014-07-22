@@ -37,10 +37,13 @@
 
 <% end %>
 
+<p><%= paginate @paginate %></p>
+
   <% @paginate.in_groups_of(3, false) do |group| %>
-    <div class="row">
+    <hr/><div class="row">
     <% group.each do |submission| %>
       <div class="col-md-4">
+      	<p class="bold underline"><%= submission.contest_year %> Contest: <%= submission.organization.name %></p>
         <p class="bold"><%= submission.category.award.name %> <%= submission.category.code %>: <%= submission.category.name %></p>
         <p>Submitted By: <%= submission.user.first_name %> <%= submission.user.last_name %></p>
         <% if submission.disqualify == true %>
