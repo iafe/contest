@@ -54,7 +54,7 @@ ActiveAdmin.register Judge do
         respond_to do |format|
             format.pdf do
               render :pdf => "sheet",
-              :template => 'admin/judges/sheet.pdf.erb',
+              :template => 'admin/judges/sheet.pdf.erb'
           end
         end
     end
