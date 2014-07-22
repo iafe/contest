@@ -47,7 +47,9 @@
     <p class="bold">Score item breakdown - add each item for total score:</p>
     <ul>
     <% @submission.category.score_items.each do |score_item| %>
-      <li><%= score_item.name %>: <%= score_item.max_points %> points</li>
+      <li><span class="bold"><%= score_item.name %>: <%= score_item.max_points %> points</span><br/>
+      	<%= score_item.description %>
+      </li>
     <% end %></ul>
   </div>
   <div class="field">

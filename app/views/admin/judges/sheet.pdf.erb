@@ -60,7 +60,7 @@
 <ol>
 <% @score_items.each do |item| %>
   <li style="font-size: 20px;"><span style="font-weight: bold;"><%= item.name %> - <%= item.max_points%> points</span><br/>
-  	&nbsp;&nbsp;&nbsp;<%= item.description %>
+  	<%= item.description %>
   </li>
 <% end %>
 </ol>
