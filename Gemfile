@@ -81,6 +81,7 @@ gem 'bootstrap-sass'
 # Provides pdf generation capability
 gem 'wkhtmltopdf-binary'
 gem 'wicked_pdf'
+gem "wkhtmltopdf-heroku"
 
 # Denies or allows access to certain pages
 gem 'cancan'
