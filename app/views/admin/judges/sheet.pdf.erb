@@ -6,6 +6,10 @@
 	td {
 		border: 1px solid #000000;
     }
+    
+    p {
+    	font-family: "Times New Roman", serif;
+    }
 </style>
 
 <p style="text-align: center; font-size: 36px;"><%= Time.now.year %> <%= @judge.category.award.name %> Program<br/>
@@ -47,7 +51,9 @@
 
 <ol>
 <% @score_items.each do |item| %>
-  <li style="font-size: 20px;"><%= item.name %> - <%= item.max_points%> points</li>
+  <li style="font-size: 20px;"><span style="font-weight: bold;"><%= item.name %> - <%= item.max_points%> points</span><br/>
+  	&nbsp;&nbsp;&nbsp;<%= item.description %>
+  </li>
 <% end %>
 </ol>
 
