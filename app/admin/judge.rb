@@ -59,7 +59,7 @@ ActiveAdmin.register Judge do
               :wkhtmltopdf => 'C:/Program Files/wkhtmltopdf/bin/wkhtmltopdf.exe'
             end
           end
-        if Rails.env.production?
+        elsif Rails.env.production?
           respond_to do |format|
             format.pdf do
               render :pdf => "sheet",
