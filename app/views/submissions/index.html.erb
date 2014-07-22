@@ -37,9 +37,7 @@
 
 <% end %>
 
-<% @listing.each do |contest| %>
-  <div class="submissionheading"><h2><%= contest.contest_year %>: <%= contest.organization.name %></h2></div>
-  <% current_user.submissions.includes(:submission_details, :user, category: :award).order('created_at DESC').where(organization_id: contest.organization_id, contest_year: contest.contest_year).in_groups_of(3, false) do |group| %>
+  <% @paginate.in_groups_of(3, false) do |group| %>
     <div class="row">
     <% group.each do |submission| %>
       <div class="col-md-4">
@@ -97,8 +95,8 @@
     <% end %>
   </div><br/>
   <% end %>
-<% end %>
 
-<p><%= paginate @listing %></p>
+
+<p><%= paginate @paginate %></p>
 
 </div>
