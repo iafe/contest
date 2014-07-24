@@ -41,6 +41,7 @@ ActiveAdmin.register User do
       f.input :suffix
       f.input :phone, required: true
       f.input :email, required: true
+      f.input :email_confirmation, required: true
       f.input :admin, as: :select, required: true, label: "Admin?"
       f.input :judge, as: :select, required: true, label: "Judge?"
       f.input :enabled, as: :select, required: true, label: "Enabled?"

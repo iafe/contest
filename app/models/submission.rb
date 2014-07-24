@@ -13,8 +13,8 @@ class Submission < ActiveRecord::Base
   belongs_to :organization
   belongs_to :division
   
-  has_many :submission_details, dependent: :restrict_with_exception
-  has_many :scores, dependent: :restrict_with_exception
+  has_many :submission_details, dependent: :destroy
+  has_many :scores, dependent: :destroy
   
   validates :contest_year, presence: true, numericality: true, length: { maximum: 4,  minimum: 4 }
   validates :notes, length: { maximum: 500,  minimum: 4 }, allow_blank: true
