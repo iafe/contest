@@ -32,6 +32,11 @@
         <% end %>
         <%= f.text_field :file_url, size: 60 %>
       </div>
+    <% elsif @submission.category.submission_file_type == "App Name" %>
+      <div class="field">
+      	<%= f.label :file_url, "App Name or URL" %> <span class="required">*</span><br>
+      	<%= f.text_field :file_url, size: 60 %>
+      </div>
     <% else %>
       <div class="field">
       	<p class="bold italic">The file size limit for this category is <span class="underline"><%= @submission.category.max_total_file_size %> MB</span>.</p>

@@ -79,6 +79,8 @@
           <% submission.submission_details.includes(:submission).each do |submission_detail| %>
             <% if submission.category.submission_file_type == "URL Link Only" || submission.category.submission_file_type == "Video Only" %>
               <%= link_to 'Submission Link', submission_submission_detail_path(submission_id: submission.id, id: submission_detail.id) %>
+            <% elsif submission.category.submission_file_type == "App Name" %>
+              App Name Or URL: <%= submission_detail.file_url %>
             <% else %>
               <div class="slide"><%= link_to image_tag(submission_detail.attachment.url(:thumb)), submission_submission_detail_path(submission_id: submission.id, id: submission_detail.id) %></div>
             <% end %>

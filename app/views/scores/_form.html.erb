@@ -34,6 +34,8 @@
         <%= link_to 'Submission Link', submission_detail.file_url, target: "_blank" %>
       <% elsif @submission.category.submission_file_type == "Video Only" %>
         <%= submission_detail.file_url_html %>
+      <% elsif @submission.category.submission_file_type == "App Name" %>
+        <span class="bold">App Name or URL:</span> <%= submission_detail.file_url %>      
       <% else %>
         <%= link_to image_tag(submission_detail.attachment.url(:thumb)), submission_detail.attachment.url(:original), target: "_blank" %>
       <% end %>

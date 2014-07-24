@@ -44,7 +44,7 @@ ActiveAdmin.register Category do
       f.input :name
       f.input :code
       f.input :required_format, as: :select, :collection => ["Digital Only", "Physical Only", "Digital and Physical"]
-      f.input :submission_file_type, as: :select, :collection => ["Mixed (PDF and Images)", "Images Only", "Video Only", "URL Link Only"]
+      f.input :submission_file_type, as: :select, :collection => ["Mixed (PDF and Images)", "Images Only", "Video Only", "URL Link Only", "App Name"]
       f.input :document_max_number
       f.input :max_total_file_size
       f.input :accepts_multiple_submissions, as: :select, required: true
