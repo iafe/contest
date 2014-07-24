@@ -4,9 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   
-  has_many :submissions
+  has_many :submissions, dependent: :restrict_with_exception
   has_many :submission_details, through: :submissions
-  has_many :scores
+  has_many :scores, dependent: :restrict_with_exception
   has_many :organizations, through: :user_organizations
   has_many :user_organizations, dependent: :restrict_with_exception
   has_many :categories, through: :judges
