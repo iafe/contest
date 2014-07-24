@@ -28,7 +28,7 @@
           <%= f.label :file_url, "Please paste in the URL to your YouTube video." %><br>
         <p>For example, http://www.youtube.com/watch?v=hnkhgu_hVDQ</p>
         <% else %>
-          <%= f.label :file_url, "Site URL" %> <span class="required">*</span><br>
+          <%= f.label :file_url, "URL" %> <span class="required">*</span><br>
         <% end %>
         <%= f.text_field :file_url, size: 60 %>
       </div>
