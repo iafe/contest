@@ -14,7 +14,7 @@ class Organization < ActiveRecord::Base
   validates :city, presence: true, length: { maximum: 50, minimum: 2 }
   validates :state_province, presence: true, length: { maximum: 3, minimum: 2 }
   validates :country, presence: true, length: { maximum: 50, minimum: 2 }
-  validates :zip_code, presence: true, length: { maximum: 10, minimum: 5 }
+  validates :zip_code, presence: true, length: { maximum: 10, minimum: 4 }
   validates :phone, presence: true, length: { maximum: 20,  minimum: 9 }
   
   before_save { self.name = name.titleize }

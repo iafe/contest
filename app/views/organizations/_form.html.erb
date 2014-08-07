@@ -20,11 +20,11 @@
     <%= f.text_field :primary_contact %>
   </div>
   <div class="field">
-    <%= f.label :address_line_1, "Address Line 1" %> <span class="required">*</span><br>
+    <%= f.label :address_line_1, "Mailing Address Line 1" %> <span class="required">*</span><br>
     <%= f.text_field :address_line_1 %>
   </div>
   <div class="field">
-    <%= f.label :address_line_2, "Address Line 2" %><br>
+    <%= f.label :address_line_2, "Mailing Address Line 2" %><br>
     <%= f.text_field :address_line_2 %>
   </div>
   <div class="field">
@@ -40,7 +40,7 @@
     <%= f.country_select :country, [ "United States", "Canada", "United Kingdom", "Mexico", "Australia", "South Korea" ] %>
   </div>
   <div class="field">
-    <%= f.label :zip_code, "Zip Code" %> <span class="required">*</span><br>
+    <%= f.label :zip_code, "Zip Code/Post Code" %> <span class="required">*</span><br>
     <%= f.text_field :zip_code %>
   </div>
   <div class="field">
