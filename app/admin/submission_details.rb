@@ -13,9 +13,9 @@ ActiveAdmin.register SubmissionDetail do
   
   index as: :grid, columns: 5 do |submission_detail|
     if submission_detail.file_url != nil
-      link_to "URL Submission", admin_submission_detail_path(submission_detail)
+      link_to "URL Submission", submission_detail.file_url
     else
-      link_to image_tag(submission_detail.attachment.url(:thumb)), admin_submission_detail_path(submission_detail)
+      link_to image_tag(submission_detail.attachment.url(:thumb)), submission_detail.attachment.url(:original), target: "_blank"
     end
   end
   
