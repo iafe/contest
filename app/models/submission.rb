@@ -29,6 +29,10 @@ class Submission < ActiveRecord::Base
     self.scores.average(:total_score)
   end
   
+  def enough_scores?
+    self.scores.count > 2 
+  end
+  
   private
     def multi_submit?
       if self.category.accepts_multiple_submissions == true

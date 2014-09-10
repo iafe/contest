@@ -37,7 +37,7 @@ ActiveAdmin.register Submission do
       submission.created_at.strftime("%m/%d/%Y")
     end
     column :organization, sortable: :organization
-    column "Submitted By", sortable: :user do |submission|
+    column "User", sortable: :user do |submission|
       link_to(submission.user.first_name + " " + submission.user.last_name, admin_user_path(submission.user.id))
     end
     column "Award", sortable: :award do |submission|
@@ -50,14 +50,15 @@ ActiveAdmin.register Submission do
     column "PV?", :physical_version_received
     column "DV?", :digital_version_received
     column "DQ?", :disqualify
+    column "Min. Scores?" do |submission|
+      submission.enough_scores?
+    end
+    column "Files" do |submission|
+      link_to "Files(#{submission.submission_details.count})", admin_submission_details_path('q[submission_id_eq]' => submission.id)
+    end
     column "Score" do |submission|
       submission.calculate_final_score
     end
-    #column "Rank" do |submission|
-      #submission.ranking
-    #end
-    column "BoD?", :best_of_division
-    column "JC?", :judges_choice
   end
   
   filter :category
