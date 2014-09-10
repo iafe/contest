@@ -97,10 +97,10 @@ ActiveAdmin.register Submission do
     column :digital_version_received
     column :disqualify
     column :disqualify_reason
+    column("Min. Score # Met?") { |submission| submission.enough_scores? }
     column("Score")  { |submission| submission.calculate_final_score }
     column :best_of_division
     column :judges_choice
-    #column("Winner?")  { |submission| submission.ranking }
   end
   
   form do |f|
