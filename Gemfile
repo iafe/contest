@@ -52,7 +52,7 @@ gem 'devise' # needed for production
 gem 'activeadmin', github: 'gregbell/active_admin'
 
 # Country-select dropdown
-gem 'country_select'
+gem 'country_select', '1.3.1'
 
 # Allows for HTML markup in input fields
 gem 'sanitize'
