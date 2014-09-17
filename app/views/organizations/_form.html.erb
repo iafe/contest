@@ -37,7 +37,7 @@
   </div>
   <div class="field">
     <%= f.label :country %> <span class="required">*</span><br>
-    <%= f.text_field :country %>
+    <%= f.country_select :country, [ "United States", "Canada", "United Kingdom", "Mexico", "Australia", "South Korea" ] %>
   </div>
   <div class="field">
     <%= f.label :zip_code, "Zip Code/Post Code" %> <span class="required">*</span><br>
