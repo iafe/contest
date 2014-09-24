@@ -45,8 +45,10 @@ class Submission < ActiveRecord::Base
     def set_status
       if self.category.required_format == "Physical Only"
         self.update(status: "Pending")
-      else
+      elsif self.user.admin == false
         self.update(status: "Incomplete")
+      else
+        self.update(status: "Approved")
       end
     end
 
