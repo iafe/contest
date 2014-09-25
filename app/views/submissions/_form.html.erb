@@ -65,7 +65,7 @@
     <% if params[:action] == 'new' || params[:action] == 'create' %>
       <p><%= f.submit "Next: Upload New Document/Link (if Digital Format is Required)" %></p>
     <% else %>
-      <% if @submission.status == 'Pending' || @submission.status == 'Incomplete' %><p><%= f.submit "Submit" %></p>
+      <% if @submission.status == 'Pending' || @submission.status == 'Incomplete' || @submission.user.admin == true %><p><%= f.submit "Submit" %></p>
       <% else %><p class="important">This submission has been approved or rejected, you cannot change it.</p><% end %>
     <% end %>
     </div>
