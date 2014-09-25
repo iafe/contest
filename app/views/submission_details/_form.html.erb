@@ -21,7 +21,7 @@
     <%= @submission.category.award.name %>: <%= @submission.category.code %> <%= @submission.category.name %> 
     (<%= @submission.organization.name %>)
   </div>
-  <% if @submission.status == 'Pending' || @submission.status == 'Incomplete' %>
+  <% if @submission.status == 'Pending' || @submission.status == 'Incomplete' || @submission.user.admin == true %>
     <% if @submission.category.submission_file_type == "Video Only" || @submission.category.submission_file_type == "URL Link Only" %>
       <div class="field">
         <% if @submission.category.submission_file_type == "Video Only" %>
@@ -51,7 +51,7 @@
   	<% if @submission.category.required_format == 'Physical Only' %>
   	  <p class="important">This category does not require any digital files. Please return to the submissions page.</p>
   	<% else %>
-      <% if @submission.status == 'Pending' || @submission.status == 'Incomplete' %><p><%= f.submit "Submit" %></p>
+      <% if @submission.status == 'Pending' || @submission.status == 'Incomplete' || @submission.user.admin == true %><p><%= f.submit "Submit" %></p>
       <% else %><p class="important">This submission has been approved or rejected, you cannot add or change its documents.</p>
       <p><%= link_to 'Back to My Submissions', submissions_path %></p><% end %>
     <% end %>

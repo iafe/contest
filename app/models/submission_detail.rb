@@ -49,7 +49,7 @@ class SubmissionDetail < ActiveRecord::Base
   
   private
     def set_parent_to_pending
-      submission.update(status: 'Pending') unless submission.nil?
+      submission.update(status: 'Pending') unless submission.nil? || submission.user.admin == true
     end
 
 end
