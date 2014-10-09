@@ -12,6 +12,6 @@
   <p><%= link_to image_tag(@submission_detail.attachment.url(:thumb)), @submission_detail.attachment.url(:original), target: "_blank" %></p>
 <% end %>
 
-<% if @submission_detail.submission.status == 'Pending' || @submission_detail.submission.status == 'Incomplete' || @submission_detail.submission.user.admin == true %><p><%= link_to 'Edit', edit_submission_submission_detail_path %> | <%= link_to 'Delete', @submission_detail, method: :delete, data: { confirm: 'Are you sure?' } %> | <%= link_to 'Back to My Submissions', submissions_path %> | <%= link_to 'Upload Another Submission Document', new_submission_submission_detail_path(@submission) %></p>
+<% if @submission_detail.submission.status == 'Pending' || @submission_detail.submission.status == 'Incomplete' || @submission_detail.submission.user.admin == true %><p><%= link_to 'Edit', edit_submission_submission_detail_path %> | <%= link_to 'Delete', submission_submission_detail_path, method: :delete, data: { confirm: 'Are you sure?' } %> | <%= link_to 'Back to My Submissions', submissions_path %> | <%= link_to 'Upload Another Submission Document', new_submission_submission_detail_path(@submission) %></p>
 <% else %><p><%= link_to 'Back to My Submissions', submissions_path %></p><% end %>
 </div>

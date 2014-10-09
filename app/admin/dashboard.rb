@@ -9,11 +9,11 @@ ActiveAdmin.register_page "Dashboard" do
         span link_to(current_user.email, admin_user_path(current_user))
         br
         span "This year"
-        span Submission.all(conditions: ['contest_year = ?', Time.now.year]).count
+        span Submission.where(status: 'Approved', contest_year: Time.now.year).count
         span "submissions have been entered, compared to"
-        span Submission.all(conditions: ['contest_year = ?', Time.now.year - 1]).count
+        span Submission.where(status: 'Approved', contest_year: Time.now.year - 1).count
         span "submissions last year."
-        span Submission.count
+        span Submission.where(status: 'Approved').count
         span "submissions have been entered out of all time."
       end
     end

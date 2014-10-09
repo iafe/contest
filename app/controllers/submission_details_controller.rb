@@ -38,7 +38,7 @@ class SubmissionDetailsController < ApplicationController
 
     respond_to do |format|
       if @submission_detail.save
-        format.html { redirect_to submission_submission_detail_path(@submission, @submission_detail), notice: 'Submission detail was successfully created.' }
+        format.html { redirect_to submission_submission_detail_path(@submission, @submission_detail), notice: 'Document was successfully uploaded.' }
         format.json { render action: 'show', status: :created, location: @submission_detail }
       else
         format.html { render action: 'new' }
@@ -54,7 +54,7 @@ class SubmissionDetailsController < ApplicationController
     @award_deadline = Deadline.order("created_at").last
     respond_to do |format|
       if @submission_detail.update(submission_detail_params)
-        format.html { redirect_to submission_submission_detail_path(@submission, @submission_detail), notice: 'Submission detail was successfully updated.' }
+        format.html { redirect_to submission_submission_detail_path(@submission, @submission_detail), notice: 'Document was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -69,7 +69,7 @@ class SubmissionDetailsController < ApplicationController
     @submission_detail.attachment = nil
     @submission_detail.destroy
     respond_to do |format|
-      format.html { redirect_to submissions_url }
+      format.html { redirect_to submissions_url, notice: 'Document was successfully deleted.' }
       format.json { head :no_content }
     end
   end
