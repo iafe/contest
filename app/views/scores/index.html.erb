@@ -20,7 +20,7 @@
                 <p>Your comments: <%= s.comments %></p>
                 <p>Did you disqualify this entry? <span class="bold"><%= s.disqualify %></span></p>
                 <p><%= link_to 'View Entry', edit_submission_score_path(submission_id: s.submission_id, id: s.id) %></p>
-              <% elsif submission.scores.where(:user_id == current_user.id).count == 0 %>
+              <% else %>
                 <p><%= link_to 'Score This Entry', new_submission_score_path(submission) %></p>
               <% end %>
             <% end %>
