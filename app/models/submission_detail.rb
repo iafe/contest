@@ -2,7 +2,7 @@ class SubmissionDetail < ActiveRecord::Base
   
   belongs_to :submission
   
-  after_create :set_parent_to_pending
+  after_create :set_parent_to_pending # See below
   
   after_update :set_parent_to_pending
   
@@ -40,6 +40,7 @@ class SubmissionDetail < ActiveRecord::Base
     submission.category.submission_file_type == "Video Only" || submission.category.submission_file_type == "URL Link Only"
   end
   
+  # Allows YouTube links to become embedded into the page.
   auto_html_for :file_url do
     html_escape
     youtube(width: 560)
@@ -48,6 +49,8 @@ class SubmissionDetail < ActiveRecord::Base
   end
   
   private
+    # If an attachment is made/updated, the submission is no longer approved and the staff must re-approve it.
+    # The exception is if the user who created or updated the attachment is an IAFE staff person.
     def set_parent_to_pending
       submission.update(status: 'Pending') unless submission.nil? || submission.user.admin == true
     end

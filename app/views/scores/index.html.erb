@@ -2,7 +2,7 @@
 	
 	<h1>Judge Dashboard</h1>
 
-<p>Note: Please score carefully--once you score an entry, you cannot go back to change the score. The IAFE encourages the use of fractions to prevent ties.</p>
+<p>Note: The IAFE encourages the use of fractions to prevent ties. Remember to leave comments, both positive and/or constructive.</p>
 
 <% current_user.judges.group(:category_id, :division_id, :id).includes(:category, :division).order('category_id DESC').each do |judge| %>
   <div class="submissionheading"><h3><%= judge.category.award.name %> <%= judge.category.code %>: <%= judge.category.name %> - <%= judge.division.name %></h3></div>
@@ -13,15 +13,15 @@
           <p><%= submission.organization.name %>, <%= submission.organization.state_province %></p>
           <% if submission.scores.count == 0 %>
             <p><%= link_to 'Score/View This Entry', new_submission_score_path(submission) %></p>
+          <% elsif submission.scores.where(user_id: current_user.id).empty? %>
+            <p><%= link_to 'Score/View This Entry', new_submission_score_path(submission) %></p>
           <% else %>
             <% submission.scores.each do |s| %>
               <% if s.user_id == current_user.id %>
                 <p class="completed">Your score: <%= s.total_score %></p>
                 <p>Your comments: <%= s.comments %></p>
                 <p>Did you disqualify this entry? <span class="bold"><%= s.disqualify %></span></p>
-                <p><%= link_to 'View Entry', edit_submission_score_path(submission_id: s.submission_id, id: s.id) %></p>
-              <% else %>
-                <p><%= link_to 'Score/View This Entry', new_submission_score_path(submission) %></p>
+                <p><%= link_to 'Edit Score/View This Entry', edit_submission_score_path(submission_id: s.submission_id, id: s.id) %></p>
               <% end %>
             <% end %>
           <% end %>

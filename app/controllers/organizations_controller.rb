@@ -1,7 +1,7 @@
 class OrganizationsController < ApplicationController
   before_action :set_organization, only: [:show, :edit, :update, :destroy]
   
-  load_and_authorize_resource
+  load_and_authorize_resource # Checks to see what tasks the user can perform
 
   # GET /organizations
   # GET /organizations.json
@@ -46,7 +46,8 @@ class OrganizationsController < ApplicationController
       if @organization.update(organization_params)
         format.html { redirect_to @organization, notice: 'Organization was successfully updated.' }
         format.json { head :no_content }
-        OrganizationChange.changed(@organization).deliver
+        OrganizationChange.changed(@organization).deliver # Lets the IAFE staff know that someone has changed an org's information.
+        # This template is in the mailers folder.
       else
         format.html { render action: 'edit' }
         format.json { render json: @organization.errors, status: :unprocessable_entity }

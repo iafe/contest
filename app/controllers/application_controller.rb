@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
@@ -12,6 +13,7 @@ class ApplicationController < ActionController::Base
     params[resource] &&= send(method) if respond_to?(method, true)
   end
   
+  # Allows for a global variable in awards (for the dropdown navigation, see below)
   before_action :set_awards
 
   def update_sanitized_params
@@ -19,6 +21,7 @@ class ApplicationController < ActionController::Base
       :email_confirmation, :admin, :judge, :enabled, :email, :password, :password_confirmation)}
   end
   
+  # Uses the CanCan gem to restrict users from completing tasks they should not be able to access. Redirects to the homepage instead.
   rescue_from CanCan::AccessDenied do |exception|
     flash[:error] = "You are not permitted to access that page."
     redirect_to root_url

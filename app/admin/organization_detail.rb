@@ -1,10 +1,12 @@
+# Files in the Admin folder affect the backend functionality, for IAFE staff only. Uses the ActiveAdmin gem.
+
 ActiveAdmin.register OrganizationDetail do
   
   menu label: "Dates & Attendance", priority: 4
   
   permit_params :organization_id, :fair_start_date, :fair_end_date, :total_attendance
   
-    # Prevents N+1 Queries
+  # Prevents N+1 Queries
   controller do
     def scoped_collection
       resource_class.includes(:organization)
@@ -44,18 +46,5 @@ ActiveAdmin.register OrganizationDetail do
     end
     f.actions
   end
-  
-  # See permitted parameters documentation:
-  # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # permit_params :list, :of, :attributes, :on, :model
-  #
-  # or
-  #
-  # permit_params do
-  #  permitted = [:permitted, :attributes]
-  #  permitted << :other if resource.something?
-  #  permitted
-  # end
   
 end

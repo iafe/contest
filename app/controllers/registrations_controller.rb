@@ -1,3 +1,5 @@
+# Part of the Devise gem for logging in. Prompts new users to link their account to a company.
+
 class RegistrationsController < Devise::RegistrationsController
   protected
 

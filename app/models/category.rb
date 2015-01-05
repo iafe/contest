@@ -15,10 +15,12 @@ class Category < ActiveRecord::Base
   validates :rules, presence: true, length: { maximum: 5000,  minimum: 1 }
   validates :award_id, presence: true
   
+  # Allows the category to be listed correctly when shown in a dropdown, e.g. "Agricultural Awards 1: Overall Program"
   def award_code_category
     "#{award.name} #{code}: #{name}"
   end
   
+  # A method to sort the categories according to their category code (since some codes have a letter, e.g. "1A")
   def self.sort_by_category_codes(categories)
     sorted_categories = categories.sort do |cat1, cat2|
     if cat1.award.name == cat2.award.name

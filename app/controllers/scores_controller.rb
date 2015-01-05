@@ -1,7 +1,7 @@
 class ScoresController < ApplicationController
   before_action :set_score, only: [:show, :edit, :update, :destroy]
   
-  load_and_authorize_resource
+  load_and_authorize_resource # Checks to see what tasks the user can perform
 
   # GET /scores
   # GET /scores.json

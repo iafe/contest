@@ -42,7 +42,7 @@ class SubmissionsController < ApplicationController
           format.html { redirect_to new_submission_submission_detail_path(@submission), notice: 'Submission was successfully created.' }
           format.json { render action: 'show', status: :created, location: @submission }
         end
-        # notifies IAFE staff of a new contest submission prior to the start of September
+        # Notifies IAFE staff of a new contest submission prior to the start of September; this template is in the mailers folder.
         if Time.now.month < 9
           SubmissionAdd.added(@submission).deliver
         end

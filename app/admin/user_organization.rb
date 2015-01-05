@@ -1,3 +1,5 @@
+# Files in the Admin folder affect the backend functionality, for IAFE staff only. Uses the ActiveAdmin gem.
+
 ActiveAdmin.register UserOrganization do
 
   menu label: "Relationships", priority: 3
@@ -39,19 +41,5 @@ ActiveAdmin.register UserOrganization do
     end
     f.actions
   end
-  
-  
-  # See permitted parameters documentation:
-  # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # permit_params :list, :of, :attributes, :on, :model
-  #
-  # or
-  #
-  # permit_params do
-  #  permitted = [:permitted, :attributes]
-  #  permitted << :other if resource.something?
-  #  permitted
-  # end
-  
+
 end

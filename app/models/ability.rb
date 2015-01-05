@@ -1,13 +1,14 @@
+# This file limits the ability of users from accessing pages they do not have the authority to access.
+# It is supported through the CanCan gem.
+
 class Ability
   include CanCan::Ability
 
   def initialize(user)
-    # Define abilities for the passed in user here. For example:
-    #
        user ||= User.new # guest user (not logged in)
        if user.admin?
          can :manage, :all
-       elsif user.enabled?
+       elsif user.enabled? # Disabling a user means the person cannot create new submissions/attachements, new orgs, or link themselves to orgs
          can [:new, :create, :index], Submission
          can [:new, :create], Organization
          can [:new, :create, :destroy, :delete], UserOrganization
@@ -19,21 +20,22 @@ class Ability
            user.id == current_user.id && user.enabled?
          end
          can [:show, :edit, :update, :destroy, :delete], Submission do |submission|
-           user.id == submission.user_id
+           user.id == submission.user_id # A user can only see/update submissions that belong to them
          end
          can :create, SubmissionDetail
-         can [:show, :update], SubmissionDetail, submission: {user_id: user.id}
+         can [:show, :update], SubmissionDetail, submission: {user_id: user.id} # A user can only see/update attachments that belong to them
          can [:delete, :destroy], SubmissionDetail
          can [:show, :edit, :update], Organization do |organization|
            UserOrganization.where(user_id: user.id, organization_id: organization.id).any? && organization.enabled?
          end
          can [:show, :edit, :update], UserOrganization do |user_organization|
-           user.id == user_organization.user_id
+           user.id == user_organization.user_id # A user can only edit or delete a relationship to an org if it is the user's relationship
          end
          can [:show, :edit, :update], OrganizationDetail do |organization_detail|
            UserOrganization.where(user_id: user.id, organization_id: organization_detail.organization.id).any?
+           # A user can only edit a fair's dates/attendance if the user has a relationship to that fair
          end
-         if user.judge?
+         if user.judge? # Only users with the "Judge?" option checked in their profile can view and score entries
            can [:new, :create, :index, :show, :edit, :update], Score
          end
        else
@@ -41,23 +43,5 @@ class Ability
            contest.enabled?
          end
        end
-    #
-    # The first argument to `can` is the action you are giving the user 
-    # permission to do.
-    # If you pass :manage it will apply to every action. Other common actions
-    # here are :read, :create, :update and :destroy.
-    #
-    # The second argument is the resource the user can perform the action on. 
-    # If you pass :all it will apply to every resource. Otherwise pass a Ruby
-    # class of the resource.
-    #
-    # The third argument is an optional hash of conditions to further filter the
-    # objects.
-    # For example, here the user can only update published articles.
-    #
-    #   can :update, Article, :published => true
-    #
-    # See the wiki for details:
-    # https://github.com/ryanb/cancan/wiki/Defining-Abilities
   end
 end

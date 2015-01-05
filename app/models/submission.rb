@@ -1,7 +1,8 @@
 class Submission < ActiveRecord::Base
   
-  after_create :set_status
+  after_create :set_status # See below
   
+  # These scopes are for the backend to quickly filter submissions for the current year.
   scope :current_year_pending, -> {where(status: 'Pending', contest_year: Time.now.year)}
   scope :current_year_incomplete, -> {where(status: 'Incomplete', contest_year: Time.now.year)}
   scope :current_year_approved, -> {where(status: 'Approved', contest_year: Time.now.year)}
@@ -25,15 +26,18 @@ class Submission < ActiveRecord::Base
   validates_uniqueness_of :category_id, scope: [:contest_year, :organization_id], unless: :multi_submit?, 
     message: "already has a submission for this year. Please choose a different category. Note: it is possible a different user within your organization already submitted an entry for this category, please check or call the IAFE office."
   
+  # For the backend page, to display the final score in the table by averaging all the judges' scores for that submission.
   def calculate_final_score
     self.scores.average(:total_score)
   end
   
+  # A minimum of three scores is needed for an entry to be sufficiently scored.
   def enough_scores?
     self.scores.count > 2 
   end
   
   private
+    # Does the submission's category allow for a fair to submit multiple entries to that category in the same contest year?
     def multi_submit?
       if self.category.accepts_multiple_submissions == true
         return true

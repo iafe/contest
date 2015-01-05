@@ -23,11 +23,11 @@ class Organization < ActiveRecord::Base
   before_save { self.state_province = state_province.upcase }
   before_save { self.country = country.titleize }
   
-  def name_and_state
+  def name_and_state # For the form dropdown
     "#{name}, #{state_province}"
   end
   
-  def submission_division #To display in the contest submission information
+  def submission_division # To display in the contest submission information
     last_details = organization_details.order('created_at DESC').first
     if (last_details.present?) && (last_details.created_at.year == Time.now.year)
       Division.where(':total_attendance >= division_smallest AND :total_attendance <= division_largest', 

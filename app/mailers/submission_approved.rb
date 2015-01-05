@@ -1,3 +1,5 @@
+# Uses the Mandrill gem to deliver e-mail. Sends an e-mail to the user to notify that their submission was approved by IAFE staff.
+
 class SubmissionApproved < ActionMailer::Base
   
   def approved(submission)

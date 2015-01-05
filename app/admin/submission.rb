@@ -1,3 +1,5 @@
+# Files in the Admin folder affect the backend functionality, for IAFE staff only. Uses the ActiveAdmin gem.
+
 ActiveAdmin.register Submission do
   
   scope :current_year_pending
@@ -20,6 +22,8 @@ ActiveAdmin.register Submission do
     
   end
   
+  # Once a submission is marked as approved, an e-mail is automatically sent to the user letting them know (through Mandrill).
+  # This template is located in the mailers folder.
   before_save do |submission|
     if submission.status_changed?
       if submission.status == "Approved"
@@ -61,7 +65,7 @@ ActiveAdmin.register Submission do
     end
   end
   
-  filter :category
+  filter :category, as: :select, collection: proc{ Category.includes(:award).where(enabled: true).order("award_id ASC").map{|c| ["#{c.award.name} #{c.code}: #{c.name}", c.id]} }
   filter :organization_name, as: :string
   filter :division
   filter :contest_year
@@ -121,18 +125,5 @@ ActiveAdmin.register Submission do
     end
     f.actions
   end
-  
-  # See permitted parameters documentation:
-  # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # permit_params :list, :of, :attributes, :on, :model
-  #
-  # or
-  #
-  # permit_params do
-  #  permitted = [:permitted, :attributes]
-  #  permitted << :other if resource.something?
-  #  permitted
-  # end
   
 end

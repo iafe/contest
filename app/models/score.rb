@@ -10,7 +10,7 @@ class Score < ActiveRecord::Base
   validates :submission_id, presence: true, uniqueness: {scope: :user_id}
   
   private
-    def above_max_points?
+    def above_max_points? # In case a judge enters in more points than the maximum allowed.
       if total_score > submission.category.score_items.sum(:max_points)
         errors.add :base, ("You have inputted a higher total score than the maximum allowed.")
       end

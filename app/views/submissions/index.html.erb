@@ -24,7 +24,7 @@
 	  <% if user_organization.organization.submission_division != '' %>
 	    <p class="bold"><span class="italic"><%= user_organization.organization.name %></span> has updated its fair dates/attendance for the <%= Time.now.year %> contest. Its dates are <%= user_organization.organization.organization_details.order('created_at DESC').first.fair_start_date.to_formatted_s(:long)  %> - <%= user_organization.organization.organization_details.order('created_at DESC').first.fair_end_date.to_formatted_s(:long)  %> and its <%= Time.now.year - 1 %> attendance was <%= user_organization.organization.organization_details.order('created_at DESC').first.total_attendance %>, putting it under <span class="underline">Division <%= user_organization.organization.submission_division %></span> for this year's contest. <%= link_to 'Edit these dates/attendance', edit_organization_detail_path(user_organization.organization.organization_details.order('created_at DESC').first) %></p>
 	   <% else %>
-	     <p class="important">Total attendance/fair dates for the <%= user_organization.organization.name %> has not been inputted for the <%= Time.now.year %> contest. <%= link_to 'Add fair dates/attendance now.', new_organization_detail_path %></p>
+	     <p class="important">Total attendance/fair dates for the <%= user_organization.organization.name %> has not been inputted for the <%= Time.now.year %> contest. <%= link_to 'Add fair dates/attendance now.', new_organization_detail_path %><br/>Note: If this is actually a state/provincial association, input any <%= Time.now.year %> date and an attendance of 1.)</p>
        <% end %>
     <% end %>
   <% end %>
