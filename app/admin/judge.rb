@@ -45,7 +45,7 @@ ActiveAdmin.register Judge do
       f.input :user_id, label: 'User', as: :select, required: true, collection: User.where(judge: true).map{|u| ["#{u.last_name}, #{u.first_name}", u.id]} 
       # ^ This dropdown will only display users that have the "Judge?" option checked.
       f.input :division, required: true
-            f.input :category_id, as: :select, required: true, collection: Category.includes(:award).where(enabled: true).map{|c| ["#{c.award.name} #{c.code}: #{c.name}", c.id]} 
+      f.input :category_id, as: :select, required: true, collection: Category.includes(:award).order("award_id ASC").where(enabled: true).map{|c| ["#{c.award.name} #{c.code}: #{c.name}", c.id]} 
     end
     f.actions
   end
