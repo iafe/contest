@@ -8,7 +8,7 @@ module Paperclip
 end
 
 Paperclip.interpolates :year do |attachment, style|
-  Time.now.year
+  attachment.instance.submission.contest_year
 end
 
 Paperclip.interpolates :div do |attachment, style|
