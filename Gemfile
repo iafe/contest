@@ -64,7 +64,7 @@ gem 'paperclip'
 gem 'figaro'
 
 # Communicates with Amazon S3 Account
-gem 'aws-sdk'
+gem 'aws-sdk', '< 2.0'
 
 # Transforms YouTube links into embeddable content
 gem 'auto_html'
