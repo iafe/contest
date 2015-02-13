@@ -10,8 +10,6 @@
       </ul>
     </div>
   <% end %>
-  
-  <% if Time.now < @award_deadline.actual_deadline + 1 %>
 
   <div class="field">
     <%= f.label :organization_id %> <span class="required">*</span><br>
@@ -38,11 +36,5 @@
   <div class="actions"><br/>
     <p><%= f.submit "Submit Dates and Attendance" %></p>
   </div>
-  
-  <% else %>
-    
-    <p class="important">The deadline has passed for the current contest year. Please add/edit your dates and attendance once the new contest year as started.</p>
-    
-  <% end %>
   
 <% end %>
