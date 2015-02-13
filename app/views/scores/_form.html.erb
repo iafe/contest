@@ -70,7 +70,7 @@ function toCount(entrance,exit,text,characters) {
   <div class="field">
     <%= f.label :comments %><br>
     <span class="italic">1000 character-limit maximum</span><br>
-    <%= f.text_area :comments, size: "30x10", style: "overflow-x: hidden;", value: "", type: "text", id="inputarea", maxlength:"1000", onKeyUp: "toCount('inputarea','calculation','[x] characters remaining',1000);" %>  
+    <%= f.text_area :comments, size: "30x10", style: "overflow-x: hidden;", value: "", type: "text", id: "inputarea", maxlength: "1000", onKeyUp: "toCount('inputarea','calculation','[x] characters remaining',1000);" %>  
     <p id="calculation">1000 characters remaining</p> 
   </div>
   <div class="field">
