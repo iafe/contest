@@ -5,7 +5,7 @@ class Score < ActiveRecord::Base
   
   validates :total_score, presence: true, numericality: {greater_than_or_equal_to: 0}, length: { maximum: 6,  minimum: 1 }
   validate :above_max_points?
-  validates :comments, length: { maximum: 500,  minimum: 1 }, allow_blank: true
+  validates :comments, length: { maximum: 1000,  minimum: 1 }, allow_blank: true
   validates :user_id, presence: true
   validates :submission_id, presence: true, uniqueness: {scope: :user_id}
   
