@@ -22,7 +22,7 @@ ActiveAdmin.register Submission do
     
   end
   
-  # Once a submission is marked as approved, an e-mail is automatically sent to the user letting them know (through Mandrill).
+  # Once a submission is marked as approved, an e-mail is automatically sent to the user letting them know (through Amazon SES).
   # This template is located in the mailers folder.
   before_save do |submission|
     if submission.status_changed?

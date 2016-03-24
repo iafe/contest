@@ -1,4 +1,4 @@
-# Uses the Mandrill gem to deliver e-mail. This lets the IAFE staff know if a user has updated an organization's information.
+# Uses the Amazon SES gem to deliver e-mail. This lets the IAFE staff know if a user has updated an organization's information.
 
 class OrganizationChange < ActionMailer::Base
   

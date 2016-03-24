@@ -1,4 +1,4 @@
-# Uses the Mandrill gem to deliver e-mail.
+# Uses the Amazon SES gem to deliver e-mail.
 # If the month is currently January through August, an e-mail will be sent to contest@fairsandexpos.com to notify that a new submission was made.
 
 class SubmissionAdd < ActionMailer::Base

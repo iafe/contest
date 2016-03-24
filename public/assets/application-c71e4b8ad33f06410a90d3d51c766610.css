@@ -1,0 +1,3105 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+
+ 
+
+ */
+
+ /* add required field asterisk */
+/*
+Version: 3.5.2 Timestamp: Sat Nov  1 14:43:36 EDT 2014
+*/
+/* line 5, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container {
+  margin: 0;
+  position: relative;
+  display: inline-block;
+  /* inline-block for ie7 */
+  zoom: 1;
+  *display: inline;
+  vertical-align: middle;
+}
+
+/* line 18, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container,
+.select2-drop,
+.select2-search,
+.select2-search input {
+  /*
+    Force border-box so that % widths fit the parent
+    container without overlap because of margin/padding.
+    More Info : http://www.quirksmode.org/css/box.html
+  */
+  -webkit-box-sizing: border-box;
+  /* webkit */
+  -moz-box-sizing: border-box;
+  /* firefox */
+  box-sizing: border-box;
+  /* css3 */
+}
+
+/* line 29, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container .select2-choice {
+  display: block;
+  height: 26px;
+  padding: 0 0 0 8px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid #aaa;
+  white-space: nowrap;
+  line-height: 26px;
+  color: #444;
+  text-decoration: none;
+  border-radius: 4px;
+  background-clip: padding-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: #fff;
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #eeeeee), color-stop(0.5, white));
+  background-image: -webkit-linear-gradient(center bottom, #eeeeee 0%, white 50%);
+  background-image: -moz-linear-gradient(center bottom, #eeeeee 0%, white 50%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#ffffff', endColorstr = '#eeeeee', GradientType = 0);
+  background-image: linear-gradient(to top, #eeeeee 0%, white 50%);
+}
+
+/* line 60, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+html[dir="rtl"] .select2-container .select2-choice {
+  padding: 0 8px 0 0;
+}
+
+/* line 64, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container.select2-drop-above .select2-choice {
+  border-bottom-color: #aaa;
+  border-radius: 0 0 4px 4px;
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #eeeeee), color-stop(0.9, white));
+  background-image: -webkit-linear-gradient(center bottom, #eeeeee 0%, white 90%);
+  background-image: -moz-linear-gradient(center bottom, #eeeeee 0%, white 90%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eeeeee', GradientType=0);
+  background-image: linear-gradient(to bottom, #eeeeee 0%, white 90%);
+}
+
+/* line 76, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container.select2-allowclear .select2-choice .select2-chosen {
+  margin-right: 42px;
+}
+
+/* line 80, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container .select2-choice > .select2-chosen {
+  margin-right: 26px;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  float: none;
+  width: auto;
+}
+
+/* line 92, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+html[dir="rtl"] .select2-container .select2-choice > .select2-chosen {
+  margin-left: 26px;
+  margin-right: 0;
+}
+
+/* line 97, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container .select2-choice abbr {
+  display: none;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  right: 24px;
+  top: 8px;
+  font-size: 1px;
+  text-decoration: none;
+  border: 0;
+  background: url(/assets/select2.png) right top no-repeat;
+  cursor: pointer;
+  outline: 0;
+}
+
+/* line 114, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container.select2-allowclear .select2-choice abbr {
+  display: inline-block;
+}
+
+/* line 118, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container .select2-choice abbr:hover {
+  background-position: right -11px;
+  cursor: pointer;
+}
+
+/* line 123, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-drop-mask {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  left: 0;
+  top: 0;
+  min-height: 100%;
+  min-width: 100%;
+  height: auto;
+  width: auto;
+  opacity: 0;
+  z-index: 9998;
+  /* styles required for IE to work */
+  background-color: #fff;
+  filter: alpha(opacity=0);
+}
+
+/* line 141, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-drop {
+  width: 100%;
+  margin-top: -1px;
+  position: absolute;
+  z-index: 9999;
+  top: 100%;
+  background: #fff;
+  color: #000;
+  border: 1px solid #aaa;
+  border-top: 0;
+  border-radius: 0 0 4px 4px;
+  -webkit-box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* line 159, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-drop.select2-drop-above {
+  margin-top: 1px;
+  border-top: 1px solid #aaa;
+  border-bottom: 0;
+  border-radius: 4px 4px 0 0;
+  -webkit-box-shadow: 0 -4px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 -4px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* line 170, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-drop-active {
+  border: 1px solid #5897fb;
+  border-top: none;
+}
+
+/* line 175, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-drop.select2-drop-above.select2-drop-active {
+  border-top: 1px solid #5897fb;
+}
+
+/* line 179, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-drop-auto-width {
+  border-top: 1px solid #aaa;
+  width: auto;
+}
+
+/* line 184, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-drop-auto-width .select2-search {
+  padding-top: 4px;
+}
+
+/* line 188, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container .select2-choice .select2-arrow {
+  display: inline-block;
+  width: 18px;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-left: 1px solid #aaa;
+  border-radius: 0 4px 4px 0;
+  background-clip: padding-box;
+  background: #ccc;
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #cccccc), color-stop(0.6, #eeeeee));
+  background-image: -webkit-linear-gradient(center bottom, #cccccc 0%, #eeeeee 60%);
+  background-image: -moz-linear-gradient(center bottom, #cccccc 0%, #eeeeee 60%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#eeeeee', endColorstr = '#cccccc', GradientType = 0);
+  background-image: linear-gradient(to top, #cccccc 0%, #eeeeee 60%);
+}
+
+/* line 209, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+html[dir="rtl"] .select2-container .select2-choice .select2-arrow {
+  left: 0;
+  right: auto;
+  border-left: none;
+  border-right: 1px solid #aaa;
+  border-radius: 4px 0 0 4px;
+}
+
+/* line 218, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container .select2-choice .select2-arrow b {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: url(/assets/select2.png) no-repeat 0 1px;
+}
+
+/* line 225, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+html[dir="rtl"] .select2-container .select2-choice .select2-arrow b {
+  background-position: 2px 1px;
+}
+
+/* line 229, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-search {
+  display: inline-block;
+  width: 100%;
+  min-height: 26px;
+  margin: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+  position: relative;
+  z-index: 10000;
+  white-space: nowrap;
+}
+
+/* line 243, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-search input {
+  width: 100%;
+  height: auto !important;
+  min-height: 26px;
+  padding: 4px 20px 4px 5px;
+  margin: 0;
+  outline: 0;
+  font-family: sans-serif;
+  font-size: 1em;
+  border: 1px solid #aaa;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background: white url(/assets/select2.png) no-repeat 100% -22px;
+  background: url(/assets/select2.png) no-repeat 100% -22px, -webkit-gradient(linear, left bottom, left top, color-stop(0.85, white), color-stop(0.99, #eeeeee));
+  background: url(/assets/select2.png) no-repeat 100% -22px, -webkit-linear-gradient(center bottom, white 85%, #eeeeee 99%);
+  background: url(/assets/select2.png) no-repeat 100% -22px, -moz-linear-gradient(center bottom, white 85%, #eeeeee 99%);
+  background: url(/assets/select2.png) no-repeat 100% -22px, linear-gradient(to bottom, white 85%, #eeeeee 99%) 0 0;
+}
+
+/* line 267, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+html[dir="rtl"] .select2-search input {
+  padding: 4px 5px 4px 20px;
+  background: white url(/assets/select2.png) no-repeat -37px -22px;
+  background: url(/assets/select2.png) no-repeat -37px -22px, -webkit-gradient(linear, left bottom, left top, color-stop(0.85, white), color-stop(0.99, #eeeeee));
+  background: url(/assets/select2.png) no-repeat -37px -22px, -webkit-linear-gradient(center bottom, white 85%, #eeeeee 99%);
+  background: url(/assets/select2.png) no-repeat -37px -22px, -moz-linear-gradient(center bottom, white 85%, #eeeeee 99%);
+  background: url(/assets/select2.png) no-repeat -37px -22px, linear-gradient(to bottom, white 85%, #eeeeee 99%) 0 0;
+}
+
+/* line 277, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-drop.select2-drop-above .select2-search input {
+  margin-top: 4px;
+}
+
+/* line 281, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-search input.select2-active {
+  background: white url(/assets/select2-spinner.gif) no-repeat 100%;
+  background: url(/assets/select2-spinner.gif) no-repeat 100%, -webkit-gradient(linear, left bottom, left top, color-stop(0.85, white), color-stop(0.99, #eeeeee));
+  background: url(/assets/select2-spinner.gif) no-repeat 100%, -webkit-linear-gradient(center bottom, white 85%, #eeeeee 99%);
+  background: url(/assets/select2-spinner.gif) no-repeat 100%, -moz-linear-gradient(center bottom, white 85%, #eeeeee 99%);
+  background: url(/assets/select2-spinner.gif) no-repeat 100%, linear-gradient(to bottom, white 85%, #eeeeee 99%) 0 0;
+}
+
+/* line 290, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container-active .select2-choice,
+.select2-container-active .select2-choices {
+  border: 1px solid #5897fb;
+  outline: none;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* line 298, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-dropdown-open .select2-choice {
+  border-bottom-color: transparent;
+  -webkit-box-shadow: 0 1px 0 #fff inset;
+  box-shadow: 0 1px 0 #fff inset;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  background-color: #eee;
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, white), color-stop(0.5, #eeeeee));
+  background-image: -webkit-linear-gradient(center bottom, white 0%, #eeeeee 50%);
+  background-image: -moz-linear-gradient(center bottom, white 0%, #eeeeee 50%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#ffffff', GradientType=0);
+  background-image: linear-gradient(to top, white 0%, #eeeeee 50%);
+}
+
+/* line 315, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-dropdown-open.select2-drop-above .select2-choice,
+.select2-dropdown-open.select2-drop-above .select2-choices {
+  border: 1px solid #5897fb;
+  border-top-color: transparent;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.5, #eeeeee));
+  background-image: -webkit-linear-gradient(center top, white 0%, #eeeeee 50%);
+  background-image: -moz-linear-gradient(center top, white 0%, #eeeeee 50%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#ffffff', GradientType=0);
+  background-image: linear-gradient(to bottom, white 0%, #eeeeee 50%);
+}
+
+/* line 326, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-dropdown-open .select2-choice .select2-arrow {
+  background: transparent;
+  border-left: none;
+  filter: none;
+}
+
+/* line 331, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+html[dir="rtl"] .select2-dropdown-open .select2-choice .select2-arrow {
+  border-right: none;
+}
+
+/* line 335, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-dropdown-open .select2-choice .select2-arrow b {
+  background-position: -18px 1px;
+}
+
+/* line 339, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+html[dir="rtl"] .select2-dropdown-open .select2-choice .select2-arrow b {
+  background-position: -16px 1px;
+}
+
+/* line 343, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-hidden-accessible {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/* results */
+/* line 355, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-results {
+  max-height: 200px;
+  padding: 0 0 0 4px;
+  margin: 4px 4px 4px 0;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* line 365, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+html[dir="rtl"] .select2-results {
+  padding: 0 4px 0 0;
+  margin: 4px 0 4px 4px;
+}
+
+/* line 370, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-results ul.select2-result-sub {
+  margin: 0;
+  padding-left: 0;
+}
+
+/* line 375, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-results li {
+  list-style: none;
+  display: list-item;
+  background-image: none;
+}
+
+/* line 381, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-results li.select2-result-with-children > .select2-result-label {
+  font-weight: bold;
+}
+
+/* line 385, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-results .select2-result-label {
+  padding: 3px 7px 4px;
+  margin: 0;
+  cursor: pointer;
+  min-height: 1em;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* line 399, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-results-dept-1 .select2-result-label {
+  padding-left: 20px;
+}
+
+/* line 400, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-results-dept-2 .select2-result-label {
+  padding-left: 40px;
+}
+
+/* line 401, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-results-dept-3 .select2-result-label {
+  padding-left: 60px;
+}
+
+/* line 402, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-results-dept-4 .select2-result-label {
+  padding-left: 80px;
+}
+
+/* line 403, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-results-dept-5 .select2-result-label {
+  padding-left: 100px;
+}
+
+/* line 404, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-results-dept-6 .select2-result-label {
+  padding-left: 110px;
+}
+
+/* line 405, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-results-dept-7 .select2-result-label {
+  padding-left: 120px;
+}
+
+/* line 407, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-results .select2-highlighted {
+  background: #3875d7;
+  color: #fff;
+}
+
+/* line 412, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-results li em {
+  background: #feffde;
+  font-style: normal;
+}
+
+/* line 417, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-results .select2-highlighted em {
+  background: transparent;
+}
+
+/* line 421, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-results .select2-highlighted ul {
+  background: #fff;
+  color: #000;
+}
+
+/* line 429, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-results .select2-no-results,
+.select2-results .select2-searching,
+.select2-results .select2-ajax-error,
+.select2-results .select2-selection-limit {
+  background: #f4f4f4;
+  display: list-item;
+  padding-left: 5px;
+}
+
+/*
+disabled look for disabled choices in the results dropdown
+*/
+/* line 438, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-results .select2-disabled.select2-highlighted {
+  color: #666;
+  background: #f4f4f4;
+  display: list-item;
+  cursor: default;
+}
+
+/* line 444, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-results .select2-disabled {
+  background: #f4f4f4;
+  display: list-item;
+  cursor: default;
+}
+
+/* line 450, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-results .select2-selected {
+  display: none;
+}
+
+/* line 454, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-more-results.select2-active {
+  background: #f4f4f4 url(/assets/select2-spinner.gif) no-repeat 100%;
+}
+
+/* line 458, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-results .select2-ajax-error {
+  background: rgba(255, 50, 50, 0.2);
+}
+
+/* line 462, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-more-results {
+  background: #f4f4f4;
+  display: list-item;
+}
+
+/* disabled styles */
+/* line 469, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container.select2-container-disabled .select2-choice {
+  background-color: #f4f4f4;
+  background-image: none;
+  border: 1px solid #ddd;
+  cursor: default;
+}
+
+/* line 476, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container.select2-container-disabled .select2-choice .select2-arrow {
+  background-color: #f4f4f4;
+  background-image: none;
+  border-left: 0;
+}
+
+/* line 482, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container.select2-container-disabled .select2-choice abbr {
+  display: none;
+}
+
+/* multiselect */
+/* line 489, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container-multi .select2-choices {
+  height: auto !important;
+  height: 1%;
+  margin: 0;
+  padding: 0 5px 0 0;
+  position: relative;
+  border: 1px solid #aaa;
+  cursor: text;
+  overflow: hidden;
+  background-color: #fff;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(1%, #eeeeee), color-stop(15%, white));
+  background-image: -webkit-linear-gradient(top, #eeeeee 1%, white 15%);
+  background-image: -moz-linear-gradient(top, #eeeeee 1%, white 15%);
+  background-image: linear-gradient(to bottom, #eeeeee 1%, white 15%);
+}
+
+/* line 507, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+html[dir="rtl"] .select2-container-multi .select2-choices {
+  padding: 0 0 0 5px;
+}
+
+/* line 511, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-locked {
+  padding: 3px 5px 3px 5px !important;
+}
+
+/* line 515, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container-multi .select2-choices {
+  min-height: 26px;
+}
+
+/* line 519, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container-multi.select2-container-active .select2-choices {
+  border: 1px solid #5897fb;
+  outline: none;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* line 526, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container-multi .select2-choices li {
+  float: left;
+  list-style: none;
+}
+
+/* line 531, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+html[dir="rtl"] .select2-container-multi .select2-choices li {
+  float: right;
+}
+
+/* line 534, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container-multi .select2-choices .select2-search-field {
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+
+/* line 540, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container-multi .select2-choices .select2-search-field input {
+  padding: 5px;
+  margin: 1px 0;
+  font-family: sans-serif;
+  font-size: 100%;
+  color: #666;
+  outline: 0;
+  border: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background: transparent !important;
+}
+
+/* line 554, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container-multi .select2-choices .select2-search-field input.select2-active {
+  background: white url(/assets/select2-spinner.gif) no-repeat 100% !important;
+}
+
+/* line 558, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-default {
+  color: #999 !important;
+}
+
+/* line 562, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container-multi .select2-choices .select2-search-choice {
+  padding: 3px 5px 3px 18px;
+  margin: 3px 0 3px 5px;
+  position: relative;
+  line-height: 13px;
+  color: #333;
+  cursor: default;
+  border: 1px solid #aaaaaa;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0 2px white inset, 0 1px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 2px white inset, 0 1px 0 rgba(0, 0, 0, 0.05);
+  background-clip: padding-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: #e4e4e4;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#f4f4f4', GradientType=0);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(20%, #f4f4f4), color-stop(50%, #f0f0f0), color-stop(52%, #e8e8e8), color-stop(100%, #eeeeee));
+  background-image: -webkit-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
+  background-image: -moz-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
+  background-image: linear-gradient(to bottom, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
+}
+
+/* line 593, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+html[dir="rtl"] .select2-container-multi .select2-choices .select2-search-choice {
+  margin: 3px 5px 3px 0;
+  padding: 3px 18px 3px 5px;
+}
+
+/* line 597, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container-multi .select2-choices .select2-search-choice .select2-chosen {
+  cursor: default;
+}
+
+/* line 600, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container-multi .select2-choices .select2-search-choice-focus {
+  background: #d4d4d4;
+}
+
+/* line 604, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-search-choice-close {
+  display: block;
+  width: 12px;
+  height: 13px;
+  position: absolute;
+  right: 3px;
+  top: 4px;
+  font-size: 1px;
+  outline: none;
+  background: url(/assets/select2.png) right top no-repeat;
+}
+
+/* line 616, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+html[dir="rtl"] .select2-search-choice-close {
+  right: auto;
+  left: 3px;
+}
+
+/* line 621, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container-multi .select2-search-choice-close {
+  left: 3px;
+}
+
+/* line 625, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+html[dir="rtl"] .select2-container-multi .select2-search-choice-close {
+  left: auto;
+  right: 2px;
+}
+
+/* line 630, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container-multi .select2-choices .select2-search-choice .select2-search-choice-close:hover {
+  background-position: right -11px;
+}
+
+/* line 633, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container-multi .select2-choices .select2-search-choice-focus .select2-search-choice-close {
+  background-position: right -11px;
+}
+
+/* disabled styles */
+/* line 638, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container-multi.select2-container-disabled .select2-choices {
+  background-color: #f4f4f4;
+  background-image: none;
+  border: 1px solid #ddd;
+  cursor: default;
+}
+
+/* line 645, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container-multi.select2-container-disabled .select2-choices .select2-search-choice {
+  padding: 3px 5px 3px 5px;
+  border: 1px solid #ddd;
+  background-image: none;
+  background-color: #f4f4f4;
+}
+
+/* line 652, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container-multi.select2-container-disabled .select2-choices .select2-search-choice .select2-search-choice-close {
+  display: none;
+  background: none;
+}
+
+/* end multiselect */
+/* line 659, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-result-selectable .select2-match,
+.select2-result-unselectable .select2-match {
+  text-decoration: underline;
+}
+
+/* line 663, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-offscreen, .select2-offscreen:focus {
+  clip: rect(0 0 0 0) !important;
+  width: 1px !important;
+  height: 1px !important;
+  border: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  outline: 0 !important;
+  left: 0px !important;
+  top: 0px !important;
+}
+
+/* line 677, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-display-none {
+  display: none;
+}
+
+/* line 681, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-measure-scrollbar {
+  position: absolute;
+  top: -10000px;
+  left: -10000px;
+  width: 100px;
+  height: 100px;
+  overflow: scroll;
+}
+
+/* Retina-ize icons */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 2dppx) {
+  /* line 696, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+  .select2-search input,
+  .select2-search-choice-close,
+  .select2-container .select2-choice abbr,
+  .select2-container .select2-choice .select2-arrow b {
+    background-image: url(/assets/select2x2.png) !important;
+    background-repeat: no-repeat !important;
+    background-size: 60px 40px !important;
+  }
+
+  /* line 702, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+  .select2-search input {
+    background-position: 100% -21px !important;
+  }
+}
+.form-control .select2-choice {
+    border: 0;
+    border-radius: 2px;
+}
+
+.form-control .select2-choice .select2-arrow {
+    border-radius: 0 2px 2px 0;   
+}
+
+.form-control.select2-container {
+    height: auto !important;
+    padding: 0;
+}
+
+.form-control.select2-container.select2-dropdown-open {
+    border-color: #5897FB;
+    border-radius: 3px 3px 0 0;
+}
+
+.form-control .select2-container.select2-dropdown-open .select2-choices {
+    border-radius: 3px 3px 0 0;
+}
+
+.form-control.select2-container .select2-choices {
+    border: 0 !important;
+    border-radius: 3px;
+}
+
+.control-group.warning .select2-container .select2-choice,
+.control-group.warning .select2-container .select2-choices,
+.control-group.warning .select2-container-active .select2-choice,
+.control-group.warning .select2-container-active .select2-choices,
+.control-group.warning .select2-dropdown-open.select2-drop-above .select2-choice,
+.control-group.warning .select2-dropdown-open.select2-drop-above .select2-choices,
+.control-group.warning .select2-container-multi.select2-container-active .select2-choices {
+    border: 1px solid #C09853 !important;
+}
+
+.control-group.warning .select2-container .select2-choice div {
+    border-left: 1px solid #C09853 !important;
+    background: #FCF8E3 !important;
+}
+
+.control-group.error .select2-container .select2-choice,
+.control-group.error .select2-container .select2-choices,
+.control-group.error .select2-container-active .select2-choice,
+.control-group.error .select2-container-active .select2-choices,
+.control-group.error .select2-dropdown-open.select2-drop-above .select2-choice,
+.control-group.error .select2-dropdown-open.select2-drop-above .select2-choices,
+.control-group.error .select2-container-multi.select2-container-active .select2-choices {
+    border: 1px solid #B94A48 !important;
+}
+
+.control-group.error .select2-container .select2-choice div {
+    border-left: 1px solid #B94A48 !important;
+    background: #F2DEDE !important;
+}
+
+.control-group.info .select2-container .select2-choice,
+.control-group.info .select2-container .select2-choices,
+.control-group.info .select2-container-active .select2-choice,
+.control-group.info .select2-container-active .select2-choices,
+.control-group.info .select2-dropdown-open.select2-drop-above .select2-choice,
+.control-group.info .select2-dropdown-open.select2-drop-above .select2-choices,
+.control-group.info .select2-container-multi.select2-container-active .select2-choices {
+    border: 1px solid #3A87AD !important;
+}
+
+.control-group.info .select2-container .select2-choice div {
+    border-left: 1px solid #3A87AD !important;
+    background: #D9EDF7 !important;
+}
+
+.control-group.success .select2-container .select2-choice,
+.control-group.success .select2-container .select2-choices,
+.control-group.success .select2-container-active .select2-choice,
+.control-group.success .select2-container-active .select2-choices,
+.control-group.success .select2-dropdown-open.select2-drop-above .select2-choice,
+.control-group.success .select2-dropdown-open.select2-drop-above .select2-choices,
+.control-group.success .select2-container-multi.select2-container-active .select2-choices {
+    border: 1px solid #468847 !important;
+}
+
+.control-group.success .select2-container .select2-choice div {
+    border-left: 1px solid #468847 !important;
+    background: #DFF0D8 !important;
+}
+/*
+Version: 3.5.2 Timestamp: Sat Nov  1 14:43:36 EDT 2014
+*/
+/* line 5, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container {
+  margin: 0;
+  position: relative;
+  display: inline-block;
+  /* inline-block for ie7 */
+  zoom: 1;
+  *display: inline;
+  vertical-align: middle;
+}
+
+/* line 18, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container,
+.select2-drop,
+.select2-search,
+.select2-search input {
+  /*
+    Force border-box so that % widths fit the parent
+    container without overlap because of margin/padding.
+    More Info : http://www.quirksmode.org/css/box.html
+  */
+  -webkit-box-sizing: border-box;
+  /* webkit */
+  -moz-box-sizing: border-box;
+  /* firefox */
+  box-sizing: border-box;
+  /* css3 */
+}
+
+/* line 29, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container .select2-choice {
+  display: block;
+  height: 26px;
+  padding: 0 0 0 8px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid #aaa;
+  white-space: nowrap;
+  line-height: 26px;
+  color: #444;
+  text-decoration: none;
+  border-radius: 4px;
+  background-clip: padding-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: #fff;
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #eeeeee), color-stop(0.5, white));
+  background-image: -webkit-linear-gradient(center bottom, #eeeeee 0%, white 50%);
+  background-image: -moz-linear-gradient(center bottom, #eeeeee 0%, white 50%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#ffffff', endColorstr = '#eeeeee', GradientType = 0);
+  background-image: linear-gradient(to top, #eeeeee 0%, white 50%);
+}
+
+/* line 60, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+html[dir="rtl"] .select2-container .select2-choice {
+  padding: 0 8px 0 0;
+}
+
+/* line 64, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container.select2-drop-above .select2-choice {
+  border-bottom-color: #aaa;
+  border-radius: 0 0 4px 4px;
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #eeeeee), color-stop(0.9, white));
+  background-image: -webkit-linear-gradient(center bottom, #eeeeee 0%, white 90%);
+  background-image: -moz-linear-gradient(center bottom, #eeeeee 0%, white 90%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eeeeee', GradientType=0);
+  background-image: linear-gradient(to bottom, #eeeeee 0%, white 90%);
+}
+
+/* line 76, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container.select2-allowclear .select2-choice .select2-chosen {
+  margin-right: 42px;
+}
+
+/* line 80, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container .select2-choice > .select2-chosen {
+  margin-right: 26px;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  float: none;
+  width: auto;
+}
+
+/* line 92, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+html[dir="rtl"] .select2-container .select2-choice > .select2-chosen {
+  margin-left: 26px;
+  margin-right: 0;
+}
+
+/* line 97, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container .select2-choice abbr {
+  display: none;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  right: 24px;
+  top: 8px;
+  font-size: 1px;
+  text-decoration: none;
+  border: 0;
+  background: url(/assets/select2.png) right top no-repeat;
+  cursor: pointer;
+  outline: 0;
+}
+
+/* line 114, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container.select2-allowclear .select2-choice abbr {
+  display: inline-block;
+}
+
+/* line 118, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container .select2-choice abbr:hover {
+  background-position: right -11px;
+  cursor: pointer;
+}
+
+/* line 123, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-drop-mask {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  left: 0;
+  top: 0;
+  min-height: 100%;
+  min-width: 100%;
+  height: auto;
+  width: auto;
+  opacity: 0;
+  z-index: 9998;
+  /* styles required for IE to work */
+  background-color: #fff;
+  filter: alpha(opacity=0);
+}
+
+/* line 141, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-drop {
+  width: 100%;
+  margin-top: -1px;
+  position: absolute;
+  z-index: 9999;
+  top: 100%;
+  background: #fff;
+  color: #000;
+  border: 1px solid #aaa;
+  border-top: 0;
+  border-radius: 0 0 4px 4px;
+  -webkit-box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* line 159, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-drop.select2-drop-above {
+  margin-top: 1px;
+  border-top: 1px solid #aaa;
+  border-bottom: 0;
+  border-radius: 4px 4px 0 0;
+  -webkit-box-shadow: 0 -4px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 -4px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* line 170, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-drop-active {
+  border: 1px solid #5897fb;
+  border-top: none;
+}
+
+/* line 175, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-drop.select2-drop-above.select2-drop-active {
+  border-top: 1px solid #5897fb;
+}
+
+/* line 179, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-drop-auto-width {
+  border-top: 1px solid #aaa;
+  width: auto;
+}
+
+/* line 184, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-drop-auto-width .select2-search {
+  padding-top: 4px;
+}
+
+/* line 188, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container .select2-choice .select2-arrow {
+  display: inline-block;
+  width: 18px;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-left: 1px solid #aaa;
+  border-radius: 0 4px 4px 0;
+  background-clip: padding-box;
+  background: #ccc;
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #cccccc), color-stop(0.6, #eeeeee));
+  background-image: -webkit-linear-gradient(center bottom, #cccccc 0%, #eeeeee 60%);
+  background-image: -moz-linear-gradient(center bottom, #cccccc 0%, #eeeeee 60%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#eeeeee', endColorstr = '#cccccc', GradientType = 0);
+  background-image: linear-gradient(to top, #cccccc 0%, #eeeeee 60%);
+}
+
+/* line 209, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+html[dir="rtl"] .select2-container .select2-choice .select2-arrow {
+  left: 0;
+  right: auto;
+  border-left: none;
+  border-right: 1px solid #aaa;
+  border-radius: 4px 0 0 4px;
+}
+
+/* line 218, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container .select2-choice .select2-arrow b {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: url(/assets/select2.png) no-repeat 0 1px;
+}
+
+/* line 225, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+html[dir="rtl"] .select2-container .select2-choice .select2-arrow b {
+  background-position: 2px 1px;
+}
+
+/* line 229, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-search {
+  display: inline-block;
+  width: 100%;
+  min-height: 26px;
+  margin: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+  position: relative;
+  z-index: 10000;
+  white-space: nowrap;
+}
+
+/* line 243, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-search input {
+  width: 100%;
+  height: auto !important;
+  min-height: 26px;
+  padding: 4px 20px 4px 5px;
+  margin: 0;
+  outline: 0;
+  font-family: sans-serif;
+  font-size: 1em;
+  border: 1px solid #aaa;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background: white url(/assets/select2.png) no-repeat 100% -22px;
+  background: url(/assets/select2.png) no-repeat 100% -22px, -webkit-gradient(linear, left bottom, left top, color-stop(0.85, white), color-stop(0.99, #eeeeee));
+  background: url(/assets/select2.png) no-repeat 100% -22px, -webkit-linear-gradient(center bottom, white 85%, #eeeeee 99%);
+  background: url(/assets/select2.png) no-repeat 100% -22px, -moz-linear-gradient(center bottom, white 85%, #eeeeee 99%);
+  background: url(/assets/select2.png) no-repeat 100% -22px, linear-gradient(to bottom, white 85%, #eeeeee 99%) 0 0;
+}
+
+/* line 267, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+html[dir="rtl"] .select2-search input {
+  padding: 4px 5px 4px 20px;
+  background: white url(/assets/select2.png) no-repeat -37px -22px;
+  background: url(/assets/select2.png) no-repeat -37px -22px, -webkit-gradient(linear, left bottom, left top, color-stop(0.85, white), color-stop(0.99, #eeeeee));
+  background: url(/assets/select2.png) no-repeat -37px -22px, -webkit-linear-gradient(center bottom, white 85%, #eeeeee 99%);
+  background: url(/assets/select2.png) no-repeat -37px -22px, -moz-linear-gradient(center bottom, white 85%, #eeeeee 99%);
+  background: url(/assets/select2.png) no-repeat -37px -22px, linear-gradient(to bottom, white 85%, #eeeeee 99%) 0 0;
+}
+
+/* line 277, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-drop.select2-drop-above .select2-search input {
+  margin-top: 4px;
+}
+
+/* line 281, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-search input.select2-active {
+  background: white url(/assets/select2-spinner.gif) no-repeat 100%;
+  background: url(/assets/select2-spinner.gif) no-repeat 100%, -webkit-gradient(linear, left bottom, left top, color-stop(0.85, white), color-stop(0.99, #eeeeee));
+  background: url(/assets/select2-spinner.gif) no-repeat 100%, -webkit-linear-gradient(center bottom, white 85%, #eeeeee 99%);
+  background: url(/assets/select2-spinner.gif) no-repeat 100%, -moz-linear-gradient(center bottom, white 85%, #eeeeee 99%);
+  background: url(/assets/select2-spinner.gif) no-repeat 100%, linear-gradient(to bottom, white 85%, #eeeeee 99%) 0 0;
+}
+
+/* line 290, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container-active .select2-choice,
+.select2-container-active .select2-choices {
+  border: 1px solid #5897fb;
+  outline: none;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* line 298, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-dropdown-open .select2-choice {
+  border-bottom-color: transparent;
+  -webkit-box-shadow: 0 1px 0 #fff inset;
+  box-shadow: 0 1px 0 #fff inset;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  background-color: #eee;
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, white), color-stop(0.5, #eeeeee));
+  background-image: -webkit-linear-gradient(center bottom, white 0%, #eeeeee 50%);
+  background-image: -moz-linear-gradient(center bottom, white 0%, #eeeeee 50%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#ffffff', GradientType=0);
+  background-image: linear-gradient(to top, white 0%, #eeeeee 50%);
+}
+
+/* line 315, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-dropdown-open.select2-drop-above .select2-choice,
+.select2-dropdown-open.select2-drop-above .select2-choices {
+  border: 1px solid #5897fb;
+  border-top-color: transparent;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.5, #eeeeee));
+  background-image: -webkit-linear-gradient(center top, white 0%, #eeeeee 50%);
+  background-image: -moz-linear-gradient(center top, white 0%, #eeeeee 50%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#ffffff', GradientType=0);
+  background-image: linear-gradient(to bottom, white 0%, #eeeeee 50%);
+}
+
+/* line 326, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-dropdown-open .select2-choice .select2-arrow {
+  background: transparent;
+  border-left: none;
+  filter: none;
+}
+
+/* line 331, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+html[dir="rtl"] .select2-dropdown-open .select2-choice .select2-arrow {
+  border-right: none;
+}
+
+/* line 335, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-dropdown-open .select2-choice .select2-arrow b {
+  background-position: -18px 1px;
+}
+
+/* line 339, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+html[dir="rtl"] .select2-dropdown-open .select2-choice .select2-arrow b {
+  background-position: -16px 1px;
+}
+
+/* line 343, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-hidden-accessible {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/* results */
+/* line 355, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-results {
+  max-height: 200px;
+  padding: 0 0 0 4px;
+  margin: 4px 4px 4px 0;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* line 365, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+html[dir="rtl"] .select2-results {
+  padding: 0 4px 0 0;
+  margin: 4px 0 4px 4px;
+}
+
+/* line 370, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-results ul.select2-result-sub {
+  margin: 0;
+  padding-left: 0;
+}
+
+/* line 375, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-results li {
+  list-style: none;
+  display: list-item;
+  background-image: none;
+}
+
+/* line 381, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-results li.select2-result-with-children > .select2-result-label {
+  font-weight: bold;
+}
+
+/* line 385, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-results .select2-result-label {
+  padding: 3px 7px 4px;
+  margin: 0;
+  cursor: pointer;
+  min-height: 1em;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* line 399, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-results-dept-1 .select2-result-label {
+  padding-left: 20px;
+}
+
+/* line 400, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-results-dept-2 .select2-result-label {
+  padding-left: 40px;
+}
+
+/* line 401, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-results-dept-3 .select2-result-label {
+  padding-left: 60px;
+}
+
+/* line 402, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-results-dept-4 .select2-result-label {
+  padding-left: 80px;
+}
+
+/* line 403, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-results-dept-5 .select2-result-label {
+  padding-left: 100px;
+}
+
+/* line 404, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-results-dept-6 .select2-result-label {
+  padding-left: 110px;
+}
+
+/* line 405, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-results-dept-7 .select2-result-label {
+  padding-left: 120px;
+}
+
+/* line 407, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-results .select2-highlighted {
+  background: #3875d7;
+  color: #fff;
+}
+
+/* line 412, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-results li em {
+  background: #feffde;
+  font-style: normal;
+}
+
+/* line 417, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-results .select2-highlighted em {
+  background: transparent;
+}
+
+/* line 421, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-results .select2-highlighted ul {
+  background: #fff;
+  color: #000;
+}
+
+/* line 429, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-results .select2-no-results,
+.select2-results .select2-searching,
+.select2-results .select2-ajax-error,
+.select2-results .select2-selection-limit {
+  background: #f4f4f4;
+  display: list-item;
+  padding-left: 5px;
+}
+
+/*
+disabled look for disabled choices in the results dropdown
+*/
+/* line 438, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-results .select2-disabled.select2-highlighted {
+  color: #666;
+  background: #f4f4f4;
+  display: list-item;
+  cursor: default;
+}
+
+/* line 444, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-results .select2-disabled {
+  background: #f4f4f4;
+  display: list-item;
+  cursor: default;
+}
+
+/* line 450, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-results .select2-selected {
+  display: none;
+}
+
+/* line 454, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-more-results.select2-active {
+  background: #f4f4f4 url(/assets/select2-spinner.gif) no-repeat 100%;
+}
+
+/* line 458, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-results .select2-ajax-error {
+  background: rgba(255, 50, 50, 0.2);
+}
+
+/* line 462, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-more-results {
+  background: #f4f4f4;
+  display: list-item;
+}
+
+/* disabled styles */
+/* line 469, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container.select2-container-disabled .select2-choice {
+  background-color: #f4f4f4;
+  background-image: none;
+  border: 1px solid #ddd;
+  cursor: default;
+}
+
+/* line 476, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container.select2-container-disabled .select2-choice .select2-arrow {
+  background-color: #f4f4f4;
+  background-image: none;
+  border-left: 0;
+}
+
+/* line 482, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container.select2-container-disabled .select2-choice abbr {
+  display: none;
+}
+
+/* multiselect */
+/* line 489, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container-multi .select2-choices {
+  height: auto !important;
+  height: 1%;
+  margin: 0;
+  padding: 0 5px 0 0;
+  position: relative;
+  border: 1px solid #aaa;
+  cursor: text;
+  overflow: hidden;
+  background-color: #fff;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(1%, #eeeeee), color-stop(15%, white));
+  background-image: -webkit-linear-gradient(top, #eeeeee 1%, white 15%);
+  background-image: -moz-linear-gradient(top, #eeeeee 1%, white 15%);
+  background-image: linear-gradient(to bottom, #eeeeee 1%, white 15%);
+}
+
+/* line 507, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+html[dir="rtl"] .select2-container-multi .select2-choices {
+  padding: 0 0 0 5px;
+}
+
+/* line 511, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-locked {
+  padding: 3px 5px 3px 5px !important;
+}
+
+/* line 515, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container-multi .select2-choices {
+  min-height: 26px;
+}
+
+/* line 519, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container-multi.select2-container-active .select2-choices {
+  border: 1px solid #5897fb;
+  outline: none;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* line 526, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container-multi .select2-choices li {
+  float: left;
+  list-style: none;
+}
+
+/* line 531, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+html[dir="rtl"] .select2-container-multi .select2-choices li {
+  float: right;
+}
+
+/* line 534, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container-multi .select2-choices .select2-search-field {
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+
+/* line 540, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container-multi .select2-choices .select2-search-field input {
+  padding: 5px;
+  margin: 1px 0;
+  font-family: sans-serif;
+  font-size: 100%;
+  color: #666;
+  outline: 0;
+  border: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background: transparent !important;
+}
+
+/* line 554, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container-multi .select2-choices .select2-search-field input.select2-active {
+  background: white url(/assets/select2-spinner.gif) no-repeat 100% !important;
+}
+
+/* line 558, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-default {
+  color: #999 !important;
+}
+
+/* line 562, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container-multi .select2-choices .select2-search-choice {
+  padding: 3px 5px 3px 18px;
+  margin: 3px 0 3px 5px;
+  position: relative;
+  line-height: 13px;
+  color: #333;
+  cursor: default;
+  border: 1px solid #aaaaaa;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0 2px white inset, 0 1px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 2px white inset, 0 1px 0 rgba(0, 0, 0, 0.05);
+  background-clip: padding-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: #e4e4e4;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#f4f4f4', GradientType=0);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(20%, #f4f4f4), color-stop(50%, #f0f0f0), color-stop(52%, #e8e8e8), color-stop(100%, #eeeeee));
+  background-image: -webkit-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
+  background-image: -moz-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
+  background-image: linear-gradient(to bottom, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
+}
+
+/* line 593, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+html[dir="rtl"] .select2-container-multi .select2-choices .select2-search-choice {
+  margin: 3px 5px 3px 0;
+  padding: 3px 18px 3px 5px;
+}
+
+/* line 597, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container-multi .select2-choices .select2-search-choice .select2-chosen {
+  cursor: default;
+}
+
+/* line 600, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container-multi .select2-choices .select2-search-choice-focus {
+  background: #d4d4d4;
+}
+
+/* line 604, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-search-choice-close {
+  display: block;
+  width: 12px;
+  height: 13px;
+  position: absolute;
+  right: 3px;
+  top: 4px;
+  font-size: 1px;
+  outline: none;
+  background: url(/assets/select2.png) right top no-repeat;
+}
+
+/* line 616, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+html[dir="rtl"] .select2-search-choice-close {
+  right: auto;
+  left: 3px;
+}
+
+/* line 621, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container-multi .select2-search-choice-close {
+  left: 3px;
+}
+
+/* line 625, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+html[dir="rtl"] .select2-container-multi .select2-search-choice-close {
+  left: auto;
+  right: 2px;
+}
+
+/* line 630, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container-multi .select2-choices .select2-search-choice .select2-search-choice-close:hover {
+  background-position: right -11px;
+}
+
+/* line 633, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container-multi .select2-choices .select2-search-choice-focus .select2-search-choice-close {
+  background-position: right -11px;
+}
+
+/* disabled styles */
+/* line 638, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container-multi.select2-container-disabled .select2-choices {
+  background-color: #f4f4f4;
+  background-image: none;
+  border: 1px solid #ddd;
+  cursor: default;
+}
+
+/* line 645, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container-multi.select2-container-disabled .select2-choices .select2-search-choice {
+  padding: 3px 5px 3px 5px;
+  border: 1px solid #ddd;
+  background-image: none;
+  background-color: #f4f4f4;
+}
+
+/* line 652, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-container-multi.select2-container-disabled .select2-choices .select2-search-choice .select2-search-choice-close {
+  display: none;
+  background: none;
+}
+
+/* end multiselect */
+/* line 659, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-result-selectable .select2-match,
+.select2-result-unselectable .select2-match {
+  text-decoration: underline;
+}
+
+/* line 663, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-offscreen, .select2-offscreen:focus {
+  clip: rect(0 0 0 0) !important;
+  width: 1px !important;
+  height: 1px !important;
+  border: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  outline: 0 !important;
+  left: 0px !important;
+  top: 0px !important;
+}
+
+/* line 677, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-display-none {
+  display: none;
+}
+
+/* line 681, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+.select2-measure-scrollbar {
+  position: absolute;
+  top: -10000px;
+  left: -10000px;
+  width: 100px;
+  height: 100px;
+  overflow: scroll;
+}
+
+/* Retina-ize icons */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 2dppx) {
+  /* line 696, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+  .select2-search input,
+  .select2-search-choice-close,
+  .select2-container .select2-choice abbr,
+  .select2-container .select2-choice .select2-arrow b {
+    background-image: url(/assets/select2x2.png) !important;
+    background-repeat: no-repeat !important;
+    background-size: 60px 40px !important;
+  }
+
+  /* line 702, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2.scss */
+  .select2-search input {
+    background-position: 100% -21px !important;
+  }
+}
+/* line 1, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2-bootstrap.css */
+.form-control .select2-choice {
+  border: 0;
+  border-radius: 2px;
+}
+
+/* line 6, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2-bootstrap.css */
+.form-control .select2-choice .select2-arrow {
+  border-radius: 0 2px 2px 0;
+}
+
+/* line 10, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2-bootstrap.css */
+.form-control.select2-container {
+  height: auto !important;
+  padding: 0;
+}
+
+/* line 15, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2-bootstrap.css */
+.form-control.select2-container.select2-dropdown-open {
+  border-color: #5897FB;
+  border-radius: 3px 3px 0 0;
+}
+
+/* line 20, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2-bootstrap.css */
+.form-control .select2-container.select2-dropdown-open .select2-choices {
+  border-radius: 3px 3px 0 0;
+}
+
+/* line 24, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2-bootstrap.css */
+.form-control.select2-container .select2-choices {
+  border: 0 !important;
+  border-radius: 3px;
+}
+
+/* line 35, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2-bootstrap.css */
+.control-group.warning .select2-container .select2-choice,
+.control-group.warning .select2-container .select2-choices,
+.control-group.warning .select2-container-active .select2-choice,
+.control-group.warning .select2-container-active .select2-choices,
+.control-group.warning .select2-dropdown-open.select2-drop-above .select2-choice,
+.control-group.warning .select2-dropdown-open.select2-drop-above .select2-choices,
+.control-group.warning .select2-container-multi.select2-container-active .select2-choices {
+  border: 1px solid #C09853 !important;
+}
+
+/* line 39, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2-bootstrap.css */
+.control-group.warning .select2-container .select2-choice div {
+  border-left: 1px solid #C09853 !important;
+  background: #FCF8E3 !important;
+}
+
+/* line 50, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2-bootstrap.css */
+.control-group.error .select2-container .select2-choice,
+.control-group.error .select2-container .select2-choices,
+.control-group.error .select2-container-active .select2-choice,
+.control-group.error .select2-container-active .select2-choices,
+.control-group.error .select2-dropdown-open.select2-drop-above .select2-choice,
+.control-group.error .select2-dropdown-open.select2-drop-above .select2-choices,
+.control-group.error .select2-container-multi.select2-container-active .select2-choices {
+  border: 1px solid #B94A48 !important;
+}
+
+/* line 54, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2-bootstrap.css */
+.control-group.error .select2-container .select2-choice div {
+  border-left: 1px solid #B94A48 !important;
+  background: #F2DEDE !important;
+}
+
+/* line 65, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2-bootstrap.css */
+.control-group.info .select2-container .select2-choice,
+.control-group.info .select2-container .select2-choices,
+.control-group.info .select2-container-active .select2-choice,
+.control-group.info .select2-container-active .select2-choices,
+.control-group.info .select2-dropdown-open.select2-drop-above .select2-choice,
+.control-group.info .select2-dropdown-open.select2-drop-above .select2-choices,
+.control-group.info .select2-container-multi.select2-container-active .select2-choices {
+  border: 1px solid #3A87AD !important;
+}
+
+/* line 69, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2-bootstrap.css */
+.control-group.info .select2-container .select2-choice div {
+  border-left: 1px solid #3A87AD !important;
+  background: #D9EDF7 !important;
+}
+
+/* line 80, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2-bootstrap.css */
+.control-group.success .select2-container .select2-choice,
+.control-group.success .select2-container .select2-choices,
+.control-group.success .select2-container-active .select2-choice,
+.control-group.success .select2-container-active .select2-choices,
+.control-group.success .select2-dropdown-open.select2-drop-above .select2-choice,
+.control-group.success .select2-dropdown-open.select2-drop-above .select2-choices,
+.control-group.success .select2-container-multi.select2-container-active .select2-choices {
+  border: 1px solid #468847 !important;
+}
+
+/* line 84, /Users/rachel/.rvm/gems/ruby-2.2.4@contest/gems/select2-rails-3.5.9.2/vendor/assets/stylesheets/select2-bootstrap.css */
+.control-group.success .select2-container .select2-choice div {
+  border-left: 1px solid #468847 !important;
+  background: #DFF0D8 !important;
+}
+
+/* line 6, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+h1 {
+  color: #93a603;
+  font-family: "Lobster", cursive;
+  font-size: 52px;
+}
+
+/* line 13, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+h2 {
+  color: #d9556d;
+  font-family: "Arial", bold;
+  font-size: 32px;
+}
+
+/* line 19, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+h3 {
+  color: #d9556d;
+  font-family: "Arial", bold;
+  font-size: 28px;
+}
+
+@media (max-width: 480px) {
+  /* line 26, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+  h1 {
+    font-size: 28px;
+  }
+
+  /* line 30, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+  h2 {
+    font-size: 24px;
+  }
+
+  /* line 34, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+  h3 {
+    font-size: 20px;
+  }
+
+  /* line 38, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+  .jumbotron p {
+    font-size: 16px;
+  }
+}
+/* line 44, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+ul li a:link, ul li a:hover, ul li a:active, ul li a:visited {
+  color: #498c80;
+}
+
+/* line 51, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+p a:link, p a:hover, p a:active, p a:visited {
+  color: #498c80;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+/* line 59, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.underline {
+  text-decoration: underline;
+}
+
+/* line 63, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.bold {
+  font-weight: bold;
+}
+
+/* line 67, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.italic {
+  font-style: italic;
+}
+
+/* line 71, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.special {
+  font-weight: bold;
+  color: #d9556d;
+}
+
+/* line 76, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.important {
+  font-weight: bold;
+  color: #FF0000;
+}
+
+/* line 81, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.required {
+  font-weight: bold;
+  color: #FF0000;
+  font-size: 18px;
+}
+
+/* line 87, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+#notice {
+  font-weight: bold;
+  color: #93a603;
+}
+
+/* line 92, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.large {
+  font-size: 24px;
+}
+
+/* line 96, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.submissionheading {
+  background-color: #f2d888;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  border-radius: 20px;
+  margin-top: 30px;
+  border: none;
+}
+/* line 106, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.submissionheading h2, .submissionheading h3 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* line 113, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.completed {
+  background-color: #C5E3BF;
+  padding: 5px;
+}
+
+/* line 118, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.rejected {
+  background-color: #FF7F7F;
+  padding: 5px;
+}
+
+/* line 123, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.pending {
+  background-color: #FFFF7F;
+  padding: 5px;
+}
+
+/* line 6, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+h1 {
+  color: #93a603;
+  font-family: "Lobster", cursive;
+  font-size: 52px;
+}
+
+/* line 13, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+h2 {
+  color: #d9556d;
+  font-family: "Arial", bold;
+  font-size: 32px;
+}
+
+/* line 19, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+h3 {
+  color: #d9556d;
+  font-family: "Arial", bold;
+  font-size: 28px;
+}
+
+@media (max-width: 480px) {
+  /* line 26, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+  h1 {
+    font-size: 28px;
+  }
+
+  /* line 30, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+  h2 {
+    font-size: 24px;
+  }
+
+  /* line 34, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+  h3 {
+    font-size: 20px;
+  }
+
+  /* line 38, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+  .jumbotron p {
+    font-size: 16px;
+  }
+}
+/* line 44, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+ul li a:link, ul li a:hover, ul li a:active, ul li a:visited {
+  color: #498c80;
+}
+
+/* line 51, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+p a:link, p a:hover, p a:active, p a:visited {
+  color: #498c80;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+/* line 59, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.underline {
+  text-decoration: underline;
+}
+
+/* line 63, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.bold {
+  font-weight: bold;
+}
+
+/* line 67, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.italic {
+  font-style: italic;
+}
+
+/* line 71, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.special {
+  font-weight: bold;
+  color: #d9556d;
+}
+
+/* line 76, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.important {
+  font-weight: bold;
+  color: #FF0000;
+}
+
+/* line 81, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.required {
+  font-weight: bold;
+  color: #FF0000;
+  font-size: 18px;
+}
+
+/* line 87, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+#notice {
+  font-weight: bold;
+  color: #93a603;
+}
+
+/* line 92, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.large {
+  font-size: 24px;
+}
+
+/* line 96, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.submissionheading {
+  background-color: #f2d888;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  border-radius: 20px;
+  margin-top: 30px;
+  border: none;
+}
+/* line 106, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.submissionheading h2, .submissionheading h3 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* line 113, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.completed {
+  background-color: #C5E3BF;
+  padding: 5px;
+}
+
+/* line 118, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.rejected {
+  background-color: #FF7F7F;
+  padding: 5px;
+}
+
+/* line 123, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.pending {
+  background-color: #FFFF7F;
+  padding: 5px;
+}
+
+/* line 3, /Users/rachel/web_projects/contest/app/assets/stylesheets/utility.css.scss */
+.left {
+  float: left;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+
+/* line 9, /Users/rachel/web_projects/contest/app/assets/stylesheets/utility.css.scss */
+.right {
+  float: right;
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+
+/* line 15, /Users/rachel/web_projects/contest/app/assets/stylesheets/utility.css.scss */
+.clear {
+  clear: both;
+}
+
+/* line 19, /Users/rachel/web_projects/contest/app/assets/stylesheets/utility.css.scss */
+.center {
+  text-align: center;
+}
+
+/* line 23, /Users/rachel/web_projects/contest/app/assets/stylesheets/utility.css.scss */
+hr {
+  background-color: #d9886a;
+  height: 2px;
+}
+
+/* line 28, /Users/rachel/web_projects/contest/app/assets/stylesheets/utility.css.scss */
+blockquote {
+  background-color: #f2d888;
+  padding: 20px;
+  border-radius: 20px;
+  border: none;
+}
+/* line 35, /Users/rachel/web_projects/contest/app/assets/stylesheets/utility.css.scss */
+blockquote h2 {
+  margin-top: 0px;
+}
+/* line 39, /Users/rachel/web_projects/contest/app/assets/stylesheets/utility.css.scss */
+blockquote p {
+  font-size: 14px;
+}
+
+/* line 44, /Users/rachel/web_projects/contest/app/assets/stylesheets/utility.css.scss */
+#error_explanation {
+  border: 3px #FF0000 solid;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #FF0000;
+  font-weight: bold;
+}
+
+/* line 52, /Users/rachel/web_projects/contest/app/assets/stylesheets/utility.css.scss */
+.flex-video {
+  position: relative;
+  padding-top: 25px;
+  padding-bottom: 67.5%;
+  height: 0;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+/* line 61, /Users/rachel/web_projects/contest/app/assets/stylesheets/utility.css.scss */
+.flex-video.widescreen {
+  padding-bottom: 57.25%;
+}
+
+/* line 62, /Users/rachel/web_projects/contest/app/assets/stylesheets/utility.css.scss */
+.flex-video.vimeo {
+  padding-top: 0;
+}
+
+/* line 66, /Users/rachel/web_projects/contest/app/assets/stylesheets/utility.css.scss */
+.flex-video iframe,
+.flex-video object,
+.flex-video embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media only screen and (max-device-width: 800px), only screen and (device-width: 1024px) and (device-height: 600px), only screen and (width: 1280px) and (orientation: landscape), only screen and (device-width: 800px), only screen and (max-width: 767px) {
+  /* line 76, /Users/rachel/web_projects/contest/app/assets/stylesheets/utility.css.scss */
+  .flex-video {
+    padding-top: 0;
+  }
+}
+/* line 3, /Users/rachel/web_projects/contest/app/assets/stylesheets/nav.css.scss */
+.navbar {
+  background-color: #498c80;
+}
+
+/* line 7, /Users/rachel/web_projects/contest/app/assets/stylesheets/nav.css.scss */
+.navbar-default .navbar-nav > li > a:link, .navbar-default .navbar-nav > li > a:visited {
+  background-color: #498c80;
+  color: #ffffff;
+}
+
+/* line 12, /Users/rachel/web_projects/contest/app/assets/stylesheets/nav.css.scss */
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  background-color: #d9886a;
+  color: #ffffff;
+}
+
+/* line 17, /Users/rachel/web_projects/contest/app/assets/stylesheets/nav.css.scss */
+.navbar-header a:link, .navbar-header a:hover, .navbar-header a:active, .navbar-header a:visited, .navbar-header a:focus {
+  color: #ffffff !important;
+}
+
+/* line 21, /Users/rachel/web_projects/contest/app/assets/stylesheets/nav.css.scss */
+.navbar-toggle {
+  background-color: #ffffff;
+}
+
+/* line 25, /Users/rachel/web_projects/contest/app/assets/stylesheets/nav.css.scss */
+.dropdown li {
+  background-color: #ffffff;
+}
+/* line 28, /Users/rachel/web_projects/contest/app/assets/stylesheets/nav.css.scss */
+.dropdown li a:link, .dropdown li a:hover, .dropdown li a:active, .dropdown li a:visited, .dropdown li a:focus {
+  color: #000000 !important;
+}
+
+/* line 3, /Users/rachel/web_projects/contest/app/assets/stylesheets/forms.css.scss */
+.field {
+  margin-top: 15px;
+}
+
+/**
+ * BxSlider v4.1.2 - Fully loaded, responsive content slider
+ * http://bxslider.com
+ *
+ * Written by: Steven Wanderski, 2014
+ * http://stevenwanderski.com
+ * (while drinking Belgian ales and listening to jazz)
+ *
+ * CEO and founder of bxCreative, LTD
+ * http://bxcreative.com
+ */
+/** RESET AND LAYOUT
+===================================*/
+/* line 18, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper {
+  position: relative;
+  margin: 0 auto 60px;
+  padding: 0;
+  *zoom: 1;
+}
+
+/* line 25, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper img {
+  max-width: 100%;
+  display: block;
+}
+
+/** THEME
+===================================*/
+/* line 33, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-viewport {
+  -moz-box-shadow: 0 0 5px #ccc;
+  -webkit-box-shadow: 0 0 5px #ccc;
+  box-shadow: 0 0 5px #ccc;
+  border: 5px solid #fff;
+  left: -5px;
+  background: #fff;
+  /*fix other elements on the page moving (on Chrome)*/
+  -webkit-transform: translatez(0);
+  -moz-transform: translatez(0);
+  -ms-transform: translatez(0);
+  -o-transform: translatez(0);
+  transform: translatez(0);
+}
+
+/* line 50, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-pager,
+.bx-wrapper .bx-controls-auto {
+  position: absolute;
+  bottom: -30px;
+  width: 100%;
+}
+
+/* LOADER */
+/* line 58, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-loading {
+  min-height: 50px;
+  background: url(images/bx_loader.gif) center center no-repeat white;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+}
+
+/* PAGER */
+/* line 71, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-pager {
+  text-align: center;
+  font-size: .85em;
+  font-family: Arial;
+  font-weight: bold;
+  color: #666;
+  padding-top: 20px;
+}
+
+/* line 81, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-pager .bx-pager-item,
+.bx-wrapper .bx-controls-auto .bx-controls-auto-item {
+  display: inline-block;
+  *zoom: 1;
+  *display: inline;
+}
+
+/* line 87, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-pager.bx-default-pager a {
+  background: #666;
+  text-indent: -9999px;
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  outline: 0;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/* line 101, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-pager.bx-default-pager a:hover,
+.bx-wrapper .bx-pager.bx-default-pager a.active {
+  background: #000;
+}
+
+/* DIRECTION CONTROLS (NEXT / PREV) */
+/* line 107, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-prev {
+  left: 10px;
+  background: url(images/controls.png) no-repeat 0 -32px;
+}
+
+/* line 112, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-next {
+  right: 10px;
+  background: url(images/controls.png) no-repeat -43px -32px;
+}
+
+/* line 117, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-prev:hover {
+  background-position: 0 0;
+}
+
+/* line 121, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-next:hover {
+  background-position: -43px 0;
+}
+
+/* line 125, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-controls-direction a {
+  position: absolute;
+  top: 50%;
+  margin-top: -16px;
+  outline: 0;
+  width: 32px;
+  height: 32px;
+  text-indent: -9999px;
+  z-index: 9999;
+}
+
+/* line 136, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-controls-direction a.disabled {
+  display: none;
+}
+
+/* AUTO CONTROLS (START / STOP) */
+/* line 142, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-controls-auto {
+  text-align: center;
+}
+
+/* line 146, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-controls-auto .bx-start {
+  display: block;
+  text-indent: -9999px;
+  width: 10px;
+  height: 11px;
+  outline: 0;
+  background: url(images/controls.png) -86px -11px no-repeat;
+  margin: 0 3px;
+}
+
+/* line 157, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-controls-auto .bx-start:hover,
+.bx-wrapper .bx-controls-auto .bx-start.active {
+  background-position: -86px 0;
+}
+
+/* line 161, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-controls-auto .bx-stop {
+  display: block;
+  text-indent: -9999px;
+  width: 9px;
+  height: 11px;
+  outline: 0;
+  background: url(images/controls.png) -86px -44px no-repeat;
+  margin: 0 3px;
+}
+
+/* line 172, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-controls-auto .bx-stop:hover,
+.bx-wrapper .bx-controls-auto .bx-stop.active {
+  background-position: -86px -33px;
+}
+
+/* PAGER WITH AUTO-CONTROLS HYBRID LAYOUT */
+/* line 178, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-pager {
+  text-align: left;
+  width: 80%;
+}
+
+/* line 183, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-controls-auto {
+  right: 0;
+  width: 35px;
+}
+
+/* IMAGE CAPTIONS */
+/* line 190, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #666666 \9;
+  background: rgba(80, 80, 80, 0.75);
+  width: 100%;
+}
+
+/* line 199, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-caption span {
+  color: #fff;
+  font-family: Arial;
+  display: block;
+  font-size: .85em;
+  padding: 10px;
+}
+/* line 3, /Users/rachel/web_projects/contest/app/assets/stylesheets/buttons.css.scss */
+.btn-default {
+  border: 0;
+  color: #FFFFFF;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* line 11, /Users/rachel/web_projects/contest/app/assets/stylesheets/buttons.css.scss */
+.btn-default:link {
+  background-color: #93a603;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+/* line 17, /Users/rachel/web_projects/contest/app/assets/stylesheets/buttons.css.scss */
+.btn-default:visited {
+  background-color: #93a603;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+/* line 23, /Users/rachel/web_projects/contest/app/assets/stylesheets/buttons.css.scss */
+.btn-default:hover {
+  background-color: #498c80;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+/* line 29, /Users/rachel/web_projects/contest/app/assets/stylesheets/buttons.css.scss */
+.btn-default:active {
+  background-color: #498c80;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+/* line 36, /Users/rachel/web_projects/contest/app/assets/stylesheets/buttons.css.scss */
+.btn-lg {
+  background-color: #93a603;
+  border: 0;
+  color: #FFFFFF;
+  text-align: center;
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+/* line 45, /Users/rachel/web_projects/contest/app/assets/stylesheets/buttons.css.scss */
+.btn-lg:hover {
+  background-color: #498c80;
+}
+
+/* line 49, /Users/rachel/web_projects/contest/app/assets/stylesheets/buttons.css.scss */
+.btn-primary:link, .btn-primary:hover, .btn-primary:active, .btn-primary:visited, .btn-primary:focus {
+  color: #ffffff;
+  text-decoration: none;
+}
+/* line 3, /Users/rachel/web_projects/contest/app/assets/stylesheets/countdown.css.scss */
+.countdown {
+  list-style: none;
+  padding-left: 15px;
+  display: inline-block;
+  position: relative;
+}
+
+/* line 10, /Users/rachel/web_projects/contest/app/assets/stylesheets/countdown.css.scss */
+.countdown span {
+  font-size: 24px;
+  padding-right: 5px;
+  color: #ff0000;
+}
+
+@media (max-width: 480px) {
+  /* line 18, /Users/rachel/web_projects/contest/app/assets/stylesheets/countdown.css.scss */
+  .countdown span {
+    font-size: 18px;
+    font-weight: bold;
+  }
+}
+/* line 3, /Users/rachel/web_projects/contest/app/assets/stylesheets/forms.css.scss */
+.field {
+  margin-top: 15px;
+}
+/* line 3, /Users/rachel/web_projects/contest/app/assets/stylesheets/home.css.scss */
+.jumbotron {
+  background-color: #f2d888;
+}
+/* line 6, /Users/rachel/web_projects/contest/app/assets/stylesheets/home.css.scss */
+.jumbotron .logo {
+  float: left;
+  margin-right: 50px;
+  padding-bottom: 10px;
+  width: 100%;
+  height: 100%;
+  max-width: 350px;
+  max-height: 204px;
+}
+/* line 16, /Users/rachel/web_projects/contest/app/assets/stylesheets/home.css.scss */
+.jumbotron .social {
+  padding-right: 10px;
+}
+/* line 20, /Users/rachel/web_projects/contest/app/assets/stylesheets/home.css.scss */
+.jumbotron .icons {
+  width: 150px;
+  margin-right: 50px;
+  margin-top: 5px;
+}
+/* line 26, /Users/rachel/web_projects/contest/app/assets/stylesheets/home.css.scss */
+.jumbotron .btn-primary {
+  margin-top: 5px;
+}
+/**
+ * BxSlider v4.1.2 - Fully loaded, responsive content slider
+ * http://bxslider.com
+ *
+ * Written by: Steven Wanderski, 2014
+ * http://stevenwanderski.com
+ * (while drinking Belgian ales and listening to jazz)
+ *
+ * CEO and founder of bxCreative, LTD
+ * http://bxcreative.com
+ */
+/** RESET AND LAYOUT
+===================================*/
+/* line 18, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper {
+  position: relative;
+  margin: 0 auto 60px;
+  padding: 0;
+  *zoom: 1;
+}
+
+/* line 25, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper img {
+  max-width: 100%;
+  display: block;
+}
+
+/** THEME
+===================================*/
+/* line 33, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-viewport {
+  -moz-box-shadow: 0 0 5px #ccc;
+  -webkit-box-shadow: 0 0 5px #ccc;
+  box-shadow: 0 0 5px #ccc;
+  border: 5px solid #fff;
+  left: -5px;
+  background: #fff;
+  /*fix other elements on the page moving (on Chrome)*/
+  -webkit-transform: translatez(0);
+  -moz-transform: translatez(0);
+  -ms-transform: translatez(0);
+  -o-transform: translatez(0);
+  transform: translatez(0);
+}
+
+/* line 50, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-pager,
+.bx-wrapper .bx-controls-auto {
+  position: absolute;
+  bottom: -30px;
+  width: 100%;
+}
+
+/* LOADER */
+/* line 58, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-loading {
+  min-height: 50px;
+  background: url(images/bx_loader.gif) center center no-repeat white;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+}
+
+/* PAGER */
+/* line 71, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-pager {
+  text-align: center;
+  font-size: .85em;
+  font-family: Arial;
+  font-weight: bold;
+  color: #666;
+  padding-top: 20px;
+}
+
+/* line 81, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-pager .bx-pager-item,
+.bx-wrapper .bx-controls-auto .bx-controls-auto-item {
+  display: inline-block;
+  *zoom: 1;
+  *display: inline;
+}
+
+/* line 87, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-pager.bx-default-pager a {
+  background: #666;
+  text-indent: -9999px;
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  outline: 0;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/* line 101, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-pager.bx-default-pager a:hover,
+.bx-wrapper .bx-pager.bx-default-pager a.active {
+  background: #000;
+}
+
+/* DIRECTION CONTROLS (NEXT / PREV) */
+/* line 107, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-prev {
+  left: 10px;
+  background: url(images/controls.png) no-repeat 0 -32px;
+}
+
+/* line 112, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-next {
+  right: 10px;
+  background: url(images/controls.png) no-repeat -43px -32px;
+}
+
+/* line 117, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-prev:hover {
+  background-position: 0 0;
+}
+
+/* line 121, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-next:hover {
+  background-position: -43px 0;
+}
+
+/* line 125, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-controls-direction a {
+  position: absolute;
+  top: 50%;
+  margin-top: -16px;
+  outline: 0;
+  width: 32px;
+  height: 32px;
+  text-indent: -9999px;
+  z-index: 9999;
+}
+
+/* line 136, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-controls-direction a.disabled {
+  display: none;
+}
+
+/* AUTO CONTROLS (START / STOP) */
+/* line 142, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-controls-auto {
+  text-align: center;
+}
+
+/* line 146, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-controls-auto .bx-start {
+  display: block;
+  text-indent: -9999px;
+  width: 10px;
+  height: 11px;
+  outline: 0;
+  background: url(images/controls.png) -86px -11px no-repeat;
+  margin: 0 3px;
+}
+
+/* line 157, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-controls-auto .bx-start:hover,
+.bx-wrapper .bx-controls-auto .bx-start.active {
+  background-position: -86px 0;
+}
+
+/* line 161, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-controls-auto .bx-stop {
+  display: block;
+  text-indent: -9999px;
+  width: 9px;
+  height: 11px;
+  outline: 0;
+  background: url(images/controls.png) -86px -44px no-repeat;
+  margin: 0 3px;
+}
+
+/* line 172, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-controls-auto .bx-stop:hover,
+.bx-wrapper .bx-controls-auto .bx-stop.active {
+  background-position: -86px -33px;
+}
+
+/* PAGER WITH AUTO-CONTROLS HYBRID LAYOUT */
+/* line 178, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-pager {
+  text-align: left;
+  width: 80%;
+}
+
+/* line 183, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-controls-auto {
+  right: 0;
+  width: 35px;
+}
+
+/* IMAGE CAPTIONS */
+/* line 190, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #666666 \9;
+  background: rgba(80, 80, 80, 0.75);
+  width: 100%;
+}
+
+/* line 199, /Users/rachel/web_projects/contest/app/assets/stylesheets/jquery.bxslider.css.scss */
+.bx-wrapper .bx-caption span {
+  color: #fff;
+  font-family: Arial;
+  display: block;
+  font-size: .85em;
+  padding: 10px;
+}
+/* line 3, /Users/rachel/web_projects/contest/app/assets/stylesheets/nav.css.scss */
+.navbar {
+  background-color: #498c80;
+}
+
+/* line 7, /Users/rachel/web_projects/contest/app/assets/stylesheets/nav.css.scss */
+.navbar-default .navbar-nav > li > a:link, .navbar-default .navbar-nav > li > a:visited {
+  background-color: #498c80;
+  color: #ffffff;
+}
+
+/* line 12, /Users/rachel/web_projects/contest/app/assets/stylesheets/nav.css.scss */
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  background-color: #d9886a;
+  color: #ffffff;
+}
+
+/* line 17, /Users/rachel/web_projects/contest/app/assets/stylesheets/nav.css.scss */
+.navbar-header a:link, .navbar-header a:hover, .navbar-header a:active, .navbar-header a:visited, .navbar-header a:focus {
+  color: #ffffff !important;
+}
+
+/* line 21, /Users/rachel/web_projects/contest/app/assets/stylesheets/nav.css.scss */
+.navbar-toggle {
+  background-color: #ffffff;
+}
+
+/* line 25, /Users/rachel/web_projects/contest/app/assets/stylesheets/nav.css.scss */
+.dropdown li {
+  background-color: #ffffff;
+}
+/* line 28, /Users/rachel/web_projects/contest/app/assets/stylesheets/nav.css.scss */
+.dropdown li a:link, .dropdown li a:hover, .dropdown li a:active, .dropdown li a:visited, .dropdown li a:focus {
+  color: #000000 !important;
+}
+/* line 6, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+h1 {
+  color: #93a603;
+  font-family: "Lobster", cursive;
+  font-size: 52px;
+}
+
+/* line 13, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+h2 {
+  color: #d9556d;
+  font-family: "Arial", bold;
+  font-size: 32px;
+}
+
+/* line 19, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+h3 {
+  color: #d9556d;
+  font-family: "Arial", bold;
+  font-size: 28px;
+}
+
+@media (max-width: 480px) {
+  /* line 26, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+  h1 {
+    font-size: 28px;
+  }
+
+  /* line 30, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+  h2 {
+    font-size: 24px;
+  }
+
+  /* line 34, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+  h3 {
+    font-size: 20px;
+  }
+
+  /* line 38, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+  .jumbotron p {
+    font-size: 16px;
+  }
+}
+/* line 44, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+ul li a:link, ul li a:hover, ul li a:active, ul li a:visited {
+  color: #498c80;
+}
+
+/* line 51, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+p a:link, p a:hover, p a:active, p a:visited {
+  color: #498c80;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+/* line 59, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.underline {
+  text-decoration: underline;
+}
+
+/* line 63, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.bold {
+  font-weight: bold;
+}
+
+/* line 67, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.italic {
+  font-style: italic;
+}
+
+/* line 71, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.special {
+  font-weight: bold;
+  color: #d9556d;
+}
+
+/* line 76, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.important {
+  font-weight: bold;
+  color: #FF0000;
+}
+
+/* line 81, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.required {
+  font-weight: bold;
+  color: #FF0000;
+  font-size: 18px;
+}
+
+/* line 87, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+#notice {
+  font-weight: bold;
+  color: #93a603;
+}
+
+/* line 92, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.large {
+  font-size: 24px;
+}
+
+/* line 96, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.submissionheading {
+  background-color: #f2d888;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  border-radius: 20px;
+  margin-top: 30px;
+  border: none;
+}
+/* line 106, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.submissionheading h2, .submissionheading h3 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* line 113, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.completed {
+  background-color: #C5E3BF;
+  padding: 5px;
+}
+
+/* line 118, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.rejected {
+  background-color: #FF7F7F;
+  padding: 5px;
+}
+
+/* line 123, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.pending {
+  background-color: #FFFF7F;
+  padding: 5px;
+}
+/* line 6, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+h1 {
+  color: #93a603;
+  font-family: "Lobster", cursive;
+  font-size: 52px;
+}
+
+/* line 13, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+h2 {
+  color: #d9556d;
+  font-family: "Arial", bold;
+  font-size: 32px;
+}
+
+/* line 19, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+h3 {
+  color: #d9556d;
+  font-family: "Arial", bold;
+  font-size: 28px;
+}
+
+@media (max-width: 480px) {
+  /* line 26, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+  h1 {
+    font-size: 28px;
+  }
+
+  /* line 30, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+  h2 {
+    font-size: 24px;
+  }
+
+  /* line 34, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+  h3 {
+    font-size: 20px;
+  }
+
+  /* line 38, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+  .jumbotron p {
+    font-size: 16px;
+  }
+}
+/* line 44, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+ul li a:link, ul li a:hover, ul li a:active, ul li a:visited {
+  color: #498c80;
+}
+
+/* line 51, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+p a:link, p a:hover, p a:active, p a:visited {
+  color: #498c80;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+/* line 59, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.underline {
+  text-decoration: underline;
+}
+
+/* line 63, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.bold {
+  font-weight: bold;
+}
+
+/* line 67, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.italic {
+  font-style: italic;
+}
+
+/* line 71, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.special {
+  font-weight: bold;
+  color: #d9556d;
+}
+
+/* line 76, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.important {
+  font-weight: bold;
+  color: #FF0000;
+}
+
+/* line 81, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.required {
+  font-weight: bold;
+  color: #FF0000;
+  font-size: 18px;
+}
+
+/* line 87, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+#notice {
+  font-weight: bold;
+  color: #93a603;
+}
+
+/* line 92, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.large {
+  font-size: 24px;
+}
+
+/* line 96, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.submissionheading {
+  background-color: #f2d888;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  border-radius: 20px;
+  margin-top: 30px;
+  border: none;
+}
+/* line 106, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.submissionheading h2, .submissionheading h3 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* line 113, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.completed {
+  background-color: #C5E3BF;
+  padding: 5px;
+}
+
+/* line 118, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.rejected {
+  background-color: #FF7F7F;
+  padding: 5px;
+}
+
+/* line 123, /Users/rachel/web_projects/contest/app/assets/stylesheets/text.css.scss */
+.pending {
+  background-color: #FFFF7F;
+  padding: 5px;
+}
+
+/* line 3, /Users/rachel/web_projects/contest/app/assets/stylesheets/utility.css.scss */
+.left {
+  float: left;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+
+/* line 9, /Users/rachel/web_projects/contest/app/assets/stylesheets/utility.css.scss */
+.right {
+  float: right;
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+
+/* line 15, /Users/rachel/web_projects/contest/app/assets/stylesheets/utility.css.scss */
+.clear {
+  clear: both;
+}
+
+/* line 19, /Users/rachel/web_projects/contest/app/assets/stylesheets/utility.css.scss */
+.center {
+  text-align: center;
+}
+
+/* line 23, /Users/rachel/web_projects/contest/app/assets/stylesheets/utility.css.scss */
+hr {
+  background-color: #d9886a;
+  height: 2px;
+}
+
+/* line 28, /Users/rachel/web_projects/contest/app/assets/stylesheets/utility.css.scss */
+blockquote {
+  background-color: #f2d888;
+  padding: 20px;
+  border-radius: 20px;
+  border: none;
+}
+/* line 35, /Users/rachel/web_projects/contest/app/assets/stylesheets/utility.css.scss */
+blockquote h2 {
+  margin-top: 0px;
+}
+/* line 39, /Users/rachel/web_projects/contest/app/assets/stylesheets/utility.css.scss */
+blockquote p {
+  font-size: 14px;
+}
+
+/* line 44, /Users/rachel/web_projects/contest/app/assets/stylesheets/utility.css.scss */
+#error_explanation {
+  border: 3px #FF0000 solid;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #FF0000;
+  font-weight: bold;
+}
+
+/* line 52, /Users/rachel/web_projects/contest/app/assets/stylesheets/utility.css.scss */
+.flex-video {
+  position: relative;
+  padding-top: 25px;
+  padding-bottom: 67.5%;
+  height: 0;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+/* line 61, /Users/rachel/web_projects/contest/app/assets/stylesheets/utility.css.scss */
+.flex-video.widescreen {
+  padding-bottom: 57.25%;
+}
+
+/* line 62, /Users/rachel/web_projects/contest/app/assets/stylesheets/utility.css.scss */
+.flex-video.vimeo {
+  padding-top: 0;
+}
+
+/* line 66, /Users/rachel/web_projects/contest/app/assets/stylesheets/utility.css.scss */
+.flex-video iframe,
+.flex-video object,
+.flex-video embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media only screen and (max-device-width: 800px), only screen and (device-width: 1024px) and (device-height: 600px), only screen and (width: 1280px) and (orientation: landscape), only screen and (device-width: 800px), only screen and (max-width: 767px) {
+  /* line 76, /Users/rachel/web_projects/contest/app/assets/stylesheets/utility.css.scss */
+  .flex-video {
+    padding-top: 0;
+  }
+}

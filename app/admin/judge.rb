@@ -59,7 +59,7 @@ ActiveAdmin.register Judge do
             format.pdf do
               render pdf: "sheet",
               template: 'admin/judges/sheet.pdf.erb',
-              wkhtmltopdf: 'C:/Program Files/wkhtmltopdf/bin/wkhtmltopdf.exe'
+              wkhtmltopdf: '/usr/local/bin/wkhtmltopdf' #'C:/Program Files/wkhtmltopdf/bin/wkhtmltopdf.exe' if on Windows
             end
           end
         elsif Rails.env.production?

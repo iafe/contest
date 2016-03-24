@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+ruby '2.2.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.1'
+gem 'rails', '4.2.5.2'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', group: :development
@@ -90,7 +90,8 @@ gem 'cancan', '1.6.10'
 gem 'bullet', group: :development
 
 # Allows transaction e-mail
-gem 'mandrill-api', '1.0.53'
+# gem 'mandrill-api', '1.0.53'
+gem "aws-ses", "~> 0.6.0", require: 'aws/ses'
 
 # Heroku uses PostgreSQL for the database and needs rails_12factor for the asset pipeline as of Rails 4
 group :production do
