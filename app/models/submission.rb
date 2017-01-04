@@ -10,6 +10,7 @@ class Submission < ActiveRecord::Base
   scope :current_year_disqualified, -> {where(disqualify: true, contest_year: Time.now.year)}
   
   belongs_to :category
+  has_one :award, through: :category
   belongs_to :user
   belongs_to :organization
   belongs_to :division

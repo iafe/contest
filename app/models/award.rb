@@ -1,6 +1,7 @@
 class Award < ActiveRecord::Base
   
   has_many :categories, dependent: :restrict_with_exception
+  has_many :submissions, through: :categories
   
   validates :name, presence: true, length: { maximum: 100,  minimum: 1 }
   validates :description, presence: true, length: { maximum: 2000,  minimum: 1 }

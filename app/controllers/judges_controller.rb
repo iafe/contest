@@ -69,6 +69,6 @@ class JudgesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def judge_params
-      params.require(:judge).permit(:user_id, :category_id, :division_id)
+      params.require(:judge).permit(:user_id, :division_id, categories: [])
     end
 end

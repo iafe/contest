@@ -2,6 +2,15 @@
 
 ActiveAdmin.register Submission do
   
+  batch_action :destroy, false
+  
+  batch_action :approve, confirm: "Are you sure you want to approve these submissions?" do |ids|
+    Submission.find(ids).each do |s|
+      s.update(status: 'Approved')
+    end
+    redirect_to collection_path, alert: "The submissions have been approved."
+  end
+  
   scope :current_year_pending
   scope :current_year_incomplete
   scope :current_year_approved
@@ -33,6 +42,7 @@ ActiveAdmin.register Submission do
   end
   
   index do
+    selectable_column
     column :id, sortable: :id do |submission|
       link_to submission.id, admin_submission_path(submission)
     end
@@ -60,12 +70,16 @@ ActiveAdmin.register Submission do
     column "Files" do |submission|
       link_to "Files(#{submission.submission_details.count})", admin_submission_details_path('q[submission_id_eq]' => submission.id)
     end
+    column "New File" do |submission|
+      link_to "New File", new_admin_submission_detail_path(submission_detail: { submission_id: submission.id })
+    end
     column "Score" do |submission|
       submission.calculate_final_score
     end
   end
   
-  filter :category, as: :select, collection: proc{ Category.includes(:award).where(enabled: true).order("award_id ASC").map{|c| ["#{c.award.name} #{c.code}: #{c.name}", c.id]} }
+  filter :award, as: :select, label: 'Contest', collection: proc{ Award.all }
+  filter :category, as: :select, collection: proc{ Category.sort_by_category_codes(Category.where(enabled: true).includes(:award)).map{|c| ["#{c.award.name} #{c.code}: #{c.name}", c.id]} }
   filter :organization_name, as: :string
   filter :division
   filter :contest_year

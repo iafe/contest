@@ -4,6 +4,7 @@ class Category < ActiveRecord::Base
   
   has_many :submissions
   has_many :score_items, dependent: :restrict_with_exception
+  has_many :judges
   
   validates :name, presence: true, length: { maximum: 200,  minimum: 1 }
   validates :code, presence: true, length: { maximum: 3,  minimum: 1 }

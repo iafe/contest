@@ -43,6 +43,15 @@ ActiveAdmin.register SubmissionDetail do
     end
   end
   
+  form do |f|
+    f.inputs do
+      f.input :submission_id, required: true
+      f.input :file_url, label: "Web or Video URL or App Name"
+      f.input :attachment, required: false
+    end
+    f.actions
+  end
+  
   filter :submission_id, as: :string, label: "Submission ID"
   filter :attachment_content_type
   filter :attachment_file_size
